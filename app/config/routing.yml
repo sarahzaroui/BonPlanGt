@@ -1,0 +1,7 @@
+front_bon_plan:
+    resource: "@FrontBonPlanBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation

@@ -1,0 +1,18 @@
+front_bon_plan_homepage:
+    path:     /
+    defaults: { _controller: FrontBonPlanBundle:Default:index }
+front_bon_plan_menu:
+    path:     /menu
+    defaults: { _controller: FrontBonPlanBundle:Default:menu }
+front_bon_plan_blog:
+    path:     /blog
+    defaults: { _controller: FrontBonPlanBundle:Default:blog }
+front_bon_plan_single:
+    path:     /single
+    defaults: { _controller: FrontBonPlanBundle:Default:single }
+front_bon_plan_events:
+    path:     /events
+    defaults: { _controller: FrontBonPlanBundle:Default:events }
+front_bon_plan_contact:
+    path:     /contact
+    defaults: { _controller: FrontBonPlanBundle:Default:contact }
