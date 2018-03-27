@@ -1,0 +1,4 @@
+services:
+#    back_bon_plan_back.example:
+#        class: Back\BonPlanBackBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
