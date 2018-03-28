@@ -1,3 +1,6 @@
 back_bon_plan_back_homepage:
     path:     /hello
     defaults: { _controller: BackBonPlanBackBundle:Default:index }
+bonplan_admin_template:
+    path:     /temp
+    defaults: { _controller: BackBonPlanBackBundle:Admin:affichage }
