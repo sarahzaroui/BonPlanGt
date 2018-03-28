@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bfe5b3a6-b41a-4dda-af5c-662a75551db2" name="Default" comment="commit add2">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Back/BonPlanBackBundle/Controller/AdminController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Back/BonPlanBackBundle/Resources/views/AdminTemp/admin.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Back/BonPlanBackBundle/Resources/views/layout.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/BonPlanProject.iml" afterPath="$PROJECT_DIR$/.idea/BonPlanProject.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/symfony_requirements" afterPath="$PROJECT_DIR$/bin/symfony_requirements" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Back/BonPlanBackBundle/Resources/config/routing.yml" afterPath="$PROJECT_DIR$/src/Back/BonPlanBackBundle/Resources/config/routing.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/SymfonyRequirements.php" afterPath="$PROJECT_DIR$/var/SymfonyRequirements.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/config.php" afterPath="$PROJECT_DIR$/web/config.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -50,7 +41,7 @@
         <entry file="file://$PROJECT_DIR$/src/Back/BonPlanBackBundle/Resources/config/routing.yml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="102">
-              <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+              <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -339,7 +330,7 @@
       <updated>1522086820079</updated>
       <workItem from="1522086915661" duration="1231000" />
       <workItem from="1522176672315" duration="825000" />
-      <workItem from="1522190553569" duration="2829000" />
+      <workItem from="1522190553569" duration="5251000" />
     </task>
     <task id="LOCAL-00001" summary="commit add">
       <created>1522173220466</created>
@@ -355,15 +346,21 @@
       <option name="project" value="LOCAL" />
       <updated>1522173350545</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="commit add2">
+      <created>1522193495117</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1522193495117</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5699000" />
+    <option name="totallyTimeSpent" value="8121000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25340393" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -789,7 +786,7 @@
     <entry file="file://$PROJECT_DIR$/src/Back/BonPlanBackBundle/Resources/config/routing.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
-          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
           <folding />
         </state>
       </provider>
