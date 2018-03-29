@@ -2,70 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bfe5b3a6-b41a-4dda-af5c-662a75551db2" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/Views/ChangePassword/change_password.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/Views/ChangePassword/change_password_content.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/Views/Group/edit.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/Views/Group/edit_content.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/Views/Group/list.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/Views/Group/list_content.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/Views/Group/new.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/Views/Group/new_content.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/Views/Group/show.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/Views/Group/show_content.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/Views/Profile/edit.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/Views/Profile/edit_content.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/Views/Profile/show.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/Views/Profile/show_content.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/Views/Registration/check_email.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/Views/Registration/confirmed.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/Views/Registration/email.txt.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/Views/Registration/register.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/Views/Registration/register_content.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/Views/Resetting/check_email.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/Views/Resetting/email.txt.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/Views/Resetting/request.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/Views/Resetting/request_content.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/Views/Resetting/reset.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/Views/Resetting/reset_content.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/Views/Security/login.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/Views/Security/login_content.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/Views/layout.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/Views/views/layout.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tf/UserBundle/Resources/views/layout.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/commandlinetools/Composer_26_03_18_18_56_c.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/commandlinetools/Symfony_26_03_18_18_57_s.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/commandlinetools/Symfony_29_03_18_20_00_s.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/routing.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Entity/Article.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Entity/Categoriearticle.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Entity/Categorieevenement.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Entity/Client.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Entity/Commentaire.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Entity/Evennement.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Entity/Galerie.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Entity/Newsletter.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Entity/Note.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Entity/Prestataire.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Entity/Region.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Entity/Reserver.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Resources/config/doctrine/Article.orm.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Resources/config/doctrine/Categoriearticle.orm.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Resources/config/doctrine/Categorieevenement.orm.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Resources/config/doctrine/Client.orm.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Resources/config/doctrine/Commentaire.orm.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Resources/config/doctrine/Evennement.orm.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Resources/config/doctrine/Galerie.orm.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Resources/config/doctrine/Newsletter.orm.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Resources/config/doctrine/Note.orm.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Resources/config/doctrine/Prestataire.orm.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Resources/config/doctrine/Region.orm.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Resources/config/doctrine/Reserver.orm.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppBundle/Resources/config/doctrine/User.orm.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FOS/UserBundle/Model/Group.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FOS/UserBundle/Model/User.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tf/UserBundle/Resources/views/Default/index.html.twig" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -303,6 +240,77 @@
             <path>
               <item name="BonPlanGt" type="b2602c69:ProjectViewProjectNode" />
               <item name="BonPlanGt" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="FOSUserBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Views" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="BonPlanGt" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BonPlanGt" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="FOSUserBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Views" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="ChangePassword" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="BonPlanGt" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BonPlanGt" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="FOSUserBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Views" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Group" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="BonPlanGt" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BonPlanGt" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="FOSUserBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Views" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Profile" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="BonPlanGt" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BonPlanGt" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="FOSUserBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Views" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Registration" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="BonPlanGt" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BonPlanGt" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="FOSUserBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Views" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Resetting" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="BonPlanGt" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BonPlanGt" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="FOSUserBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Views" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Security" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="BonPlanGt" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BonPlanGt" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="FOSUserBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Views" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="BonPlanGt" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BonPlanGt" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
@@ -502,7 +510,7 @@
       <workItem from="1522190553569" duration="5921000" />
       <workItem from="1522246572168" duration="1145000" />
       <workItem from="1522337264255" duration="7259000" />
-      <workItem from="1522348857613" duration="1626000" />
+      <workItem from="1522348857613" duration="1931000" />
     </task>
     <task id="LOCAL-00001" summary="commit add">
       <created>1522173220466</created>
@@ -539,23 +547,29 @@
       <option name="project" value="LOCAL" />
       <updated>1522339449396</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="database entities">
+      <created>1522351434172</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1522351434172</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24026000" />
+    <option name="totallyTimeSpent" value="24331000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2579425" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2579425" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="right" id="Database" order="4" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32852387" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="8" visible="true" weight="0.32767403" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="8" />
@@ -780,6 +794,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="11" column="10" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="30" />
+          <folding>
+            <element signature="e#294#342#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
