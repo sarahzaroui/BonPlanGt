@@ -15,23 +15,23 @@ class Note
     /**
      * @var integer
      *
-     * @ORM\Column(name="note", type="integer", nullable=true)
-     */
-    private $note;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="idNote", type="integer")
+     * @ORM\Column(name="idNote", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $idnote;
 
     /**
-     * @var \AppBundle\Entity\Article
+     * @var integer
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Article")
+     * @ORM\Column(name="note", type="integer", nullable=true)
+     */
+    private $note;
+
+    /**
+     * @var \Article
+     *
+     * @ORM\ManyToOne(targetEntity="Article")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="idArticle", referencedColumnName="idArticle")
      * })

@@ -7,11 +7,20 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Reserver
  *
- * @ORM\Table(name="Reserver", indexes={@ORM\Index(name="AK_Identifier_1", columns={"idReservation"}), @ORM\Index(name="FK_Even_Reser", columns={"idEv"}), @ORM\Index(name="IDX_40003CC5FE6E88D7", columns={"idUser"})})
+ * @ORM\Table(name="Reserver")
  * @ORM\Entity
  */
 class Reserver
 {
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idReservation", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $idreservation;
+
     /**
      * @var \DateTime
      *
@@ -20,32 +29,23 @@ class Reserver
     private $date;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="idReservation", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     */
-    private $idreservation;
-
-    /**
-     * @var \AppBundle\Entity\Client
+     * @var \Client
      *
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Client")
+     * @ORM\OneToOne(targetEntity="User")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="idUser", referencedColumnName="idUser")
+     *   @ORM\JoinColumn(name="idUser", referencedColumnName="id")
      * })
      */
     private $iduser;
 
     /**
-     * @var \AppBundle\Entity\Evennement
+     * @var \Evennement
      *
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Evennement")
+     * @ORM\OneToOne(targetEntity="Evennement")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="idEv", referencedColumnName="idEv")
      * })

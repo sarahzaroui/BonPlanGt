@@ -7,11 +7,20 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Commentaire
  *
- * @ORM\Table(name="Commentaire", indexes={@ORM\Index(name="AK_Identifier_1", columns={"idCommentaire"}), @ORM\Index(name="FK_Client_Commen", columns={"idUser"}), @ORM\Index(name="FK_Art_Comm", columns={"idArticle"}), @ORM\Index(name="FK_Even_Commen", columns={"idEv"})})
+ * @ORM\Table(name="Commentaire")
  * @ORM\Entity
  */
 class Commentaire
 {
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idCommentaire", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idcommentaire;
+
     /**
      * @var string
      *
@@ -20,18 +29,9 @@ class Commentaire
     private $description;
 
     /**
-     * @var integer
+     * @var \Article
      *
-     * @ORM\Column(name="idCommentaire", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $idcommentaire;
-
-    /**
-     * @var \AppBundle\Entity\Article
-     *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Article")
+     * @ORM\ManyToOne(targetEntity="Article")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="idArticle", referencedColumnName="idArticle")
      * })
@@ -39,19 +39,19 @@ class Commentaire
     private $idarticle;
 
     /**
-     * @var \AppBundle\Entity\Client
+     * @var \Client
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Client")
+     * @ORM\ManyToOne(targetEntity="User")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="idUser", referencedColumnName="idUser")
+     *   @ORM\JoinColumn(name="idUser", referencedColumnName="id")
      * })
      */
     private $iduser;
 
     /**
-     * @var \AppBundle\Entity\Evennement
+     * @var \Evennement
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Evennement")
+     * @ORM\ManyToOne(targetEntity="Evennement")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="idEv", referencedColumnName="idEv")
      * })

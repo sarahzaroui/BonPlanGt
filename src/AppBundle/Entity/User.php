@@ -3,58 +3,24 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use FOS\UserBundle\Model\User as BaseUser;
 /**
  * User
  *
- * @ORM\Table(name="User", indexes={@ORM\Index(name="AK_Identifier_1", columns={"idUser"})})
+ * @ORM\Table(name="User")
  * @ORM\Entity
  */
-class User
+class User extends BaseUser
 {
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="login", type="string", length=254, nullable=true)
-     */
-    private $login;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="mdp", type="string", length=254, nullable=true)
-     */
-    private $mdp;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="mail", type="string", length=254, nullable=true)
-     */
-    private $mail;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="role", type="string", length=254, nullable=true)
-     */
-    private $role;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="etat", type="string", length=254, nullable=true)
-     */
-    private $etat;
-
     /**
      * @var integer
      *
-     * @ORM\Column(name="idUser", type="integer")
+     * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $iduser;
+    protected $id;
+
 
 
 }

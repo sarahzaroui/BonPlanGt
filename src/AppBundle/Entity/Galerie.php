@@ -20,6 +20,15 @@ class Galerie
     private $nom;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="idGalerie", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idgalerie;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="nomGalerie", type="string", length=254, nullable=true)
@@ -27,18 +36,9 @@ class Galerie
     private $nomgalerie;
 
     /**
-     * @var integer
+     * @var \Article
      *
-     * @ORM\Column(name="idGalerie", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $idgalerie;
-
-    /**
-     * @var \AppBundle\Entity\Article
-     *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Article")
+     * @ORM\ManyToOne(targetEntity="Article")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="idArticle", referencedColumnName="idArticle")
      * })
@@ -46,9 +46,9 @@ class Galerie
     private $idarticle;
 
     /**
-     * @var \AppBundle\Entity\Evennement
+     * @var \Evennement
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Evennement")
+     * @ORM\ManyToOne(targetEntity="Evennement")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="idEv", referencedColumnName="idEv")
      * })

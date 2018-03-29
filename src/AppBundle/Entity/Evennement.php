@@ -7,11 +7,20 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Evennement
  *
- * @ORM\Table(name="Evennement", indexes={@ORM\Index(name="AK_Identifier_1", columns={"idEv"}), @ORM\Index(name="FK_Even_CatEv", columns={"idCatEv"}), @ORM\Index(name="FK_Region_Even", columns={"idRegion"}), @ORM\Index(name="FK_Even_Prest", columns={"idUser"})})
+ * @ORM\Table(name="Evennement")
  * @ORM\Entity
  */
 class Evennement
 {
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idEv", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idev;
+
     /**
      * @var string
      *
@@ -41,18 +50,9 @@ class Evennement
     private $description;
 
     /**
-     * @var integer
+     * @var \Categorieevenement
      *
-     * @ORM\Column(name="idEv", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $idev;
-
-    /**
-     * @var \AppBundle\Entity\Categorieevenement
-     *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Categorieevenement")
+     * @ORM\ManyToOne(targetEntity="Categorieevenement")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="idCatEv", referencedColumnName="idCatEv")
      * })
@@ -60,19 +60,19 @@ class Evennement
     private $idcatev;
 
     /**
-     * @var \AppBundle\Entity\Prestataire
+     * @var \Prestataire
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Prestataire")
+     * @ORM\ManyToOne(targetEntity="User")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="idUser", referencedColumnName="idUser")
+     *   @ORM\JoinColumn(name="idUser", referencedColumnName="id")
      * })
      */
     private $iduser;
 
     /**
-     * @var \AppBundle\Entity\Region
+     * @var \Region
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Region")
+     * @ORM\ManyToOne(targetEntity="Region")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="idRegion", referencedColumnName="idRegion")
      * })

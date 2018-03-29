@@ -7,11 +7,20 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Article
  *
- * @ORM\Table(name="Article", indexes={@ORM\Index(name="AK_Identifier_1", columns={"idArticle"}), @ORM\Index(name="FK_Client_Art", columns={"idUser"}), @ORM\Index(name="FK_Art_Resgion", columns={"idRegion"}), @ORM\Index(name="FK_Art_CatArt", columns={"idCatArt"})})
+ * @ORM\Table(name="Article")
  * @ORM\Entity
  */
 class Article
 {
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idArticle", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idarticle;
+
     /**
      * @var string
      *
@@ -41,18 +50,9 @@ class Article
     private $etat;
 
     /**
-     * @var integer
+     * @var \Categoriearticle
      *
-     * @ORM\Column(name="idArticle", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $idarticle;
-
-    /**
-     * @var \AppBundle\Entity\Categoriearticle
-     *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Categoriearticle")
+     * @ORM\ManyToOne(targetEntity="Categoriearticle")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="idCatArt", referencedColumnName="idCatArt")
      * })
@@ -60,9 +60,9 @@ class Article
     private $idcatart;
 
     /**
-     * @var \AppBundle\Entity\Region
+     * @var \Region
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Region")
+     * @ORM\ManyToOne(targetEntity="Region")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="idRegion", referencedColumnName="idRegion")
      * })
@@ -70,11 +70,11 @@ class Article
     private $idregion;
 
     /**
-     * @var \AppBundle\Entity\Client
+     * @var \Client
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Client")
+     * @ORM\ManyToOne(targetEntity="User")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="idUser", referencedColumnName="idUser")
+     *   @ORM\JoinColumn(name="idUser", referencedColumnName="id")
      * })
      */
     private $iduser;

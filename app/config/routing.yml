@@ -12,3 +12,5 @@ back_bon_plan_back_homepage:
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"

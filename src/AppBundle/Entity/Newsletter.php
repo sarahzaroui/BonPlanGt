@@ -15,7 +15,7 @@ class Newsletter
     /**
      * @var integer
      *
-     * @ORM\Column(name="idNewsl", type="integer")
+     * @ORM\Column(name="idNewsl", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */

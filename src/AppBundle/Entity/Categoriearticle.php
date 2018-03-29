@@ -13,20 +13,20 @@ use Doctrine\ORM\Mapping as ORM;
 class Categoriearticle
 {
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="idCatArt", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idcatart;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="nom", type="string", length=254, nullable=true)
      */
     private $nom;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="idCatArt", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $idcatart;
 
 
 }
