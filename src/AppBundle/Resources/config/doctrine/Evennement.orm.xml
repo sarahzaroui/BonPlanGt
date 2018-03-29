@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppBundle\Entity\Evennement" table="Evennement">
+    <indexes>
+      <index name="AK_Identifier_1" columns="idEv"/>
+      <index name="FK_Even_CatEv" columns="idCatEv"/>
+      <index name="FK_Region_Even" columns="idRegion"/>
+      <index name="FK_Even_Prest" columns="idUser"/>
+    </indexes>
+    <id name="idev" type="integer" column="idEv">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="nom" type="string" column="nom" length="254" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="datedabut" type="datetime" column="dateDabut" nullable="true"/>
+    <field name="dateexpiration" type="datetime" column="dateExpiration" nullable="true"/>
+    <field name="description" type="string" column="description" length="254" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <many-to-one field="idcatev" target-entity="Categorieevenement" fetch="LAZY">
+      <join-columns>
+        <join-column name="idCatEv" referenced-column-name="idCatEv"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="iduser" target-entity="Prestataire" fetch="LAZY">
+      <join-columns>
+        <join-column name="idUser" referenced-column-name="idUser"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idregion" target-entity="Region" fetch="LAZY">
+      <join-columns>
+        <join-column name="idRegion" referenced-column-name="idRegion"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

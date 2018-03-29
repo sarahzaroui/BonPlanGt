@@ -1,7 +1,6 @@
 tf_user:
     resource: "@tfUserBundle/Resources/config/routing.yml"
     prefix:   /
-
 front_bon_plan:
     resource: "@FrontBonPlanBundle/Resources/config/routing.yml"
     prefix:   /

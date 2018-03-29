@@ -1,5 +1,5 @@
 back_bon_plan_back_homepage:
-    path:     /hello
+    path:     /
     defaults: { _controller: BackBonPlanBackBundle:Default:index }
 bonplan_admin_template:
     path:     /temp
