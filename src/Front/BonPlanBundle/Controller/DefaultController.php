@@ -10,6 +10,10 @@ class DefaultController extends Controller
     {
         return $this->render('FrontBonPlanBundle:Default:index.html.twig');
     }
+    public function homeAction()
+    {
+        return $this->render('FrontBonPlanBundle:Default:home.html.twig');
+    }
     public function menuAction()
     {
         return $this->render('FrontBonPlanBundle:Default:menu.html.twig');
@@ -29,5 +33,9 @@ class DefaultController extends Controller
     public function contactAction()
     {
         return $this->render('FrontBonPlanBundle:Default:contact.html.twig');
+    }
+    public function loginAction()
+    {
+        return $this->render('FrontBonPlanBundle:Default:login.html.twig');
     }
 }

@@ -7,13 +7,12 @@
  */
 
 namespace Back\BonPlanBackBundle\Controller;
-
-
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class AdminController extends Controller
 {
-public function affichageAction(){
-return $this->render('BackBonPlanBackBundle:AdminTemp:admin.html.twig');
-}
+    public function affichageAction()
+    {
+        return $this->render('BackBonPlanBackBundle:AdminTemp:admin.html.twig');
+    }
 }

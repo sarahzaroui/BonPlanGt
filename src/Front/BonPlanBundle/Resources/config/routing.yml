@@ -1,5 +1,5 @@
 front_bon_plan_homepage:
-    path:     /
+    path:     /home
     defaults: { _controller: FrontBonPlanBundle:Default:index }
 front_bon_plan_menu:
     path:     /menu
@@ -16,3 +16,7 @@ front_bon_plan_events:
 front_bon_plan_contact:
     path:     /contact
     defaults: { _controller: FrontBonPlanBundle:Default:contact }
+front_bon_plan_login:
+    path:     /login
+    defaults: { _controller: FOSUserBundle:Security:login }
+
