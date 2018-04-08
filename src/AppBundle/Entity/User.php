@@ -13,6 +13,53 @@ use FOS\UserBundle\Model\User as BaseUser;
 class User extends BaseUser
 {
     /**
+     * @return mixed
+     */
+    public function getFirstName()
+    {
+        return $this->first_name;
+    }
+
+    /**
+     * @param mixed $first_name
+     */
+    public function setFirstName($first_name)
+    {
+        $this->first_name = $first_name;
+    }
+
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param int $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLastName()
+    {
+        return $this->last_name;
+    }
+
+    /**
+     * @param mixed $last_name
+     */
+    public function setLastName($last_name)
+    {
+        $this->last_name = $last_name;
+    }
+    /**
      * @var integer
      *
      * @ORM\Column(name="id", type="integer", nullable=false)
@@ -20,6 +67,17 @@ class User extends BaseUser
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     protected $id;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $first_name;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $last_name;
+
 
 
 
