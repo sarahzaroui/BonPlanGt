@@ -72,10 +72,10 @@ swiftmailer:
 fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
-    user_class: AppBundle\Entity\User
+    user_class: Front\BonPlanBundle\Entity\User
     registration:
             form:
-                type: AppBundle\Form\RegistrationType
+                type: Front\BonPlanBundle\Form\RegistrationType
     group:
         group_class: userBundle\Entity\Group
 

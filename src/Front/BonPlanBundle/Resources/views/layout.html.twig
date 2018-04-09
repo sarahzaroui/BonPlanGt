@@ -7,7 +7,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html>
 <head>
-    <title>  Cookery A Food Category Flat Bootstrap Responsive Website Template | Home :: w3layouts </title>
+    <title>  Les Bon Plans de Tunis </title>
     <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" type="text/css" media="all" />
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="{{ asset('js/jquery.min.js') }}"></script>
@@ -51,7 +51,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="header head">
     <div class="container">
         <div class="logo animated wow pulse" data-wow-duration="1000ms" data-wow-delay="500ms">
-            <h1><a href="index.html"><span>C</span><img src="{{  asset('images/oo.png') }}" alt=""><img src="{{  asset('images/oo.png') }}" alt="">kery</a></h1>
         </div>
         <div class="nav-icon">
             <a href="#" class="navicon"></a>
@@ -64,6 +63,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <li><a href="{{ path('front_bon_plan_contact') }}">Contact</a></li>
                     <li><a href="{{ path('front_bon_plan_login') }}">Login</a></li>
                     <li><a href="{{ path('fos_user_registration_register') }}">Register</a></li>
+                    <li><a href="{{ path('evennement_index') }}">Liste des Evénements</a></li>
                 </ul>
             </div>
 
@@ -92,11 +92,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div class="footer-head">
             <div class="col-md-8 footer-top animated wow fadeInRight" data-wow-duration="1000ms" data-wow-delay="500ms">
                 <ul class=" in">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a  href="menu.html">Menu</a></li>
-                    <li><a  href="blog.html">Blog</a></li>
-                    <li><a  href="events.html">Events</a></li>
-                    <li><a  href="contact.html">Contact</a></li>
+                    <li><a class="active" href="{{ path('front_bon_plan_homepage') }}">Home</a></li>
+                    <li><a href="{{ path('front_bon_plan_menu') }}">Menu</a></li>
+                    <li><a href="{{ path('front_bon_plan_blog') }}">Blog</a></li>
+                    <li><a href="{{ path('front_bon_plan_events') }}">Events</a></li>
+                    <li><a href="{{ path('front_bon_plan_contact') }}">Contact</a></li>
                 </ul>
                 <span>There are many variations of passages</span>
             </div>

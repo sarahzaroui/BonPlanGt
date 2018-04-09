@@ -1,25 +1,25 @@
 <?php
 
-namespace AppBundle\Entity;
+namespace Front\BonPlanBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Region
+ * Categorieevenement
  *
- * @ORM\Table(name="Region", indexes={@ORM\Index(name="AK_Identifier_1", columns={"idRegion"})})
+ * @ORM\Table(name="CategorieEvenement", indexes={@ORM\Index(name="AK_Identifier_1", columns={"idCatEv"})})
  * @ORM\Entity
  */
-class Region
+class Categorieevenement
 {
     /**
      * @var integer
      *
-     * @ORM\Column(name="idRegion", type="integer", nullable=false)
+     * @ORM\Column(name="idCatEv", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $idregion;
+    private $idcatev;
 
     /**
      * @var string

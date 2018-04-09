@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Entity;
+namespace Front\BonPlanBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
