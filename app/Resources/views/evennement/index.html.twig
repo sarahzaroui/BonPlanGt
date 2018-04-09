@@ -1,0 +1,45 @@
+{% extends "Front\BonPlanBundle::layout.html.twig" %}
+
+{% block container %}
+    <h1>Evennements list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Idev</th>
+                <th>Nom</th>
+                <th>Datedabut</th>
+                <th>Dateexpiration</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for evennement in evennements %}
+            <tr>
+                <td><a href="{{ path('evennement_show', { 'idev': evennement.idev }) }}">{{ evennement.idev }}</a></td>
+                <td>{{ evennement.nom }}</td>
+                <td>{% if evennement.datedabut %}{{ evennement.datedabut|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if evennement.dateexpiration %}{{ evennement.dateexpiration|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ evennement.description }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('evennement_show', { 'idev': evennement.idev }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('evennement_edit', { 'idev': evennement.idev }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('evennement_new') }}">Create a new evennement</a>
+        </li>
+    </ul>
+{% endblock %}
