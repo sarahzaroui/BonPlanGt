@@ -19,4 +19,7 @@ front_bon_plan_contact:
 front_bon_plan_login:
     path:     /login
     defaults: { _controller: FOSUserBundle:Security:login }
+front_bon_plan_login:
+    path:     /register
+    defaults: { _controller: FOSUserBundle:Registration:register }
 
