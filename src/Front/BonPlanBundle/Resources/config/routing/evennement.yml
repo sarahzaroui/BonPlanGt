@@ -1,0 +1,24 @@
+evennement_index:
+    path:     /
+    defaults: { _controller: "FrontBonPlanBundle:Evennement:index" }
+    methods:  GET
+
+evennement_show:
+    path:     /{idev}/show
+    defaults: { _controller: "FrontBonPlanBundle:Evennement:show" }
+    methods:  GET
+
+evennement_new:
+    path:     /new
+    defaults: { _controller: "FrontBonPlanBundle:Evennement:new" }
+    methods:  [GET, POST]
+
+evennement_edit:
+    path:     /{idev}/edit
+    defaults: { _controller: "FrontBonPlanBundle:Evennement:edit" }
+    methods:  [GET, POST]
+
+evennement_delete:
+    path:     /{idev}/delete
+    defaults: { _controller: "FrontBonPlanBundle:Evennement:delete" }
+    methods:  DELETE

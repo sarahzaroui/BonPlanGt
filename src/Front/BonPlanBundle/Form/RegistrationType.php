@@ -1,7 +1,7 @@
 <?php
-// src/AppBundle/Form/RegistrationType.php
+// src/FrontBonPlanBundle/Form/RegistrationType.php
 
-namespace AppBundle\Form;
+namespace Front\BonPlanBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;

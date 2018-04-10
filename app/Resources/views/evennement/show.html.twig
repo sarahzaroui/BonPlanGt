@@ -1,0 +1,44 @@
+{% extends "Front\BonPlanBundle::layout.html.twig" %}
+
+{% block container %}
+    <h1>Evennement</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Idev</th>
+                <td>{{ evennement.idev }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ evennement.nom }}</td>
+            </tr>
+            <tr>
+                <th>Datedabut</th>
+                <td>{% if evennement.datedabut %}{{ evennement.datedabut|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Dateexpiration</th>
+                <td>{% if evennement.dateexpiration %}{{ evennement.dateexpiration|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ evennement.description }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('evennement_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('evennement_edit', { 'idev': evennement.idev }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

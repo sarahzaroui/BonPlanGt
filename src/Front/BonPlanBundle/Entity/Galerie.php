@@ -1,32 +1,39 @@
 <?php
 
-namespace AppBundle\Entity;
+namespace Front\BonPlanBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Commentaire
+ * Galerie
  *
- * @ORM\Table(name="Commentaire")
+ * @ORM\Table(name="Galerie", indexes={@ORM\Index(name="FK_Even_Galerie", columns={"idEv"}), @ORM\Index(name="FK_Art_Gal", columns={"idArticle"})})
  * @ORM\Entity
  */
-class Commentaire
+class Galerie
 {
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nom", type="string", length=254, nullable=true)
+     */
+    private $nom;
+
     /**
      * @var integer
      *
-     * @ORM\Column(name="idCommentaire", type="integer", nullable=false)
+     * @ORM\Column(name="idGalerie", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $idcommentaire;
+    private $idgalerie;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="string", length=254, nullable=true)
+     * @ORM\Column(name="nomGalerie", type="string", length=254, nullable=true)
      */
-    private $description;
+    private $nomgalerie;
 
     /**
      * @var \Article
@@ -37,16 +44,6 @@ class Commentaire
      * })
      */
     private $idarticle;
-
-    /**
-     * @var \Client
-     *
-     * @ORM\ManyToOne(targetEntity="User")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="idUser", referencedColumnName="id")
-     * })
-     */
-    private $iduser;
 
     /**
      * @var \Evennement

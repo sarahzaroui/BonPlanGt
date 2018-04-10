@@ -1,5 +1,9 @@
+front_bon_plan_evennement:
+    resource: "@FrontBonPlanBundle/Resources/config/routing/evennement.yml"
+    prefix:   /evennement
+
 front_bon_plan_homepage:
-    path:     /home
+    path:     /index
     defaults: { _controller: FrontBonPlanBundle:Default:index }
 front_bon_plan_menu:
     path:     /menu
@@ -19,7 +23,32 @@ front_bon_plan_contact:
 front_bon_plan_login:
     path:     /login
     defaults: { _controller: FOSUserBundle:Security:login }
-front_bon_plan_login:
+fos_user_registration_register:
     path:     /register
     defaults: { _controller: FOSUserBundle:Registration:register }
+
+evennement_index:
+    path:     /listEvenements
+    defaults: { _controller: "FrontBonPlanBundle:Evennement:index" }
+    methods:  GET
+
+evennement_show:
+    path:     /{idev}/show
+    defaults: { _controller: "FrontBonPlanBundle:Evennement:show" }
+    methods:  GET
+
+evennement_new:
+    path:     /new
+    defaults: { _controller: "FrontBonPlanBundle:Evennement:new" }
+    methods:  [GET, POST]
+
+evennement_edit:
+    path:     /{idev}/edit
+    defaults: { _controller: "FrontBonPlanBundle:Evennement:edit" }
+    methods:  [GET, POST]
+
+evennement_delete:
+    path:     /{idev}/delete
+    defaults: { _controller: "FrontBonPlanBundle:Evennement:delete" }
+    methods:  DELETE
 

@@ -1,25 +1,25 @@
 <?php
 
-namespace AppBundle\Entity;
+namespace Front\BonPlanBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Categorieevenement
+ * Categoriearticle
  *
- * @ORM\Table(name="CategorieEvenement", indexes={@ORM\Index(name="AK_Identifier_1", columns={"idCatEv"})})
+ * @ORM\Table(name="CategorieArticle", indexes={@ORM\Index(name="AK_Identifier_1", columns={"idCatArt"})})
  * @ORM\Entity
  */
-class Categorieevenement
+class Categoriearticle
 {
     /**
      * @var integer
      *
-     * @ORM\Column(name="idCatEv", type="integer", nullable=false)
+     * @ORM\Column(name="idCatArt", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $idcatev;
+    private $idcatart;
 
     /**
      * @var string
@@ -31,17 +31,17 @@ class Categorieevenement
     /**
      * @return int
      */
-    public function getIdcatev()
+    public function getIdcatart()
     {
-        return $this->idcatev;
+        return $this->idcatart;
     }
 
     /**
-     * @param int $idcatev
+     * @param int $idcatart
      */
-    public function setIdcatev($idcatev)
+    public function setIdcatart($idcatart)
     {
-        $this->idcatev = $idcatev;
+        $this->idcatart = $idcatart;
     }
 
     /**
