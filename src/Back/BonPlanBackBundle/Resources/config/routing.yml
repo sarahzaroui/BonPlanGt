@@ -1,3 +1,30 @@
-bonplan_admin_template:
-    path:     /index
+back_bon_plan_back_homepage:
+    path:     /
     defaults: { _controller: BackBonPlanBackBundle:Default:index }
+bonplan_admin_template:
+    path:     /temp
+    defaults: { _controller: BackBonPlanBackBundle:Admin:affichage }
+ajout_categorie_evenement:
+    path:     /ajoutcategorieevenement
+    defaults: { _controller: BackBonPlanBackBundle:Admin:ajout }
+affichage_categorie_evenement:
+    path:     /affichagecategorieevenement
+    defaults: { _controller: BackBonPlanBackBundle:Admin:afficher }
+update_categorie_evenement:
+    path:     /updatecategorieevenement
+    defaults: { _controller: BackBonPlanBackBundle:Admin:update }
+delete_categorie_evenement:
+    path:     /deletecategorieevenement
+    defaults: { _controller: BackBonPlanBackBundle:Admin:supprimer }
+affichage_categorie_article:
+    path:     /affichagecategoriearticle
+    defaults: { _controller: BackBonPlanBackBundle:Admin:affichercatarticle }
+ajout_categorie_article:
+    path:     /ajoutcategoriearticle
+    defaults: { _controller: BackBonPlanBackBundle:Admin:ajoutCatArticle }
+update_categorie_article:
+    path:     /updatecategoriearticle
+    defaults: { _controller: BackBonPlanBackBundle:Admin:updateArticle }
+delete_categorie_article:
+    path:     /deletecategoriearticlep 
+    defaults: { _controller: BackBonPlanBackBundle:Admin:supprimerCatArticle }

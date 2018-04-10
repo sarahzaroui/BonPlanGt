@@ -28,6 +28,38 @@ class Categoriearticle
      */
     private $nom;
 
+    /**
+     * @return int
+     */
+    public function getIdcatart()
+    {
+        return $this->idcatart;
+    }
+
+    /**
+     * @param int $idcatart
+     */
+    public function setIdcatart($idcatart)
+    {
+        $this->idcatart = $idcatart;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNom()
+    {
+        return $this->nom;
+    }
+
+    /**
+     * @param string $nom
+     */
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+    }
+
 
 }
 
