@@ -20,7 +20,7 @@ class AdminController extends Controller
     {
         return $this->render('BackBonPlanBackBundle:AdminTemp:admin.html.twig');
     }
-
+     //test alaaeddine
     public function afficherAction()
     {
         //test
