@@ -1,0 +1,32 @@
+{% extends "Front\BonPlanBundle::layout.html.twig" %}
+
+{% block container %}
+    <h1>Reserver</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Idreservation</th>
+                <td>{{ reserver.idreservation }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{% if reserver.date %}{{ reserver.date|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('reserver_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('reserver_edit', { 'idreservation': reserver.idreservation }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

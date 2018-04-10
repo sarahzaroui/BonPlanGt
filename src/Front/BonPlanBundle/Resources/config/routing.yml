@@ -2,6 +2,11 @@ front_bon_plan_evennement:
     resource: "@FrontBonPlanBundle/Resources/config/routing/evennement.yml"
     prefix:   /evennement
 
+front_bon_plan_reserver:
+        resource: "@FrontBonPlanBundle/Resources/config/routing/reserver.yml"
+        prefix:   /reserver
+
+
 front_bon_plan_homepage:
     path:     /index
     defaults: { _controller: FrontBonPlanBundle:Default:index }
@@ -33,22 +38,47 @@ evennement_index:
     methods:  GET
 
 evennement_show:
-    path:     /{idev}/show
+    path:     /{idev}/showEvenement
     defaults: { _controller: "FrontBonPlanBundle:Evennement:show" }
     methods:  GET
 
 evennement_new:
-    path:     /new
+    path:     /newEvenement
     defaults: { _controller: "FrontBonPlanBundle:Evennement:new" }
     methods:  [GET, POST]
 
 evennement_edit:
-    path:     /{idev}/edit
+    path:     /{idev}/editEvenement
     defaults: { _controller: "FrontBonPlanBundle:Evennement:edit" }
     methods:  [GET, POST]
 
 evennement_delete:
-    path:     /{idev}/delete
+    path:     /{idev}/deleteEvenement
     defaults: { _controller: "FrontBonPlanBundle:Evennement:delete" }
+    methods:  DELETE
+
+reserver_index:
+    path:     /listReservations
+    defaults: { _controller: "FrontBonPlanBundle:Reserver:index" }
+    methods:  GET
+
+reserver_show:
+    path:     /{idreservation}/showReservation
+    defaults: { _controller: "FrontBonPlanBundle:Reserver:show" }
+    methods:  GET
+
+reserver_new:
+    path:     /newReservation
+    defaults: { _controller: "FrontBonPlanBundle:Reserver:new" }
+    methods:  [GET, POST]
+
+reserver_edit:
+    path:     /{idreservation}/editReservation
+    defaults: { _controller: "FrontBonPlanBundle:Reserver:edit" }
+    methods:  [GET, POST]
+
+reserver_delete:
+    path:     /{idreservation}/deleteReservation
+    defaults: { _controller: "FrontBonPlanBundle:Reserver:delete" }
     methods:  DELETE
 

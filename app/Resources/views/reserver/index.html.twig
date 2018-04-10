@@ -1,0 +1,39 @@
+{% extends "Front\BonPlanBundle::layout.html.twig" %}
+
+{% block container %}
+    <h1>Reservers list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Idreservation</th>
+                <th>Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for reserver in reservers %}
+            <tr>
+                <td><a href="{{ path('reserver_show', { 'idreservation': reserver.idreservation }) }}">{{ reserver.idreservation }}</a></td>
+                <td>{% if reserver.date %}{{ reserver.date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('reserver_show', { 'idreservation': reserver.idreservation }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('reserver_edit', { 'idreservation': reserver.idreservation }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('reserver_new') }}">Create a new reserver</a>
+        </li>
+    </ul>
+{% endblock %}
