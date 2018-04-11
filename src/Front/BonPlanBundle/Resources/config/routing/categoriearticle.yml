@@ -1,0 +1,24 @@
+categoriearticle_index:
+    path:     /listCategorieArticle
+    defaults: { _controller: "FrontBonPlanBundle:Categoriearticle:index" }
+    methods:  GET
+
+categoriearticle_show:
+    path:     /{idcatart}/show
+    defaults: { _controller: "FrontBonPlanBundle:Categoriearticle:show" }
+    methods:  GET
+
+categoriearticle_new:
+    path:     /newCategorieArticle
+    defaults: { _controller: "FrontBonPlanBundle:Categoriearticle:new" }
+    methods:  [GET, POST]
+
+categoriearticle_edit:
+    path:     /{idcatart}/editCategorieArticle
+    defaults: { _controller: "FrontBonPlanBundle:Categoriearticle:edit" }
+    methods:  [GET, POST]
+
+categoriearticle_delete:
+    path:     /{idcatart}/deleteCategorieArticle
+    defaults: { _controller: "FrontBonPlanBundle:Categoriearticle:delete" }
+    methods:  DELETE

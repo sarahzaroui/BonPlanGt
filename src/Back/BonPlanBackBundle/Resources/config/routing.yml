@@ -3,7 +3,7 @@ back_bon_plan_back_homepage:
     defaults: { _controller: BackBonPlanBackBundle:Default:index }
 bonplan_admin_template:
     path:     /temp
-    defaults: { _controller: BackBonPlanBackBundle:Admin:affichage }
+    defaults: { _controller: BackBonPlanBackBundle:Default:index }
 ajout_categorie_evenement:
     path:     /ajoutcategorieevenement
     defaults: { _controller: BackBonPlanBackBundle:Admin:ajout }

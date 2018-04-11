@@ -6,6 +6,11 @@ front_bon_plan_reserver:
         resource: "@FrontBonPlanBundle/Resources/config/routing/reserver.yml"
         prefix:   /reserver
 
+front_bon_plan_categoriearticle:
+        resource: "@FrontBonPlanBundle/Resources/config/routing/categoriearticle.yml"
+        prefix:   /categoriearticle
+
+
 
 front_bon_plan_homepage:
     path:     /index

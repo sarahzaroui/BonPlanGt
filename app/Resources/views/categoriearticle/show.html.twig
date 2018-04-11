@@ -1,0 +1,34 @@
+{% extends "BackBonPlanBackBundle::layout.html.twig" %}
+{% block tilte %}
+    Administration Bon plan
+{% endblock %}
+{% block container %}
+    <h1>Categoriearticle</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Idcatart</th>
+                <td>{{ categoriearticle.idcatart }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ categoriearticle.nom }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('categoriearticle_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('categoriearticle_edit', { 'idcatart': categoriearticle.idcatart }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
