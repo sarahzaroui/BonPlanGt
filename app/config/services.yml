@@ -5,7 +5,7 @@ parameters:
 
 services:
     app.form.registration:
-        class: FrontBonPlanBundle\Form\RegistrationType
+        class: AppBundle\Form\RegistrationType
         tags:
             - { name: form.type, alias: app_user_registration }
     # default configuration for services in *this* file

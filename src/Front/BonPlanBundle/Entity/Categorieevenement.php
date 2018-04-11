@@ -28,6 +28,38 @@ class Categorieevenement
      */
     private $nom;
 
+    /**
+     * @return int
+     */
+    public function getIdcatev()
+    {
+        return $this->idcatev;
+    }
+
+    /**
+     * @param int $idcatev
+     */
+    public function setIdcatev($idcatev)
+    {
+        $this->idcatev = $idcatev;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNom()
+    {
+        return $this->nom;
+    }
+
+    /**
+     * @param string $nom
+     */
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+    }
+
 
 }
 
