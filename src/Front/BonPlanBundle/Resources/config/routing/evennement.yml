@@ -1,5 +1,5 @@
 evennement_index:
-    path:     /
+    path:     /listEvenements
     defaults: { _controller: "FrontBonPlanBundle:Evennement:index" }
     methods:  GET
 
