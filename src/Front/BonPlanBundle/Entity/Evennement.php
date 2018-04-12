@@ -50,6 +50,31 @@ class Evennement
     private $description;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="image", type="string", length=254, nullable=true)
+     */
+    private $image;
+
+    /**
+     * @return string
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param string $image
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+    }
+
+
+
+    /**
      * @return int
      */
     public function getIdev()

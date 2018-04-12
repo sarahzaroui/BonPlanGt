@@ -10,6 +10,10 @@ front_bon_plan_categoriearticle:
         resource: "@FrontBonPlanBundle/Resources/config/routing/categoriearticle.yml"
         prefix:   /categoriearticle
 
+front_bon_plan_categorieevenement:
+        resource: "@FrontBonPlanBundle/Resources/config/routing/categorieevenement.yml"
+        prefix:   /categorieevenement
+
 
 
 front_bon_plan_homepage:

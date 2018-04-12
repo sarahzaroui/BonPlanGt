@@ -1,0 +1,41 @@
+{% extends "BackBonPlanBackBundle::layout.html.twig" %}
+{% block tilte %}
+    Administration Bon plan
+{% endblock %}
+{% block container %}
+    <h1>Categorieevenements list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Idcatev</th>
+                <th>Nom</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for categorieevenement in categorieevenements %}
+            <tr>
+                <td><a href="{{ path('categorieevenement_show', { 'idcatev': categorieevenement.idcatev }) }}">{{ categorieevenement.idcatev }}</a></td>
+                <td>{{ categorieevenement.nom }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('categorieevenement_show', { 'idcatev': categorieevenement.idcatev }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('categorieevenement_edit', { 'idcatev': categorieevenement.idcatev }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('categorieevenement_new') }}">Create a new categorieevenement</a>
+        </li>
+    </ul>
+{% endblock %}

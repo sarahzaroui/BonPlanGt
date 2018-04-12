@@ -4,27 +4,63 @@ back_bon_plan_back_homepage:
 bonplan_admin_template:
     path:     /temp
     defaults: { _controller: BackBonPlanBackBundle:Default:index }
-ajout_categorie_evenement:
-    path:     /ajoutcategorieevenement
-    defaults: { _controller: BackBonPlanBackBundle:Admin:ajout }
-affichage_categorie_evenement:
-    path:     /affichagecategorieevenement
-    defaults: { _controller: BackBonPlanBackBundle:Admin:afficher }
-update_categorie_evenement:
-    path:     /updatecategorieevenement
-    defaults: { _controller: BackBonPlanBackBundle:Admin:update }
-delete_categorie_evenement:
-    path:     /deletecategorieevenement
-    defaults: { _controller: BackBonPlanBackBundle:Admin:supprimer }
-affichage_categorie_article:
-    path:     /affichagecategoriearticle
-    defaults: { _controller: BackBonPlanBackBundle:Admin:affichercatarticle }
-ajout_categorie_article:
-    path:     /ajoutcategoriearticle
-    defaults: { _controller: BackBonPlanBackBundle:Admin:ajoutCatArticle }
-update_categorie_article:
-    path:     /updatecategoriearticle
-    defaults: { _controller: BackBonPlanBackBundle:Admin:updateArticle }
-delete_categorie_article:
-    path:     /deletecategoriearticlep 
-    defaults: { _controller: BackBonPlanBackBundle:Admin:supprimerCatArticle }
+
+front_bon_plan_categoriearticle:
+        resource: "@FrontBonPlanBundle/Resources/config/routing/categoriearticle.yml"
+        prefix:   /categoriearticle
+
+front_bon_plan_categorieevenement:
+        resource: "@FrontBonPlanBundle/Resources/config/routing/categorieevenement.yml"
+        prefix:   /categorieevenement
+
+
+categorieevenement_index:
+    path:     /listCategorieEvennement
+    defaults: { _controller: "FrontBonPlanBundle:Categorieevenement:index" }
+    methods:  GET
+
+categorieevenement_show:
+    path:     /{idcatev}/showEvennement
+    defaults: { _controller: "FrontBonPlanBundle:Categorieevenement:show" }
+    methods:  GET
+
+categorieevenement_new:
+    path:     /newEvennement
+    defaults: { _controller: "FrontBonPlanBundle:Categorieevenement:new" }
+    methods:  [GET, POST]
+
+categorieevenement_edit:
+    path:     /{idcatev}/editEvennement
+    defaults: { _controller: "FrontBonPlanBundle:Categorieevenement:edit" }
+    methods:  [GET, POST]
+
+categorieevenement_delete:
+    path:     /{idcatev}/deleteEvennement
+    defaults: { _controller: "FrontBonPlanBundle:Categorieevenement:delete" }
+    methods:  DELETE
+
+
+categoriearticle_index:
+    path:     /listCategorieArticle
+    defaults: { _controller: "FrontBonPlanBundle:Categoriearticle:index" }
+    methods:  GET
+
+categoriearticle_show:
+    path:     /{idcatart}/show
+    defaults: { _controller: "FrontBonPlanBundle:Categoriearticle:show" }
+    methods:  GET
+
+categoriearticle_new:
+    path:     /newCategorieArticle
+    defaults: { _controller: "FrontBonPlanBundle:Categoriearticle:new" }
+    methods:  [GET, POST]
+
+categoriearticle_edit:
+    path:     /{idcatart}/editCategorieArticle
+    defaults: { _controller: "FrontBonPlanBundle:Categoriearticle:edit" }
+    methods:  [GET, POST]
+
+categoriearticle_delete:
+    path:     /{idcatart}/deleteCategorieArticle
+    defaults: { _controller: "FrontBonPlanBundle:Categoriearticle:delete" }
+    methods:  DELETE

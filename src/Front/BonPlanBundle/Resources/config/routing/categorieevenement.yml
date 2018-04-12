@@ -1,0 +1,24 @@
+categorieevenement_index:
+    path:     /listCategorieEvennement
+    defaults: { _controller: "FrontBonPlanBundle:Categorieevenement:index" }
+    methods:  GET
+
+categorieevenement_show:
+    path:     /{idcatev}/showEvennement
+    defaults: { _controller: "FrontBonPlanBundle:Categorieevenement:show" }
+    methods:  GET
+
+categorieevenement_new:
+    path:     /newEvennement
+    defaults: { _controller: "FrontBonPlanBundle:Categorieevenement:new" }
+    methods:  [GET, POST]
+
+categorieevenement_edit:
+    path:     /{idcatev}/editEvennement
+    defaults: { _controller: "FrontBonPlanBundle:Categorieevenement:edit" }
+    methods:  [GET, POST]
+
+categorieevenement_delete:
+    path:     /{idcatev}/deleteEvennement
+    defaults: { _controller: "FrontBonPlanBundle:Categorieevenement:delete" }
+    methods:  DELETE
