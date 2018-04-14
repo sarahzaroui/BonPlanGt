@@ -253,7 +253,7 @@ class Article
         $this->iduser = $iduser;
     }
 
-   
+
 
 }
 

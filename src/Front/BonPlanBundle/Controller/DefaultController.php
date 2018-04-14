@@ -8,7 +8,14 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('FrontBonPlanBundle:Default:index.html.twig');
+        $em = $this->getDoctrine()->getManager();
+
+        $articles = $em->getRepository('FrontBonPlanBundle:Article')->findAll();
+
+
+        return $this->render('FrontBonPlanBundle:Default:index.html.twig', array(
+            'articles' => $articles,
+        ));
     }
     public function menuAction()
     {
