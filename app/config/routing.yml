@@ -1,3 +1,7 @@
+front_bon_plan_article:
+    resource: "@FrontBonPlanBundle/Controller/ArticleController.php"
+    type:     annotation
+
 tf_user:
     resource: "@tfUserBundle/Resources/config/routing.yml"
     prefix:   /

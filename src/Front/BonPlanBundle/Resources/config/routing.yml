@@ -26,7 +26,7 @@ front_bon_plan_blog:
     path:     /blog
     defaults: { _controller: FrontBonPlanBundle:Default:blog }
 front_bon_plan_single:
-    path:     /single
+    path:     /single/{id}
     defaults: { _controller: FrontBonPlanBundle:Default:single }
 front_bon_plan_events:
     path:     /events
