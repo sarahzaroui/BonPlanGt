@@ -1,14 +1,28 @@
-{% extends 'base.html.twig' %}
+{% extends "BackBonPlanBackBundle::layout.html.twig" %}
+{% block tilte %}
+    Administration Bon plan
+{% endblock %}
+{% block container %}
 
-{% block body %}
+
+
     <h1>Articles list</h1>
 
-    <table>
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Hover Data Table</h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <table id="example2" class="table table-bordered table-hover">
         <thead>
             <tr>
                 <th>Idarticle</th>
                 <th>Titre</th>
-                <th>Description</th>
+
                 <th>Imagename</th>
                 <th>Adresse</th>
                 <th>Date</th>
@@ -21,7 +35,7 @@
             <tr>
                 <td><a href="{{ path('article_show', { 'idarticle': article.idarticle }) }}">{{ article.idarticle }}</a></td>
                 <td>{{ article.titre }}</td>
-                <td>{{ article.description }}</td>
+
                 <td>{{ article.imagename }}</td>
                 <td>{{ article.adresse }}</td>
                 <td>{% if article.date %}{{ article.date|date('Y-m-d H:i:s') }}{% endif %}</td>
@@ -40,10 +54,16 @@
         {% endfor %}
         </tbody>
     </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
     <ul>
         <li>
             <a href="{{ path('article_new') }}">Create a new article</a>
         </li>
     </ul>
+
 {% endblock %}

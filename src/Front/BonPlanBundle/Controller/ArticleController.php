@@ -14,12 +14,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
  */
 class ArticleController extends Controller
 {
-    /**
-     * Lists all article entities.
-     *
-     * @Route("/", name="article_index")
-     * @Method("GET")
-     */
+    
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
@@ -31,12 +26,7 @@ class ArticleController extends Controller
         ));
     }
 
-    /**
-     * Creates a new article entity.
-     *
-     * @Route("/new", name="article_new")
-     * @Method({"GET", "POST"})
-     */
+    
     public function newAction(Request $request)
     {
         $article = new Article();
@@ -57,12 +47,7 @@ class ArticleController extends Controller
         ));
     }
 
-    /**
-     * Finds and displays a article entity.
-     *
-     * @Route("/{idarticle}", name="article_show")
-     * @Method("GET")
-     */
+    
     public function showAction(Article $article)
     {
         $deleteForm = $this->createDeleteForm($article);
@@ -73,12 +58,7 @@ class ArticleController extends Controller
         ));
     }
 
-    /**
-     * Displays a form to edit an existing article entity.
-     *
-     * @Route("/{idarticle}/edit", name="article_edit")
-     * @Method({"GET", "POST"})
-     */
+    
     public function editAction(Request $request, Article $article)
     {
         $deleteForm = $this->createDeleteForm($article);
@@ -98,12 +78,7 @@ class ArticleController extends Controller
         ));
     }
 
-    /**
-     * Deletes a article entity.
-     *
-     * @Route("/{idarticle}", name="article_delete")
-     * @Method("DELETE")
-     */
+    
     public function deleteAction(Request $request, Article $article)
     {
         $form = $this->createDeleteForm($article);

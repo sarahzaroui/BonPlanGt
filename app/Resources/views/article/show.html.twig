@@ -1,9 +1,19 @@
-{% extends 'base.html.twig' %}
+{% extends "BackBonPlanBackBundle::layout.html.twig" %}
+{% block tilte %}
+    Administration Bon plan
+{% endblock %}
+{% block container %}
 
-{% block body %}
-    <h1>Article</h1>
-
-    <table>
+<section class="content">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="box">
+                                    <div class="box-header">
+                                        <h3 class="box-title">{{ article.titre }}</h3>
+                                    </div>
+                                    <!-- /.box-header -->
+                                    <div class="box-body">
+                    <table id="example2" class="table table-bordered table-hover">
         <tbody>
             <tr>
                 <th>Idarticle</th>
@@ -35,6 +45,11 @@
             </tr>
         </tbody>
     </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <ul>
         <li>
@@ -49,4 +64,5 @@
             {{ form_end(delete_form) }}
         </li>
     </ul>
+</section>
 {% endblock %}

@@ -20,6 +20,7 @@ class AppKernel extends Kernel
             new Back\BonPlanBackBundle\BackBonPlanBackBundle,
             new tf\UserBundle\tfUserBundle(),
             new FOS\UserBundle\FOSUserBundle(),
+            new Vich\UploaderBundle\VichUploaderBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

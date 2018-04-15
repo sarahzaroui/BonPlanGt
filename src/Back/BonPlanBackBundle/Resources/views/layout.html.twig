@@ -326,7 +326,7 @@
                 </li>
 
                 <li>
-                    <a href="{{ asset ('pages/widgets.html')}}">
+                    <a href="{{ path('article_index') }}">
                         <i class="fa fa-th"></i> <span>Articles</span>
                         <span class="pull-right-container">
 
@@ -395,27 +395,19 @@
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
-            <h1>
-                Tableau de bord "Bon plan"
 
-            </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> Acceuil</a></li>
                 <li class="active">Tableau de bord</li>
             </ol>
+            {% block container %}
+            {% endblock %}
         </section>
 
-{% block container %}
-{% endblock %}
+
 
     <!-- /.content-wrapper -->
-    <footer class="main-footer">
-        <div class="pull-right hidden-xs">
-            <b>Version</b> 2.4.0
-        </div>
-        <strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights
-        reserved.
-    </footer>
+
 
     <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">

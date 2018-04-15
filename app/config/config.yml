@@ -7,6 +7,7 @@ imports:
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: fr
+    app.path.product_images: /uploads
 
 framework:
     #esi: ~
@@ -83,3 +84,10 @@ fos_user:
     from_email:
         address: "noreply@yourcompany.com"
         sender_name: "No Reply"
+
+vich_uploader:
+    db_driver: orm
+    mappings:
+        product_images:
+            uri_prefix:         '%app.path.product_images%'
+            upload_destination: '%kernel.root_dir%/../web/uploads'
