@@ -4,15 +4,17 @@
 {% endblock %}
 {% block container %}
     <h1>Categorieevenement creation</h1>
-
-    {{ form_start(form) }}
+    <div id="form-edit">
+        {{ form_start(form) }}
         {{ form_widget(form) }}
-        <input type="submit" value="Create" />
-    {{ form_end(form) }}
+        <BUTTON class="btn  btn-sm btn-success" type="submit" style="margin-top: 10px;">Create</BUTTON>
+        {{ form_end(form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('categorieevenement_index') }}">Back to the list</a>
-        </li>
-    </ul>
+        <a href="{{ path('categorieevenement_index') }}">
+            <BUTTON class="btn  btn-sm btn-primary" type="submit" style="margin-top: 10px;">
+                Back to the list
+            </BUTTON>
+        </a>
+
+    </div>
 {% endblock %}

@@ -27,6 +27,10 @@
     <link rel="stylesheet" href="{{ asset ('bower_components/bootstrap-daterangepicker/daterangepicker.css')}}">
     <!-- bootstrap wysihtml5 - text editor -->
     <link rel="stylesheet" href="{{ asset ('plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}}">
+    <!--Wadii : css table liste des categorie-->
+    <link rel="stylesheet" href="{{ asset ('bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{ asset ('css/form-update.css')}}">
+    <!--End Wadii-->
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -37,6 +41,7 @@
 
     <!-- Google Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -326,7 +331,7 @@
                 </li>
 
                 <li>
-                    <a href="{{ path('article_index') }}">
+                    <a href="{{ asset ('pages/widgets.html')}}">
                         <i class="fa fa-th"></i> <span>Articles</span>
                         <span class="pull-right-container">
 
@@ -395,19 +400,32 @@
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
+            <h1>
+                Tableau de bord "Bon plan"
 
+            </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> Acceuil</a></li>
                 <li class="active">Tableau de bord</li>
             </ol>
+        </section>
+        <!--Wadii :Section mise en page-->
+        <section class="content">
+            <!--end Wadii-->
             {% block container %}
             {% endblock %}
+            <!--Wadii :Section mise en page-->
         </section>
-
-
-
+    </div>
+    <!--end Wadii-->
     <!-- /.content-wrapper -->
-
+    <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+            <b>Version</b> 2.4.0
+        </div>
+        <strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights
+        reserved.
+    </footer>
 
     <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">
@@ -642,6 +660,26 @@
 <script src="{{ asset ('dist/js/pages/dashboard.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset ('dist/js/demo.js')}}"></script>
+
+<!--Wadii: Js table liste des categories-->
+<script src="{{ asset ('bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
+<script src="{{ asset ('bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
+<script>
+    $(function () {
+        $('#example1').DataTable()
+        $('#example2').DataTable({
+            'paging'      : true,
+            'lengthChange': true,
+            'lengthMenu': [[25,50,100,-1],[25,50,100,"All"]],
+            'searching'   : true,
+            'ordering'    : true,
+            'info'        : true,
+            'autoWidth'   : false,
+            'pageLength'   : 25
+        })
+    })
+</script>
+<!--End Wadii-->
 </body>
 </html>
 

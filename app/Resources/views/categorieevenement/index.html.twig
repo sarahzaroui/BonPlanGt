@@ -3,15 +3,17 @@
     Administration Bon plan
 {% endblock %}
 {% block container %}
-    <h1>Categorieevenements list</h1>
-
-    <table>
+    <h2>Categorieevenements list</h2>
+    <div class="col-md-12" style="padding-bottom: 10px;">
+        <a href="{{ path('categorieevenement_new') }}"><button class="btn btn-xs btn-success">Create a new categorieevenement</button></a>
+    </div>
+    <table class="table" id="example2">
         <thead>
-            <tr>
-                <th>Idcatev</th>
-                <th>Nom</th>
-                <th>Actions</th>
-            </tr>
+        <tr>
+            <th>Idcatev</th>
+            <th>Nom</th>
+            <th>Actions</th>
+        </tr>
         </thead>
         <tbody>
         {% for categorieevenement in categorieevenements %}
@@ -19,23 +21,21 @@
                 <td><a href="{{ path('categorieevenement_show', { 'idcatev': categorieevenement.idcatev }) }}">{{ categorieevenement.idcatev }}</a></td>
                 <td>{{ categorieevenement.nom }}</td>
                 <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('categorieevenement_show', { 'idcatev': categorieevenement.idcatev }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('categorieevenement_edit', { 'idcatev': categorieevenement.idcatev }) }}">edit</a>
-                        </li>
-                    </ul>
+
+                    <a href="{{ path('categorieevenement_show', { 'idcatev': categorieevenement.idcatev }) }}">
+                        <button class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></button>
+                    </a>
+
+                    <a href="{{ path('categorieevenement_edit', { 'idcatev': categorieevenement.idcatev }) }}">
+                        <button class="btn btn-xs btn-primary"><i class="fa fa-edit"></i></button>
+                    </a>
+                    <a href="{{ path('categorieevenement_show', { 'idcatev': categorieevenement.idcatev }) }}">
+                        <button class="btn btn-xs btn-success"><i class="fa fa-eye"></i></button>
+                    </a>
+
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('categorieevenement_new') }}">Create a new categorieevenement</a>
-        </li>
-    </ul>
 {% endblock %}

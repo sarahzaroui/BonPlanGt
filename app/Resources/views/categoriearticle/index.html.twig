@@ -3,15 +3,17 @@
     Administration Bon plan
 {% endblock %}
 {% block container %}
-    <h1>Categoriearticles list</h1>
-
-    <table>
+    <h2>Categoriee article list</h2>
+    <div class="col-md-12" style="padding-bottom: 10px;">
+        <a href="{{ path('categoriearticle_new') }}"><button class="btn btn-xs btn-success">Create a new catégorie article</button></a>
+    </div>
+    <table class="table" id="example2">
         <thead>
-            <tr>
-                <th>Idcatart</th>
-                <th>Nom</th>
-                <th>Actions</th>
-            </tr>
+        <tr>
+            <th>Idcatart</th>
+            <th>Nom</th>
+            <th>Actions</th>
+        </tr>
         </thead>
         <tbody>
         {% for categoriearticle in categoriearticles %}
@@ -19,23 +21,21 @@
                 <td><a href="{{ path('categoriearticle_show', { 'idcatart': categoriearticle.idcatart }) }}">{{ categoriearticle.idcatart }}</a></td>
                 <td>{{ categoriearticle.nom }}</td>
                 <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('categoriearticle_show', { 'idcatart': categoriearticle.idcatart }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('categoriearticle_edit', { 'idcatart': categoriearticle.idcatart }) }}">edit</a>
-                        </li>
-                    </ul>
+
+                    <a href="{{ path('categoriearticle_show', { 'idcatart': categoriearticle.idcatart }) }}">
+                        <button class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></button>
+                    </a>
+
+                    <a href="{{ path('categoriearticle_edit', { 'idcatart': categoriearticle.idcatart }) }}">
+                        <button class="btn btn-xs btn-primary"><i class="fa fa-edit"></i></button>
+                    </a>
+                    <a href="{{ path('categoriearticle_show', { 'idcatart': categoriearticle.idcatart }) }}">
+                        <button class="btn btn-xs btn-success"><i class="fa fa-eye"></i></button>
+                    </a>
+
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('categoriearticle_new') }}">Create a new categoriearticle</a>
-        </li>
-    </ul>
 {% endblock %}

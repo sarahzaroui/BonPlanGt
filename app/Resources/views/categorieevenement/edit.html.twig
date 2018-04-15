@@ -1,23 +1,31 @@
 {% extends "BackBonPlanBackBundle::layout.html.twig" %}
 {% block tilte %}
     Administration Bon plan
+
 {% endblock %}
 {% block container %}
     <h1>Categorieevenement edit</h1>
+    <table class="table">
+        <tr>
+            <td>
+                <div id="form-edit">
+                    {{ form_start(edit_form) }}
+                    {{ form_widget(edit_form) }}
+                    <button class="btn btn-success btn-sm" type="submit" style="margin-top: 10px;">Edit</button>
+                    {{ form_end(edit_form) }}
+                </div>
+            </td>
+            <td>
+                <div class="col-md-12" style="margin-bottom: 10px;">
+                    <a href="{{ path('categorieevenement_index') }}"><button class="btn btn-primary btn-sm btn-block">Back to the list</button></a>
+                </div>
+                <div class="col-md-12" style="margin-bottom: 10px;">
+                    {{ form_start(delete_form) }}
+                    <button class="btn btn-danger btn-sm btn-block" type="submit">Delete</button>
+                    {{ form_end(delete_form) }}
+                </div>
+            </td>
+        </tr>
 
-    {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
-    {{ form_end(edit_form) }}
-
-    <ul>
-        <li>
-            <a href="{{ path('categorieevenement_index') }}">Back to the list</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+    </table>
 {% endblock %}

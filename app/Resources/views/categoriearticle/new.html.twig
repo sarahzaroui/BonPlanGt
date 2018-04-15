@@ -3,16 +3,15 @@
     Administration Bon plan
 {% endblock %}
 {% block container %}
-    <h1>Categoriearticle creation</h1>
+    <div id="form-edit">
+        <h1>Categorie article creation</h1>
 
-    {{ form_start(form) }}
+        {{ form_start(form) }}
         {{ form_widget(form) }}
-        <input type="submit" value="Create" />
-    {{ form_end(form) }}
+        <BUTTON class="btn  btn-sm btn-success" type="submit" style="margin-top: 10px;">Create</BUTTON>
+        {{ form_end(form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('categoriearticle_index') }}">Back to the list</a>
-        </li>
-    </ul>
+
+        <a href="{{ path('categoriearticle_index') }}">  <BUTTON class="btn  btn-sm btn-primary" type="submit" style="margin-top: 10px;">Back to the list</BUTTON></a>
+    </div>
 {% endblock %}
