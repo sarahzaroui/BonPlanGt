@@ -4,6 +4,9 @@ back_bon_plan_back_homepage:
 bonplan_admin_template:
     path:     /temp
     defaults: { _controller: BackBonPlanBackBundle:Default:index }
+bonplan_prestataire_template:
+    path:     /prestataire
+    defaults: { _controller: BackBonPlanBackBundle:Default:prestataire }
 
 front_bon_plan_categoriearticle:
         resource: "@FrontBonPlanBundle/Resources/config/routing/categoriearticle.yml"

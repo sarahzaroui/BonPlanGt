@@ -9,4 +9,15 @@ class DefaultController extends Controller
     {
         return $this->render('BackBonPlanBackBundle:Default:index.html.twig');
     }
+    public function prestataireAction()
+    {
+
+        $em = $this->getDoctrine()->getManager();
+
+        $articles = $em->getRepository('FrontBonPlanBundle:Article')->findAll();
+
+        return $this->render('article/index.html.twig', array(
+            'articles' => $articles,
+        ));
+    }
 }

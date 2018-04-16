@@ -52,7 +52,7 @@
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b>A</b>LT</span>
             <!-- logo for regular state and mobile devices -->
-            <span class="logo-lg"><b>Administrateur</b></span>
+            <span class="logo-lg"><b>Prestataire</b></span>
         </a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top">
@@ -264,7 +264,7 @@
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <img src="{{ asset ('dist/img/logoB4.jpg')}}" class="user-image" alt="User Image">
-                            <span class="hidden-xs">Administrateur </span>
+                            <span class="hidden-xs">Prestataire</span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- User image -->
@@ -272,7 +272,7 @@
                                 <img src="{{ asset ('dist/img/logoB4.jpg')}}" class="img-circle" alt="User Image">
 
                                 <p>
-                                    Administrateur
+                                    Espace Prestataire
 
                                 </p>
                             </li>
@@ -313,22 +313,14 @@
                     <img src="{{ asset ('dist/img/logoB4.jpg')}}" class="img-circle" alt="User Image">
                 </div>
                 <div class="pull-left info">
-                    <p>Administrateur</p>
+                    <p>Perstataire</p>
                     <a href="#"><i class="fa fa-circle text-success"></i> Connecté</a>
                 </div>
             </div>
 
             <ul class="sidebar-menu" data-widget="tree">
                 <li class="header">MENU DE NAVIGATION</li>
-                <li class="active">
-                    <a href="#">
-                        <i class="fa fa-dashboard"></i> <span>Tableau de bord</span>
-                        <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-                    </a>
 
-                </li>
 
                 <li>
                     <a href="{{ path('article_index') }}">
@@ -338,17 +330,10 @@
             </span>
                     </a>
                 </li>
-                <li>
-                    <a href="{{ path('categoriearticle_index') }}">
-                        <i class="fa fa-th"></i> <span>Categorie Articles</span>
-                        <span class="pull-right-container">
 
-            </span>
-                    </a>
-                </li>
                 <li>
                     <a href="{{ asset ('pages/widgets.html')}}">
-                        <i class="fa fa-user"></i> <span>Utilisateurs</span>
+                        <i class="fa fa-user"></i> <span>Evenements</span>
                         <span class="pull-right-container">
 
             </span>
@@ -357,37 +342,15 @@
 
                 <li>
                     <a href="{{ asset ('pages/calendar.html')}}">
-                        <i class="fa fa-calendar"></i> <span>Evenements</span>
+                        <i class="fa fa-calendar"></i> <span>Réservations</span>
                         <span class="pull-right-container">
 
             </span>
                     </a>
                 </li>
-                <li>
-                    <a href="{{ path('categorieevenement_index') }}">
-                        <i class="fa fa-calendar"></i> <span>Categorie Evenements</span>
-                        <span class="pull-right-container">
-
-            </span>
-                    </a>
-                </li>
-                <li class="treeview">
-                    <a href="#">
-                        <i class="fa fa-book"></i>
-                        <span>NewsLetter</span>
 
 
-                        </span>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ asset ('pages/mailbox/mailbox.html')}}">
-                        <i class="fa fa-envelope"></i> <span>Messagerie</span>
-                        <span class="pull-right-container">
 
-            </span>
-                    </a>
-                </li>
 
                 </li>
 

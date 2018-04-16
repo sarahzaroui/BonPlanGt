@@ -5,16 +5,32 @@
     <div class="single">
 
         <div class="single-top">
-            <img class="img-responsive wow fadeInUp animated" style="height: 300px;width: auto" data-wow-delay=".5s" src="{{ asset('uploads/'~ article.imagename) }}" alt="" />
-            <div class="lone-line">
-                <h4>{{ article.titre }}</h4>
-                <ul class="grid-blog">
-                    <li><span><i class="glyphicon glyphicon-time"> </i>{{ article.date|date('Y-m-d') }}</span></li>
-                    <li><i class="glyphicon glyphicon-map-marker"> </i>{{ article.adresse }}</li>
+            <iframe
+                    width="100%"
+                    height="370"
+                    frameborder="0" style="border:0"
+                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCa3zx0bVXbv-VJRbYOQwUSbnLMOucv92c
+    &q=Space+Needle,Seattle+WA" allowfullscreen>
+            </iframe>
+            <div class="row">
+                <hr>
+                <div class="col-md-5">
+                    <img class="img-responsive img-thumbnail wow fadeInUp animated" style="height: 300px;width: auto" data-wow-delay=".5s" src="{{ asset('uploads/'~ article.imagename) }}" alt="" />
+                </div>
+                <div class="col-md-7">
+                    <div class="lone-line">
+                        <h4>{{ article.titre }}</h4>
+                        <ul class="grid-blog">
+                            <li><span><i class="glyphicon glyphicon-time"> </i>{{ article.date|date('Y-m-d') }}</span></li>
+                            <li><i class="glyphicon glyphicon-map-marker"> </i>{{ article.adresse }}</li>
 
-                </ul>
-                <p class="wow fadeInLeft animated" data-wow-delay=".5s">{{ article.description }}</span></p>
+                        </ul>
+                        <p class="wow fadeInLeft animated" data-wow-delay=".5s">{{ article.description }}</span></p>
+                    </div>
+                </div>
             </div>
+
+
         </div>
         <div class="comment">
             <h3>Commentaires</h3>

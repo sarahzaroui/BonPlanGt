@@ -23,7 +23,13 @@ class DefaultController extends Controller
     }
     public function blogAction()
     {
-        return $this->render('FrontBonPlanBundle:Default:blog.html.twig');
+        $em = $this->getDoctrine()->getManager();
+
+        $articles = $em->getRepository('FrontBonPlanBundle:Article')->findAll();
+
+        return $this->render('FrontBonPlanBundle:Default:blog.html.twig', array(
+            'articles' => $articles,
+        ));
     }
     public function singleAction($id)
     {
