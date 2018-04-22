@@ -1,0 +1,62 @@
+{% extends "BackBonPlanBackBundle::layout.html.twig" %}
+{% block tilte %}
+    Administration Bon plan
+{% endblock %}
+{% block container %}
+
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title">Liste des articles</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <table id="example2" class="table table-bordered table-hover">
+                            <thead>
+                            <tr>
+                                <th>Idarticle</th>
+                                <th>Titre</th>
+
+                                <th>Imagename</th>
+                                <th>Adresse</th>
+                                <th>Date</th>
+                                <th>Etat</th>
+                                <th>Actions</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for article in articles %}
+                                <tr>
+                                    <td><a href="{{ path('article_show', { 'idarticle': article.idarticle }) }}">{{ article.idarticle }}</a></td>
+                                    <td>{{ article.titre }}</td>
+
+                                    <td>{{ article.imagename }}</td>
+                                    <td>{{ article.adresse }}</td>
+                                    <td>{% if article.date %}{{ article.date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                    <td>{{ article.etat }}</td>
+                                    <td>
+                                        <ul>
+                                            <li>
+
+                                                <a href="{{ path('article_desactiver', { 'idarticle': article.idarticle }) }}">supprimer</a>
+                                            </li>
+                                            <li>
+                                                <a href="{{ path('article_activer', { 'idarticle': article.idarticle }) }}">publier</a>
+                                            </li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+{% endblock %}

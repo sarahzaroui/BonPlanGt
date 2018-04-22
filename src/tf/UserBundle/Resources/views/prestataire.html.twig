@@ -94,7 +94,13 @@
                                     <a href="#" class="btn btn-default btn-flat">Profile</a>
                                 </div>
                                 <div class="pull-right">
-                                    <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                                        {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}
+                                        <a href="{{ path('fos_user_security_logout') }}">
+                                            {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                                        </a>
+
+                                    {% endif %}
                                 </div>
                             </li>
                         </ul>
@@ -147,6 +153,14 @@
                 <li>
                     <a href="{{ asset ('pages/calendar.html')}}">
                         <i class="fa fa-calendar"></i> <span>Réservations</span>
+                        <span class="pull-right-container">
+
+            </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ path('front_bon_plan_homepage') }}">
+                        <i class="fa fa-calendar"></i> <span>Site web</span>
                         <span class="pull-right-container">
 
             </span>

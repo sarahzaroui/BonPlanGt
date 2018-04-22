@@ -5,7 +5,8 @@ namespace Front\BonPlanBundle\Controller;
 use Front\BonPlanBundle\Entity\Article;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Article controller.
@@ -17,9 +18,13 @@ class ArticleController extends Controller
     
     public function indexAction()
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+
+        $user = $this->getUser();
+
         $em = $this->getDoctrine()->getManager();
 
-        $articles = $em->getRepository('FrontBonPlanBundle:Article')->findAll();
+        $articles = $em->getRepository('FrontBonPlanBundle:Article')->findBy(array("iduser"=>$user));
 
         return $this->render('article/index.html.twig', array(
             'articles' => $articles,
@@ -29,12 +34,17 @@ class ArticleController extends Controller
     
     public function newAction(Request $request)
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $article = new Article();
         $form = $this->createForm('Front\BonPlanBundle\Form\ArticleType', $article);
         $form->handleRequest($request);
 
+
+        $user = $this->getUser();
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $article->setIduser($user);
+            $article->setDate(new \DateTime('now'));
             $em->persist($article);
             $em->flush();
 
@@ -108,4 +118,38 @@ class ArticleController extends Controller
             ->getForm()
         ;
     }
+
+    public function indexAdminAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $articles = $em->getRepository('FrontBonPlanBundle:Article')->findAll();
+
+        return $this->render('article/indexadmin.html.twig', array(
+            'articles' => $articles,
+        ));
+    }
+
+    public function activerAction (Request $request)
+    {
+        $id = $request->get('idarticle');
+        $em = $this->getDoctrine()->getManager();
+        $article = $em->getRepository('FrontBonPlanBundle:Article')->find($id);
+        $article->SetEtat("publié");
+        $em->persist($article);
+        $em->flush();
+        return $this->redirectToRoute('listarticles_admin');
+    }
+
+    public function desactiverAction (Request $request)
+    {
+        $id = $request->get('idarticle');
+        $em = $this->getDoctrine()->getManager();
+        $article = $em->getRepository('FrontBonPlanBundle:Article')->find($id);
+        $article->SetEtat("trash");
+        $em->persist($article);
+        $em->flush();
+        return $this->redirectToRoute('listarticles_admin');
+    }
+
 }
