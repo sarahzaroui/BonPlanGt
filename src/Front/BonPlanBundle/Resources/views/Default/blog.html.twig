@@ -3,10 +3,10 @@
     <div class="blog">
         <div class="container">
             <div class="menu-top">
-                <div class="col-md-4 menu-left">
-                    <h3>Lieux</h3>
+                <div class="col-md-9 menu-left">
+                    <h3>Restaurants et cafés</h3>
                     <label><i class="glyphicon glyphicon-menu-up"></i></label>
-                    <span>There are many variations</span>
+                    <span>Retrouvez les meilleurs bons plans et les conseils des plus grands experts du domaine de la restauration!</span>
                 </div>
 
                 <div class="clearfix"> </div>
@@ -44,50 +44,39 @@
             </div>
             <div class="col-md-3 categories-grid">
                 <div class="search-in animated wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="500ms">
-                    <h4>Search</h4>
+                    <h4>Recherche</h4>
                     <div class="search">
-                        <form>
-                            <input type="text" placeholder="Search" required="" >
+                        <form method="POST" >
+                            <input type="text" placeholder="Trouvez votre bon plan" name="search" required="" >
                             <input type="submit" value="" >
                         </form>
                     </div>
                 </div>
                 <div class="grid-categories animated wow fadeInLeft" data-wow-duration="1000ms" data-wow-delay="500ms">
-                    <h4>Categories</h4>
+                    <h4>Catégories</h4>
                     <ul class="popular">
-                        <li><a href="#"><i class="glyphicon glyphicon-menu-right"> </i>Breakfast</a></li>
-                        <li><a href="#"><i class="glyphicon glyphicon-menu-right"> </i>Lunch</a></li>
-                        <li><a href="#"><i class="glyphicon glyphicon-menu-right"> </i>Dinner</a></li>
-                        <li><a href="#"><i class="glyphicon glyphicon-menu-right"> </i>Dessert</a></li>
+					{% for category in categories %}
+					<li><a href="{{ path('articles_categorie',{'id': category.idcatart}) }}"><i class="glyphicon glyphicon-menu-right">{{ category.nom }} </i></a></li>
+					{% endfor %}
+                        
 
                     </ul>
                 </div>
                 <div class="blog-bottom animated wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="500ms">
-                    <h4>Recent Posts</h4>
-                    <div class="product-go">
-                        <a href="#" class="fashion"><img class="img-responsive " src="{{ asset('images/bo.jpg') }}" alt=""></a>
+                    <h4>Nouveautés</h4>
+					{% for article in articles %}
+					<div class="product-go">
+                        <a href="#" class="fashion"><img class="img-responsive " style="height:120px" src="{{ asset('uploads/' ~ article.imagename) }}" alt=""></a>
                         <div class="grid-product">
-                            <a href="#" class="elit">Consectetuer adipiscing</a>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit</p>
+                            <a href="#" class="elit">{{ article.titre }}</a>
+                            <p>{{ article.description }}</p>
                         </div>
                         <div class="clearfix"> </div>
                     </div>
-                    <div class="product-go">
-                        <a href="#" class="fashion"><img class="img-responsive " src="{{ asset('images/bo1.jpg') }}" alt=""></a>
-                        <div class="grid-product">
-                            <a href="#" class="elit">Consectetuer adipiscing</a>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit</p>
-                        </div>
-                        <div class="clearfix"> </div>
-                    </div>
-                    <div class="product-go">
-                        <a href="#" class="fashion"><img class="img-responsive " src="{{ asset('images/bo2.jpg') }}" alt=""></a>
-                        <div class="grid-product">
-                            <a href="#" class="elit">Consectetuer adipiscing</a>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit</p>
-                        </div>
-                        <div class="clearfix"> </div>
-                    </div>
+					{% endfor %}
+                    
+                    
+                    
                 </div>
 
             </div>
