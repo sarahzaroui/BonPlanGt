@@ -43,11 +43,11 @@ class AfterLoginRedirection implements AuthenticationSuccessHandlerInterface
 
         if (in_array('ROLE_ADMIN', $rolesTab, true)) {
             // c'est un aministrateur : on le rediriger vers l'espace admin
-            $redirection = new RedirectResponse($this->router->generate('bonplan_admin_template'));
+            $redirection = new RedirectResponse($this->router->generate('back_bon_plan_back_homepage'));
         }
         else if (in_array('ROLE_PRESTATAIRE', $rolesTab, true)) {
             // c'est un aministrateur : on le rediriger vers l'espace admin
-            $redirection = new RedirectResponse($this->router->generate('tf_user'));
+            $redirection = new RedirectResponse($this->router->generate('tf_user_homepage'));
         }
         else {
             // c'est un utilisaeur lambda : on le rediriger vers l'accueil

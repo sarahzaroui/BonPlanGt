@@ -1,3 +1,28 @@
 tf_user_homepage:
-    path:     /
+    path:     /home
     defaults: { _controller: tfUserBundle:Default:index }
+
+article_index:
+    path:     /listArticle
+    defaults: { _controller: "FrontBonPlanBundle:Article:index" }
+    methods:  GET
+
+article_show:
+    path:     /{idarticle}/showArticle
+    defaults: { _controller: "FrontBonPlanBundle:Article:show" }
+    methods:  GET
+
+article_new:
+    path:     /newArticle
+    defaults: { _controller: "FrontBonPlanBundle:Article:new" }
+    methods:  [GET, POST]
+
+article_edit:
+    path:     /{idarticle}/editCategorieArticle
+    defaults: { _controller: "FrontBonPlanBundle:Article:edit" }
+    methods:  [GET, POST]
+
+article_delete:
+    path:     /{idarticle}/deleteArticle
+    defaults: { _controller: "FrontBonPlanBundle:Article:delete" }
+    methods:  DELETE

@@ -1,9 +1,8 @@
-{% extends "BackBonPlanBackBundle::layout.html.twig" %}
+{% extends "tfUserBundle::prestataire.html.twig" %}
 {% block tilte %}
-    Administration Bon plan
+    Espace prestataire Bon plan
 {% endblock %}
 {% block container %}
-
 <section class="content">
                         <div class="row">
                             <div class="col-xs-12">
@@ -16,7 +15,7 @@
                     <table id="example2" class="table table-bordered table-hover">
         <tbody>
             <tr>
-                <th>Idarticle</th>
+                <th>Référence</th>
                 <td>{{ article.idarticle }}</td>
             </tr>
             <tr>
@@ -27,10 +26,7 @@
                 <th>Description</th>
                 <td>{{ article.description }}</td>
             </tr>
-            <tr>
-                <th>Imagename</th>
-                <td>{{ article.imagename }}</td>
-            </tr>
+
             <tr>
                 <th>Adresse</th>
                 <td>{{ article.adresse }}</td>
@@ -39,10 +35,7 @@
                 <th>Date</th>
                 <td>{% if article.date %}{{ article.date|date('Y-m-d H:i:s') }}{% endif %}</td>
             </tr>
-            <tr>
-                <th>Etat</th>
-                <td>{{ article.etat }}</td>
-            </tr>
+
         </tbody>
     </table>
                 </div>
@@ -53,14 +46,14 @@
 
     <ul>
         <li>
-            <a href="{{ path('article_index') }}">Back to the list</a>
+            <a href="{{ path('article_index') }}">Retour à la liste</a>
         </li>
         <li>
-            <a href="{{ path('article_edit', { 'idarticle': article.idarticle }) }}">Edit</a>
+            <a href="{{ path('article_edit', { 'idarticle': article.idarticle }) }}">Modifier</a>
         </li>
         <li>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+                <input class="btn btn-danger" type="submit" value="Supprimer">
             {{ form_end(delete_form) }}
         </li>
     </ul>

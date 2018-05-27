@@ -4,6 +4,9 @@ back_bon_plan_back_homepage:
 bonplan_admin_template:
     path:     /temp
     defaults: { _controller: BackBonPlanBackBundle:Default:index }
+bonplan_prestataire_template:
+    path:     /prestataire
+    defaults: { _controller: BackBonPlanBackBundle:Default:prestataire }
 
 front_bon_plan_categoriearticle:
         resource: "@FrontBonPlanBundle/Resources/config/routing/categoriearticle.yml"
@@ -13,6 +16,18 @@ front_bon_plan_categorieevenement:
         resource: "@FrontBonPlanBundle/Resources/config/routing/categorieevenement.yml"
         prefix:   /categorieevenement
 
+listarticles_admin:
+    path:     /listArticle
+    defaults: { _controller: "FrontBonPlanBundle:Article:indexAdmin" }
+    methods:  GET
+article_activer:
+    path:     /{idarticle}/activerArticle
+    defaults: { _controller: "FrontBonPlanBundle:Article:activer" }
+    methods:  [GET, POST]
+article_desactiver:
+    path:     /{idarticle}/desactiverArticle
+    defaults: { _controller: "FrontBonPlanBundle:Article:desactiver" }
+    methods:  [GET, POST]
 
 categorieevenement_index:
     path:     /listCategorieEvennement
@@ -63,28 +78,4 @@ categoriearticle_edit:
 categoriearticle_delete:
     path:     /{idcatart}/deleteCategorieArticle
     defaults: { _controller: "FrontBonPlanBundle:Categoriearticle:delete" }
-    methods:  DELETE
-article_index:
-    path:     /listArticle
-    defaults: { _controller: "FrontBonPlanBundle:Article:index" }
-    methods:  GET
-
-article_show:
-    path:     /{idarticle}/showArticle
-    defaults: { _controller: "FrontBonPlanBundle:Article:show" }
-    methods:  GET
-
-article_new:
-    path:     /newArticle
-    defaults: { _controller: "FrontBonPlanBundle:Article:new" }
-    methods:  [GET, POST]
-
-article_edit:
-    path:     /{idarticle}/editCategorieArticle
-    defaults: { _controller: "FrontBonPlanBundle:Article:edit" }
-    methods:  [GET, POST]
-
-article_delete:
-    path:     /{idarticle}/deleteArticle
-    defaults: { _controller: "FrontBonPlanBundle:Article:delete" }
     methods:  DELETE
