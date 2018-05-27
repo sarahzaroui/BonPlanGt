@@ -3,6 +3,7 @@
 namespace Front\BonPlanBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller
 {
@@ -20,14 +21,20 @@ class DefaultController extends Controller
     {
         return $this->render('FrontBonPlanBundle:Default:menu.html.twig');
     }
-    public function blogAction()
+    public function blogAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-
-        $articles = $em->getRepository('FrontBonPlanBundle:Article')->findAll();
+		
+         $gategories = $em->getRepository('FrontBonPlanBundle:Categoriearticle')->findAll();
+         $articles = $em->getRepository('FrontBonPlanBundle:Article')->findAllOrderedByDate();
+		 if($request->getMethod()=="POST")
+        {
+			 $p=$request->get('search');
+			$articles = $em->getRepository('FrontBonPlanBundle:Article')->findByName($p);
+		}
 
         return $this->render('FrontBonPlanBundle:Default:blog.html.twig', array(
-            'articles' => $articles,
+            'articles' => $articles,'categories' => $gategories,
         ));
     }
     public function singleAction($id)
@@ -58,5 +65,21 @@ class DefaultController extends Controller
     {
         return $this->render('FOSUserBundle:Registration:register.html.twig');
     }
+    public function articlesCategoryAction($id,Request $request)
+	{
+		
+		$em = $this->getDoctrine()->getManager();
+		$cat = $em->getRepository('FrontBonPlanBundle:Categoriearticle')->find($id);
+         $gategories = $em->getRepository('FrontBonPlanBundle:Categoriearticle')->findAll();
+         $articles = $em->getRepository('FrontBonPlanBundle:Article')->findBy(array('idcatart' => $cat,'etat'=>'publié'));
+		 if($request->getMethod()=="POST")
+        {
+			 $p=$request->get('search');
+			$articles = $em->getRepository('FrontBonPlanBundle:Article')->findByName($p);
+		}
 
+        return $this->render('FrontBonPlanBundle:Default:blog.html.twig', array(
+            'articles' => $articles,'categories' => $gategories,
+        ));
+	}
 }

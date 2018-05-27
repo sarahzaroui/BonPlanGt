@@ -34,8 +34,16 @@ class ArticleType extends AbstractType
                 'download_link' => true, // not mandatory, default is true
             ))
 
-            ->add('idcatart' )
-            ->add('idregion')
+            ->add('idcatart', EntityType::class,array (
+                'class'=>'FrontBonPlanBundle:Categoriearticle',
+                'choice_label'=>'nom' ,
+                'multiple'=>false
+    ) )
+            ->add('idregion', EntityType::class,array (
+                'class'=>'FrontBonPlanBundle:Region',
+                'choice_label'=>'nom' ,
+                'multiple'=>false
+            ) )
             ->add('iduser',HiddenType::class);
     }/**
      * {@inheritdoc}

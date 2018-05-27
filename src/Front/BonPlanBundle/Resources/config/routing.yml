@@ -14,6 +14,15 @@ front_bon_plan_categorieevenement:
         resource: "@FrontBonPlanBundle/Resources/config/routing/categorieevenement.yml"
         prefix:   /categorieevenement
 
+articles_search:
+    path:     /search
+    defaults: { _controller: FrontBonPlanBundle:Default:search }
+
+articles_categorie:
+    path:     /categorie/{id}
+    defaults: { _controller: FrontBonPlanBundle:Default:articlesCategory }
+
+
 
 
 front_bon_plan_homepage:
@@ -40,5 +49,6 @@ front_bon_plan_login:
 fos_user_registration_register:
     path:     /register
     defaults: { _controller: FOSUserBundle:Registration:register }
+
 
 
