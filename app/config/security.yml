@@ -20,7 +20,8 @@ security:
                 provider: fos_userbundle
                 success_handler: redirect.after.login
 
-            logout:       true
+            logout:
+                target: /login
             anonymous:    true
 
     access_control:

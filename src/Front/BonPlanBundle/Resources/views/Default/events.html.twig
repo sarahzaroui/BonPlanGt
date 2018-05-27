@@ -19,70 +19,23 @@
                         <a href="single.html"><img src="{{  asset('images/ev.jpg') }}" alt="" class="img-responsive"></a>
                     </div>
                     <div class="col-md-7 events-bottom2 animated wow fadeInLeft" data-wow-duration="1000ms" data-wow-delay="500ms">
-                        <h3>At vero eos et</h3>
+                        <h3>{{ event.nom }}</h3>
                         <label><i class="glyphicon glyphicon-menu-up"></i></label>
-                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
-                            There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
-                        </p>
+                        <p>{{ event.description }}</p>
+                        {% if is_granted('ROLE_USER') %}
                         <div class="read-more">
-                            <a class="link link-yaku" href="single.html">
-                                <span>R</span><span>e</span><span>a</span><span>d</span> <span>M</span><span>o</span><span>r</span><span>e</span>
+                            <a class="link link-yaku" href="{{ path('reserver_new',{'id': event.idev}) }}">
+                                <span>R</span><span>é</span><span>s</span><span>e</span><span>r</span><span>v</span><span>e</span><span>r</span>
                             </a>
                         </div>
-                    </div>
-                    <div class="clearfix"> </div>
-                </div>
-                <div class="events-bottom">
-                    <div class="col-md-7 events-bottom2 animated wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="500ms">
-                        <h3>At vero eos et</h3>
-                        <label><i class="glyphicon glyphicon-menu-up"></i></label>
-                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
-                            There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
-                        </p>
+
+                        {% else %}
                         <div class="read-more">
-                            <a class="link link-yaku" href="single.html">
-                                <span>R</span><span>e</span><span>a</span><span>d</span> <span>M</span><span>o</span><span>r</span><span>e</span>
+                            <a class="link link-yaku" href="{{ path('front_bon_plan_login') }}">
+                                Se Conneter Pour réserver
                             </a>
                         </div>
-                    </div>
-                    <div class="col-md-5 events-bottom1 animated wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="500ms">
-                        <a href="single.html"><img src="{{  asset('images/ev1.jpg') }}" alt="" class="img-responsive"></a>
-                    </div>
-                    <div class="clearfix"> </div>
-                </div>
-                <div class="events-bottom">
-                    <div class="col-md-5 events-bottom1 animated wow fadeInLeft" data-wow-duration="1000ms" data-wow-delay="500ms">
-                        <a href="single.html"><img src="{{  asset('images/ev2.jpg') }}" alt="" class="img-responsive"></a>
-                    </div>
-                    <div class="col-md-7 events-bottom2 animated wow fadeInRight" data-wow-duration="1000ms" data-wow-delay="500ms">
-                        <h3>At vero eos et</h3>
-                        <label><i class="glyphicon glyphicon-menu-up"></i></label>
-                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
-                            There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
-                        </p>
-                        <div class="read-more">
-                            <a class="link link-yaku" href="single.html">
-                                <span>R</span><span>e</span><span>a</span><span>d</span> <span>M</span><span>o</span><span>r</span><span>e</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="clearfix"> </div>
-                </div>
-                <div class="events-bottom">
-                    <div class="col-md-7 events-bottom2 animated wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="500ms">
-                        <h3>At vero eos et</h3>
-                        <label><i class="glyphicon glyphicon-menu-up"></i></label>
-                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
-                            There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
-                        </p>
-                        <div class="read-more">
-                            <a class="link link-yaku" href="single.html">
-                                <span>R</span><span>e</span><span>a</span><span>d</span> <span>M</span><span>o</span><span>r</span><span>e</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-5 events-bottom1 animated wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="500ms">
-                        <a href="single.html"><img src="{{  asset('images/ev3.jpg') }}" alt="" class="img-responsive"></a>
+                        {% endif %}
                     </div>
                     <div class="clearfix"> </div>
                 </div>

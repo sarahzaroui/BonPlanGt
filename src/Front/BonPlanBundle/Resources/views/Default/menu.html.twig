@@ -3,13 +3,12 @@
         <div class="menu">
         <div class="container">
             <div class="menu-top">
-                <div class="col-md-4 menu-left animated wow fadeInLeft" data-wow-duration="1000ms" data-wow-delay="500ms">
-                    <h3>Menu</h3>
+                <div class="col-md-8 menu-left animated wow fadeInLeft" data-wow-duration="1000ms" data-wow-delay="500ms">
+                    <h3>Liste des Evennements</h3>
                     <label><i class="glyphicon glyphicon-menu-up"></i></label>
-                    <span>There are many variations</span>
+                    <span>Actuellement sur les bon plans de Tunis</span>
                 </div>
                 <div class="col-md-8 menu-right animated wow fadeInRight" data-wow-duration="1000ms" data-wow-delay="500ms">
-                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour , or randomised words which don't look even slightly believable.There are many variations by injected humour. There are many variations of passages of Lorem Ipsum available.There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form by injected humour , or randomised words</p>
                 </div>
                 <div class="clearfix"> </div>
             </div>
@@ -17,11 +16,10 @@
                 {% for event in events %}
                 <div class="col-md-4 menu-bottom1">
                     <div class="btm-right">
-                        <a href="events.html">
+                        <a href="{{ path('front_bon_plan_events',{'id': event.idev}) }}">
                             <img src="{{  asset('images/me.jpg') }}" alt="" class="img-responsive">
                             <div class="captn">
-                                <h4>Lorem</h4>
-                                <p>$20.00</p>
+                                <h4>{{ event.nom }}</h4>
                             </div>
                         </a>
                     </div>

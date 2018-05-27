@@ -55,9 +55,16 @@ class DefaultController extends Controller
         ));
 
     }
-    public function eventsAction()
+    public function eventsAction($id)
     {
-        return $this->render('FrontBonPlanBundle:Default:events.html.twig');
+        $em = $this->getDoctrine()->getManager();
+
+        $event = $em->getRepository('FrontBonPlanBundle:Evennement')->find($id);
+
+
+        return $this->render('FrontBonPlanBundle:Default:events.html.twig', array(
+            'event' => $event,
+        ));
     }
     public function contactAction()
     {

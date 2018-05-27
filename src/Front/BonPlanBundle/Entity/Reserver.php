@@ -17,7 +17,7 @@ class Reserver
      *
      * @ORM\Column(name="idReservation", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $idreservation;
 
@@ -47,30 +47,7 @@ class Reserver
      * })
      */
     private $idev;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="Front\BonPlanBundle\Entity\Evennement")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="idReservation", referencedColumnName="idev")
-     * })
-     */
-    private $Evennement;
-
-    /**
-     * @return mixed
-     */
-    public function getEvennement()
-    {
-        return $this->Evennement;
-    }
-
-    /**
-     * @param mixed $Evennement
-     */
-    public function setEvennement($Evennement)
-    {
-        $this->Evennement = $Evennement;
-    }
+    
 
     /**
      * @return int
