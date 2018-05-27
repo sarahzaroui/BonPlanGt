@@ -232,7 +232,31 @@ class Evennement
      */
     private $idregion;
 
+    /**
+     * @var \Article
+     *
+     * @ORM\ManyToOne(targetEntity="Front\BonPlanBundle\Entity\Article")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idArticle", referencedColumnName="idArticle")
+     * })
+     */
+    private $idArticle;
 
+    /**
+     * @return \Article
+     */
+    public function getIdArticle()
+    {
+        return $this->idArticle;
+    }
+
+    /**
+     * @param \Article $idArticle
+     */
+    public function setIdArticle($idArticle)
+    {
+        $this->idArticle = $idArticle;
+    }
 
 
 }

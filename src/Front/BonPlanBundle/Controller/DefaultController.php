@@ -19,7 +19,13 @@ class DefaultController extends Controller
     }
     public function menuAction()
     {
-        return $this->render('FrontBonPlanBundle:Default:menu.html.twig');
+        $em = $this->getDoctrine()->getManager();
+
+        $events = $em->getRepository('FrontBonPlanBundle:Evennement')->findAll();
+
+        return $this->render('FrontBonPlanBundle:Default:menu.html.twig', array(
+            'events' => $events
+        ));
     }
     public function blogAction(Request $request)
     {

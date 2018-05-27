@@ -1,9 +1,22 @@
-{% extends "Front\BonPlanBundle::layout.html.twig" %}
-
+{% extends "tfUserBundle::prestataire.html.twig" %}
+{% block tilte %}
+    Espace prestataire Bon plan
+{% endblock %}
 {% block container %}
-    <h1>Evennements list</h1>
 
-    <table>
+<section class="content">
+    <a class="btn btn-success pull-right" href="{{ path('evennement_new') }}">Nouveau Evénnements</a>
+    <br>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Liste des Evénnements</h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <table id="example2" class="table table-bordered table-hover">
+
         <thead>
             <tr>
                 <th>Idev</th>

@@ -26,3 +26,28 @@ article_delete:
     path:     /{idarticle}/deleteArticle
     defaults: { _controller: "FrontBonPlanBundle:Article:delete" }
     methods:  DELETE
+
+evennement_index:
+    path:     /listEvenements
+    defaults: { _controller: "FrontBonPlanBundle:Evennement:index" }
+    methods:  GET
+
+evennement_show:
+    path:     /{idev}/showEvenements
+    defaults: { _controller: "FrontBonPlanBundle:Evennement:show" }
+    methods:  GET
+
+evennement_new:
+    path:     /newEvenements
+    defaults: { _controller: "FrontBonPlanBundle:Evennement:new" }
+    methods:  [GET, POST]
+
+evennement_edit:
+    path:     /{idev}/editEvenements
+    defaults: { _controller: "FrontBonPlanBundle:Evennement:edit" }
+    methods:  [GET, POST]
+
+evennement_delete:
+    path:     /{idev}/deleteEvenements
+    defaults: { _controller: "FrontBonPlanBundle:Evennement:delete" }
+    methods:  DELETE
