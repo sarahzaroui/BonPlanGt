@@ -17,6 +17,7 @@ class ReserverType extends AbstractType
     {
         $builder
             ->add('date')
+            ->add('nbrePlaces')
             ->add('iduser',HiddenType::class)
             ->add('idev',HiddenType::class);
     }/**

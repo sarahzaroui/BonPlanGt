@@ -57,6 +57,31 @@ class Evennement
     private $image;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="nbrePlaces", type="integer", length=254, nullable=false)
+     */
+    private $nbrePlacesEv;
+
+    /**
+     * @return string
+     */
+    public function getNbrePlacesEv()
+    {
+        return $this->nbrePlacesEv;
+    }
+
+    /**
+     * @param string $nbrePlacesEv
+     */
+    public function setNbrePlacesEv($nbrePlacesEv)
+    {
+        $this->nbrePlacesEv = $nbrePlacesEv;
+    }
+
+
+
+    /**
      * @return string
      */
     public function getImage()

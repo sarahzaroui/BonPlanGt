@@ -22,11 +22,34 @@ class Reserver
     private $idreservation;
 
     /**
+     * @return string
+     */
+    public function getNbrePlaces()
+    {
+        return $this->nbrePlaces;
+    }
+
+    /**
+     * @param string $nbrePlaces
+     */
+    public function setNbrePlaces($nbrePlaces)
+    {
+        $this->nbrePlaces = $nbrePlaces;
+    }
+
+    /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date", type="datetime", nullable=true)
+     * @ORM\Column(name="date", type="datetime", nullable=false)
      */
     private $date;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nbrePlaces", type="integer", length=254, nullable=false)
+     */
+    private $nbrePlaces;
 
     /**
      * @var \Client
@@ -47,7 +70,7 @@ class Reserver
      * })
      */
     private $idev;
-    
+
 
     /**
      * @return int
