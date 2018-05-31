@@ -28,6 +28,10 @@ article_desactiver:
     path:     /{idarticle}/desactiverArticle
     defaults: { _controller: "FrontBonPlanBundle:Article:desactiver" }
     methods:  [GET, POST]
+article_details:
+    path:     /{idarticle}/detailsArticle
+    defaults: { _controller: "FrontBonPlanBundle:Article:details" }
+    methods:  [GET, POST]
 
 categorieevenement_index:
     path:     /listCategorieEvennement

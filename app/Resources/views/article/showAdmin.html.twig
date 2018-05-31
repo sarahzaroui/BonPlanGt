@@ -1,0 +1,54 @@
+{% extends "BackBonPlanBackBundle::layout.html.twig" %}
+{% block tilte %}
+    Administration Bon plan
+{% endblock %}
+{% block container %}
+<section class="content">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="box">
+                                    <div class="box-header">
+                                        <h3 class="box-title">{{ article.titre }}</h3>
+                                    </div>
+                                    <!-- /.box-header -->
+                                    <div class="box-body">
+                    <table id="example2" class="table table-bordered table-hover">
+        <tbody>
+            <tr>
+                <th>Référence</th>
+                <td>{{ article.idarticle }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ article.titre }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ article.description }}</td>
+            </tr>
+
+            <tr>
+                <th>Adresse</th>
+                <td>{{ article.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{% if article.date %}{{ article.date|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+
+        </tbody>
+    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <ul>
+        <li>
+            <a href="{{ path('listarticles_admin') }}">Retour à la liste</a>
+        </li>
+
+    </ul>
+</section>
+{% endblock %}

@@ -2,6 +2,7 @@ front_bon_plan_evennement:
     resource: "@FrontBonPlanBundle/Resources/config/routing/evennement.yml"
     prefix:   /evennement
 
+
 front_bon_plan_reserver:
         resource: "@FrontBonPlanBundle/Resources/config/routing/reserver.yml"
         prefix:   /reserver

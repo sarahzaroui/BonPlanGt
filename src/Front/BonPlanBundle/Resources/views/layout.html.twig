@@ -74,6 +74,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     {% if is_granted('ROLE_PRESTATAIRE') %}
                         <li><a href="{{ path('tf_user_homepage') }}">Espace Prestataire</a></li>
                     {% endif %}
+                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+
+
+                        <li >
+                            <a href="{{ path('fos_user_profile_show') }}"><i class="fa fa-address-card-o"></i>  Profil</a>
+
+                        </li>
+                        <li >
+                            <a href="{{ path('fos_user_security_logout') }}"><i class="fa fa-sign-out"> </i>
+                                {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                            </a>
+                        </li>
+
+                    {% endif %}
                 </ul>
             </div>
 

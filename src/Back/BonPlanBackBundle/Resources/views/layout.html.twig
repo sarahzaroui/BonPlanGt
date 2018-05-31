@@ -90,10 +90,10 @@
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-left">
-                                    <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                    <a href="{{ path('fos_user_profile_show') }}" class="btn btn-default btn-flat">Profil</a>
                                 </div>
                                 <div class="pull-right">
-                                    <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                    <a href="{{ path('fos_user_security_logout') }}" class="btn btn-default btn-flat">Déconnexion</a>
                                 </div>
                             </li>
                         </ul>
@@ -134,7 +134,7 @@
                 </li>
 
                 <li>
-                    <a href="{{ path('article_index') }}">
+                    <a href="{{ path('listarticles_admin') }}">
                         <i class="fa fa-th"></i> <span>Articles</span>
                         <span class="pull-right-container">
 

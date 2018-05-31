@@ -5,13 +5,13 @@
 {% block container %}
 
 <section class="content">
-    <a class="btn btn-success pull-right" href="{{ path('article_new') }}">Nouveau lieux</a>
+    <a class="btn btn-success pull-right" href="{{ path('article_new') }}">Nouveau Plan</a>
     <br>
     <div class="row">
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
-                    <h3 class="box-title">Liste des lieux</h3>
+                    <h3 class="box-title">Liste des plans</h3>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
@@ -38,9 +38,9 @@
                 <td>{{ article.etat }}</td>
                 <td>
 
-                            <a class="btn btn-xs btn-info"  href="{{ path('article_show', { 'idarticle': article.idarticle }) }}">Voir</a>
+                            <a class="btn btn-xs btn-info" onclick="myFunction()"  href="{{ path('article_show', { 'idarticle': article.idarticle }) }}">Détails</a>
 
-                            <a class="btn btn-xs btn-success" href="{{ path('article_edit', { 'idarticle': article.idarticle }) }}">Modifier</a>
+                            <a class="btn btn-xs btn-success" onclick="myFunction()" href="{{ path('article_edit', { 'idarticle': article.idarticle }) }}">Modifier</a>
 
                 </td>
             </tr>
