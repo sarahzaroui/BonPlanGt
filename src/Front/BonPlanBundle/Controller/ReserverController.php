@@ -31,11 +31,21 @@ class ReserverController extends Controller
      * Creates a new reserver entity.
      *
      */
-    public function newAction(Request $request)
+    public function newAction(Request $request,$id)
     {
+        $em = $this->getDoctrine()->getManager();
+
+        $event = $em->getRepository('FrontBonPlanBundle:Evennement')->find($id);
+
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+
+        $user = $this->getUser();
+
         $reserver = new Reserver();
         $form = $this->createForm('Front\BonPlanBundle\Form\ReserverType', $reserver);
         $form->handleRequest($request);
+        $reserver->setIdev($event);
+        $reserver->setIduser($user);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();

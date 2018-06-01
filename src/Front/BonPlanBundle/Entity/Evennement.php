@@ -57,6 +57,31 @@ class Evennement
     private $image;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="nbrePlaces", type="integer", length=254, nullable=false)
+     */
+    private $nbrePlacesEv;
+
+    /**
+     * @return string
+     */
+    public function getNbrePlacesEv()
+    {
+        return $this->nbrePlacesEv;
+    }
+
+    /**
+     * @param string $nbrePlacesEv
+     */
+    public function setNbrePlacesEv($nbrePlacesEv)
+    {
+        $this->nbrePlacesEv = $nbrePlacesEv;
+    }
+
+
+
+    /**
      * @return string
      */
     public function getImage()
@@ -137,6 +162,8 @@ class Evennement
     {
         $this->dateexpiration = $dateexpiration;
     }
+
+
 
     /**
      * @return string
@@ -232,7 +259,31 @@ class Evennement
      */
     private $idregion;
 
+    /**
+     * @var \Article
+     *
+     * @ORM\ManyToOne(targetEntity="Front\BonPlanBundle\Entity\Article")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idArticle", referencedColumnName="idArticle")
+     * })
+     */
+    private $idArticle;
 
+    /**
+     * @return \Article
+     */
+    public function getIdArticle()
+    {
+        return $this->idArticle;
+    }
+
+    /**
+     * @param \Article $idArticle
+     */
+    public function setIdArticle($idArticle)
+    {
+        $this->idArticle = $idArticle;
+    }
 
 
 }

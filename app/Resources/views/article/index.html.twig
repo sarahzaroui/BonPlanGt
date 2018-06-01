@@ -1,19 +1,17 @@
-{% extends "BackBonPlanBackBundle::layout.html.twig" %}
+{% extends "tfUserBundle::prestataire.html.twig" %}
 {% block tilte %}
-    Administration Bon plan
+    Espace prestataire Bon plan
 {% endblock %}
 {% block container %}
 
-
-
-    <h1>Articles list</h1>
-
 <section class="content">
+    <a class="btn btn-success pull-right" href="{{ path('article_new') }}">Nouveau Plan</a>
+    <br>
     <div class="row">
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
-                    <h3 class="box-title">Hover Data Table</h3>
+                    <h3 class="box-title">Liste des plans</h3>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
@@ -23,7 +21,6 @@
                 <th>Idarticle</th>
                 <th>Titre</th>
 
-                <th>Imagename</th>
                 <th>Adresse</th>
                 <th>Date</th>
                 <th>Etat</th>
@@ -36,19 +33,15 @@
                 <td><a href="{{ path('article_show', { 'idarticle': article.idarticle }) }}">{{ article.idarticle }}</a></td>
                 <td>{{ article.titre }}</td>
 
-                <td>{{ article.imagename }}</td>
                 <td>{{ article.adresse }}</td>
                 <td>{% if article.date %}{{ article.date|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{{ article.etat }}</td>
                 <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('article_show', { 'idarticle': article.idarticle }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('article_edit', { 'idarticle': article.idarticle }) }}">edit</a>
-                        </li>
-                    </ul>
+
+                            <a class="btn btn-xs btn-info" onclick="myFunction()"  href="{{ path('article_show', { 'idarticle': article.idarticle }) }}">Détails</a>
+
+                            <a class="btn btn-xs btn-success" onclick="myFunction()" href="{{ path('article_edit', { 'idarticle': article.idarticle }) }}">Modifier</a>
+
                 </td>
             </tr>
         {% endfor %}
@@ -60,10 +53,5 @@
     </div>
 </section>
 
-    <ul>
-        <li>
-            <a href="{{ path('article_new') }}">Create a new article</a>
-        </li>
-    </ul>
 
 {% endblock %}

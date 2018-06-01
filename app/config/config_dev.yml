@@ -6,7 +6,6 @@ framework:
         resource: '%kernel.project_dir%/app/config/routing_dev.yml'
         strict_requirements: true
     profiler: { only_exceptions: false }
-
 web_profiler:
     toolbar: true
     intercept_redirects: false
@@ -39,3 +38,7 @@ monolog:
 
 #swiftmailer:
 #    delivery_addresses: ['me@example.com']
+swiftmailer:
+    transport: "%mailer_transport%"
+    username: "%mailer_user%"
+    password: "%mailer_password%"

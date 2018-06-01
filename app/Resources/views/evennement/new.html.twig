@@ -1,7 +1,18 @@
-{% extends "Front\BonPlanBundle::layout.html.twig" %}
-
+{% extends "tfUserBundle::prestataire.html.twig" %}
+{% block tilte %}
+    Espace prestataire Bon plan
+{% endblock %}
 {% block container %}
-    <h1>Evennement creation</h1>
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">{{ evennement.nom }}</h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+    <h1>Nouveau Evénement</h1>
 
     {{ form_start(form) }}
         {{ form_widget(form) }}

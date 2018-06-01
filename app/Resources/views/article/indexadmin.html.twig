@@ -1,0 +1,59 @@
+{% extends "BackBonPlanBackBundle::layout.html.twig" %}
+{% block tilte %}
+    Administration Bon plan
+{% endblock %}
+{% block container %}
+
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title">Liste des plans</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <table id="example2" class="table table-bordered table-hover">
+                            <thead>
+                            <tr>
+                                <th>Référence</th>
+                                <th>Titre</th>
+
+
+                                <th>Adresse</th>
+                                <th>Date</th>
+                                <th>Etat</th>
+                                <th>Actions</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for article in articles %}
+                                <tr>
+                                    <td><a href="{{ path('article_show', { 'idarticle': article.idarticle }) }}">{{ article.idarticle }}</a></td>
+                                    <td>{{ article.titre }}</td>
+
+
+                                    <td>{{ article.adresse }}</td>
+                                    <td>{% if article.date %}{{ article.date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                    <td>{{ article.etat }}</td>
+                                    <td>
+
+
+                                                <a class="btn btn-xs btn-danger" onclick="return confirm('êtes vous sure de vouloir publier ce plan?')" href="{{ path('article_desactiver', { 'idarticle': article.idarticle }) }}">supprimer</a>
+
+                                                <a class="btn btn-xs btn-success" onclick="return confirm('êtes vous sure de vouloir supprimer ce plan?')" href="{{ path('article_activer', { 'idarticle': article.idarticle }) }}">publier</a>
+                                        <a class="btn btn-xs btn-info"  href="{{ path('article_details', { 'idarticle': article.idarticle }) }}">Détails</a>
+
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+{% endblock %}

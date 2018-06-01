@@ -6,6 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class EvennementType extends AbstractType
 {
@@ -21,7 +22,12 @@ class EvennementType extends AbstractType
             ->add('description')
             ->add('idcatev',HiddenType::class)
             ->add('iduser',HiddenType::class)
-            ->add('idregion',HiddenType::class);
+            ->add('idregion',HiddenType::class)
+            ->add('idArticle',EntityType::class,array(
+                'class'=>'FrontBonPlanBundle:Article',
+                'choice_label'=>'titre',
+                'multiple'=>false));
+
     }/**
      * {@inheritdoc}
      */

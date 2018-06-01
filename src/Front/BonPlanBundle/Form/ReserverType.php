@@ -16,12 +16,8 @@ class ReserverType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('Evennement',EntityType::class,array(
-                'class'=>'FrontBonPlanBundle:Evennement',
-                'choice_label'=>'nom',
-                'multiple'=>false))
-            ->add('idreservation',HiddenType::class)
             ->add('date')
+            ->add('nbrePlaces')
             ->add('iduser',HiddenType::class)
             ->add('idev',HiddenType::class);
     }/**

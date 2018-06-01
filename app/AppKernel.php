@@ -25,6 +25,7 @@ class AppKernel extends Kernel
             new FOS\CommentBundle\FOSCommentBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle($this),
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
+            new ApiBundle\ApiBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

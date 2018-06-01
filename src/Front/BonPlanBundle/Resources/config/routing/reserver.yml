@@ -4,21 +4,21 @@ reserver_index:
     methods:  GET
 
 reserver_show:
-    path:     /{idreservation}/show
+    path:     /{idreservation}/showReservation
     defaults: { _controller: "FrontBonPlanBundle:Reserver:show" }
     methods:  GET
 
 reserver_new:
-    path:     /new
+    path:     /newReservation
     defaults: { _controller: "FrontBonPlanBundle:Reserver:new" }
     methods:  [GET, POST]
 
 reserver_edit:
-    path:     /{idreservation}/edit
+    path:     /{idreservation}/editReservation
     defaults: { _controller: "FrontBonPlanBundle:Reserver:edit" }
     methods:  [GET, POST]
 
 reserver_delete:
-    path:     /{idreservation}/delete
+    path:     /{idreservation}/deleteReservation
     defaults: { _controller: "FrontBonPlanBundle:Reserver:delete" }
     methods:  DELETE

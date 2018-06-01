@@ -1,5 +1,24 @@
-{% extends "@FOSUser/layout.html.twig" %}
+{% extends "Front\BonPlanBundle::layout.html.twig" %}
 
-{% block fos_user_content %}
+{% block container %}
+    <div class="container">
+<br><br><br>
+<div class="row">
+    <div class="col-md-6">
+        <h3>Mon profil : </h3>
+    </div>
+    <div class="col-md-2">
+       <a href="{{ path('fos_user_profile_edit') }}" class="btn btn-info" > Modifier mon compte</a>
+    </div>
+
+</div>
+<div class="row">
+
+
 {% include "@FOSUser/Profile/show_content.html.twig" %}
-{% endblock fos_user_content %}
+    <br>
+
+    <br><br><br><br>
+    </div>
+    </div>
+{% endblock container %}

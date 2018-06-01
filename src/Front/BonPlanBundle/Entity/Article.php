@@ -3,12 +3,14 @@
 namespace Front\BonPlanBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 /**
  * Article
  *
  * @ORM\Table(name="Article")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Front\BonPlanBundle\Repository\ArticleRepository")
+ * @Vich\Uploadable
  */
 class Article
 {
@@ -35,11 +37,27 @@ class Article
      */
     private $description;
     /**
+     * NOTE: This is not a mapped field of entity metadata, just a simple property.
+     *
+     * @Vich\UploadableField(mapping="product_image", fileNameProperty="imageName")
+     *
+     * @var File
+     */
+    private $imageFile;
+
+    /**
      * @var string
      *
-     * @ORM\Column(name="imagename", type="string", length=500, nullable=true)
+     * @ORM\Column(name="image_name", type="string", length=255, nullable=true)
      */
-    private $imagename;
+    private $imageName;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="update_at", type="datetime",nullable=true)
+     */
+    private $updateAt;
 
     /**
      * @var string
@@ -61,7 +79,7 @@ class Article
      *
      * @ORM\Column(name="etat", type="string", length=254, nullable=true)
      */
-    private $etat;
+    private $etat = "en attente";
 
     /**
      * @var \Categoriearticle
@@ -141,21 +159,7 @@ class Article
         $this->description = $description;
     }
 
-    /**
-     * @return string
-     */
-    public function getImagename()
-    {
-        return $this->imagename;
-    }
 
-    /**
-     * @param string $imagename
-     */
-    public function setImagename($imagename)
-    {
-        $this->imagename = $imagename;
-    }
 
     /**
      * @return string
@@ -253,7 +257,70 @@ class Article
         $this->iduser = $iduser;
     }
 
+    public function setImageFile(File $image = null)
+    {
+        $this->imageFile = $image;
+        if ($image) {
+            $this->updatedAt = new \DateTime('now');
+        }
+        return $this;
+    }
 
+    /**
+     * @return File|null
+     */
+    public function getImageFile()
+    {
+        return $this->imageFile;
+    }
+
+    /**
+     * Set imageName
+     *
+     * @param string $imageName
+     *
+     * @return Product
+     */
+    public function setImageName($imageName)
+    {
+        $this->imageName = $imageName;
+
+        return $this;
+    }
+
+    /**
+     * Get imageName
+     *
+     * @return string
+     */
+    public function getImageName()
+    {
+        return $this->imageName;
+    }
+
+    /**
+     * Set updateAt
+     *
+     * @param \DateTime $updateAt
+     *
+     * @return Product
+     */
+    public function setUpdateAt($updateAt)
+    {
+        $this->updateAt = $updateAt;
+
+        return $this;
+    }
+
+    /**
+     * Get updateAt
+     *
+     * @return \DateTime
+     */
+    public function getUpdateAt()
+    {
+        return $this->updateAt;
+    }
 
 }
 

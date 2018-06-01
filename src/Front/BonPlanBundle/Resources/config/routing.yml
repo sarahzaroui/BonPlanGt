@@ -2,6 +2,7 @@ front_bon_plan_evennement:
     resource: "@FrontBonPlanBundle/Resources/config/routing/evennement.yml"
     prefix:   /evennement
 
+
 front_bon_plan_reserver:
         resource: "@FrontBonPlanBundle/Resources/config/routing/reserver.yml"
         prefix:   /reserver
@@ -13,6 +14,15 @@ front_bon_plan_categoriearticle:
 front_bon_plan_categorieevenement:
         resource: "@FrontBonPlanBundle/Resources/config/routing/categorieevenement.yml"
         prefix:   /categorieevenement
+
+articles_search:
+    path:     /search
+    defaults: { _controller: FrontBonPlanBundle:Default:search }
+
+articles_categorie:
+    path:     /categorie/{id}
+    defaults: { _controller: FrontBonPlanBundle:Default:articlesCategory }
+
 
 
 
@@ -29,16 +39,45 @@ front_bon_plan_single:
     path:     /single/{id}
     defaults: { _controller: FrontBonPlanBundle:Default:single }
 front_bon_plan_events:
-    path:     /events
+    path:     /events/{id}
     defaults: { _controller: FrontBonPlanBundle:Default:events }
 front_bon_plan_contact:
     path:     /contact
-    defaults: { _controller: FrontBonPlanBundle:Default:contact }
+    defaults: { _controller: FrontBonPlanBundle:Contact:index }
+front_bon_plan_success:
+    path:     /success
+    defaults: { _controller: FrontBonPlanBundle:Contact:success }
 front_bon_plan_login:
     path:     /login
     defaults: { _controller: FOSUserBundle:Security:login }
 fos_user_registration_register:
     path:     /register
     defaults: { _controller: FOSUserBundle:Registration:register }
+
+reserver_index:
+    path:     /
+    defaults: { _controller: "FrontBonPlanBundle:Reserver:index" }
+    methods:  GET
+
+reserver_show:
+    path:     /{idreservation}/showReservation
+    defaults: { _controller: "FrontBonPlanBundle:Reserver:show" }
+    methods:  GET
+
+reserver_new:
+    path:     /newReservation/{id}
+    defaults: { _controller: "FrontBonPlanBundle:Reserver:new" }
+    methods:  [GET, POST]
+
+reserver_edit:
+    path:     /{idreservation}/editReservation
+    defaults: { _controller: "FrontBonPlanBundle:Reserver:edit" }
+    methods:  [GET, POST]
+
+reserver_delete:
+    path:     /{idreservation}/deleteReservation
+    defaults: { _controller: "FrontBonPlanBundle:Reserver:delete" }
+    methods:  DELETE
+
 
 

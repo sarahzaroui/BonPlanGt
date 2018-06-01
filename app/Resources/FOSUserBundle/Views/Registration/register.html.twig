@@ -1,6 +1,24 @@
 {% extends "Front\BonPlanBundle::layout.html.twig" %}
 {% block container %}
 {% block fos_user_content %}
+<style>
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+</style>
+<div class="container">
+<br><br><br>
+<h3 class="text-center"><img src="{{  asset('images/bonplanblack.png') }}" alt=""></h3>
+<h3 class="text-center">S'inscrire maintenant</h3>
+<h5 class="text-center">C'est gratuit</h5>
+<br><br><br>
+<div class="row">
+<div class="col-md-4 col-md-offset-4">
 {% include "@FOSUser/Registration/register_content.html.twig" %}
+</div>
+</div>
+<br><br><br><br>
+</div>
 {% endblock fos_user_content %}
 {% endblock %}

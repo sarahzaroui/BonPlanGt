@@ -1,6 +1,6 @@
-{% extends "BackBonPlanBackBundle::layout.html.twig" %}
+{% extends "tfUserBundle::prestataire.html.twig" %}
 {% block tilte %}
-    Administration Bon plan
+    Espace prestataire Bon plan
 {% endblock %}
 {% block container %}
 
@@ -13,16 +13,16 @@
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
-    <h1>Ajouter un lieux</h1>
+    <h3>Nouveau lieux</h3>
 
     {{ form_start(form) }}
         {{ form_widget(form) }}
-        <input type="submit" class="btn btn-success" value="Valider" />
+        <input type="submit" class="btn btn-success pull-right" value="Valider" />
     {{ form_end(form) }}
 
     <ul>
         <li>
-            <a href="{{ path('article_index') }}">Back to the list</a>
+            <a href="{{ path('article_index') }}">Retour à la liste</a>
         </li>
     </ul>
                 </div>
