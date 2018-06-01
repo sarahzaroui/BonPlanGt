@@ -1,6 +1,7 @@
 <?php
 
 namespace Front\BonPlanBundle\Entity;
+use FOS\CommentBundle\Entity\Comment as BaseComment;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -9,17 +10,18 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="Commentaire")
  * @ORM\Entity
+ * @ORM\ChangeTrackingPolicy("DEFERRED_EXPLICIT")
  */
-class Commentaire
+class Commentaire extends BaseComment
 {
     /**
      * @var integer
      *
-     * @ORM\Column(name="idCommentaire", type="integer", nullable=false)
+     * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $idcommentaire;
+    protected $id;
 
     /**
      * @var string
@@ -57,6 +59,30 @@ class Commentaire
      * })
      */
     private $idev;
+    /**
+     * Thread of this comment
+     *
+     * @var Thread
+     * @ORM\ManyToOne(targetEntity="Front\BonPlanBundle\Entity\Thread")
+     */
+    protected $thread;
+
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param int $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
 
 
 }

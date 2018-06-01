@@ -66,4 +66,11 @@
         </div>
     </div>
     <!-- /.container -->
+<div class="container">
+    {%  block commentaire %}
+
+        {% include '@FOSComment/Thread/async.html.twig' with {'id': 'foo'} %}
+    {%  endblock %}
+</div>
+
 {% endblock %}

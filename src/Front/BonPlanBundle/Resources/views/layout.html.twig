@@ -12,6 +12,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="{{ asset('js/jquery.min.js') }}"></script>
     <!-- Custom Theme files -->
+    <!-- CSS -->
+    {% stylesheets '@FOSCommentBundle/Resources/public/css/comments.css' %}
+    <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+    {% endstylesheets %}
     <!--theme-style-->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css" media="all" />
     <!--//theme-style-->
@@ -44,6 +48,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         new WOW().init();
     </script>
     <!-- //animation-effect -->
+    <script>
+        console.log('test');
+    </script>
 
 
 </head>
@@ -85,7 +92,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </div>
 <!--content-->
 {% block container %}
+
 {% endblock %}
+{%  block commentaire %}
+{%  endblock %}
 <!--footer-->
 <div class="footer">
     <div class="container">

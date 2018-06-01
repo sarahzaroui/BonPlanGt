@@ -85,9 +85,19 @@ fos_user:
         address: "noreply@yourcompany.com"
         sender_name: "No Reply"
 
+
 vich_uploader:
     db_driver: orm
     mappings:
         product_images:
             uri_prefix:         '%app.path.product_images%'
             upload_destination: '%kernel.root_dir%/../web/uploads'
+fos_comment:
+    db_driver: orm
+    class:
+        model:
+            comment: Front\BonPlanBundle\Entity\Commentaire
+            thread: Front\BonPlanBundle\Entity\Thread
+assetic:
+    bundles: [ "FrontBonPlanBundle" ]
+
