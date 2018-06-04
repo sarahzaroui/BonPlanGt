@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Publicitearticle</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ publiciteArticle.id }}</td>
+            </tr>
+            <tr>
+                <th>Etat</th>
+                <td>{{ publiciteArticle.etat }}</td>
+            </tr>
+            <tr>
+                <th>Datepublication</th>
+                <td>{% if publiciteArticle.datepublication %}{{ publiciteArticle.datepublication|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Dateeffet</th>
+                <td>{% if publiciteArticle.dateeffet %}{{ publiciteArticle.dateeffet|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Dateexpiration</th>
+                <td>{% if publiciteArticle.dateexpiration %}{{ publiciteArticle.dateexpiration|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Imagename</th>
+                <td>{{ publiciteArticle.imageName }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('publicitearticle_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('publicitearticle_edit', { 'id': publiciteArticle.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
