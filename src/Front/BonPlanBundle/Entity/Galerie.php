@@ -55,6 +55,14 @@ class Galerie
      */
     private $idev;
 
-
+   /**
+     * @var \Produit
+     *
+     * @ORM\ManyToOne(targetEntity="Produit")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_produit", referencedColumnName="id_produit")
+     * })
+     */
+    private $id_produit;
 }
 

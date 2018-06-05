@@ -7,7 +7,7 @@
  */
 
 namespace Front\BonPlanBundle\Entity;
-use doctrine\ORM as ORM;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Produit
@@ -52,7 +52,7 @@ class Produit
     /**
      * @var float
      *
-     * @ORM\Column(name="qte_dispo", type="float", nullable=true)
+     * @ORM\Column(name="prix", type="float", nullable=true)
      */
     private $prix;
 
@@ -66,7 +66,7 @@ class Produit
     /**
      * @var string
      *
-     * @ORM\Column(name="nom_pdt", type="string", length=254, nullable=true)
+     * @ORM\Column(name="adresse", type="string", length=254, nullable=true)
      */
     private $adresse;
 
