@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Publicitearticles list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Etat</th>
+                <th>Datepublication</th>
+                <th>Dateeffet</th>
+                <th>Dateexpiration</th>
+                <th>Imagename</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for publiciteArticle in publiciteArticles %}
+            <tr>
+                <td><a href="{{ path('publicitearticle_show', { 'id': publiciteArticle.id }) }}">{{ publiciteArticle.id }}</a></td>
+                <td>{{ publiciteArticle.etat }}</td>
+                <td>{% if publiciteArticle.datepublication %}{{ publiciteArticle.datepublication|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if publiciteArticle.dateeffet %}{{ publiciteArticle.dateeffet|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if publiciteArticle.dateexpiration %}{{ publiciteArticle.dateexpiration|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ publiciteArticle.imageName }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('publicitearticle_show', { 'id': publiciteArticle.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('publicitearticle_edit', { 'id': publiciteArticle.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('publicitearticle_new') }}">Create a new publiciteArticle</a>
+        </li>
+    </ul>
+{% endblock %}
