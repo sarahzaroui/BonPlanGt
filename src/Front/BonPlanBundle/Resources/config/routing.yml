@@ -53,6 +53,10 @@ front_bon_plan_login:
 fos_user_registration_register:
     path:     /register
     defaults: { _controller: FOSUserBundle:Registration:register }
+rating:
+    path:     /rating
+    defaults: { _controller: FrontBonPlanBundle:Default:rating }
+
 
 reserver_index:
     path:     /

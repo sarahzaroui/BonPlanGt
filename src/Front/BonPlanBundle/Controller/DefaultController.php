@@ -27,6 +27,14 @@ class DefaultController extends Controller
             'events' => $events
         ));
     }
+    public function ratingAction()
+    {
+        $form = $this->createForm('Front\BonPlanBundle\Form\RatingType');
+
+        return $this->render('FrontBonPlanBundle:Default:rating.html.twig', array(
+            'formrating' => $form->createView()
+        ));
+    }
     public function blogAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();

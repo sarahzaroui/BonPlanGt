@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/BonPlanGt.iml" filepath="$PROJECT_DIR$/.idea/BonPlanGt.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/BonPlanGtVtest.iml" filepath="$PROJECT_DIR$/.idea/BonPlanGtVtest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/BonPlanProject.iml" filepath="$PROJECT_DIR$/.idea/BonPlanProject.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/bonplanGT6.iml" filepath="$PROJECT_DIR$/.idea/bonplanGT6.iml" />
     </modules>
   </component>
