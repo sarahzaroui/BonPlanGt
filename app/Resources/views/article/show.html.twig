@@ -44,18 +44,23 @@
     </div>
 
 
-    <ul>
-        <li>
-            <a href="{{ path('article_index') }}">Retour à la liste</a>
-        </li>
-        <li>
-            <a href="{{ path('article_edit', { 'idarticle': article.idarticle }) }}">Modifier</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input class="btn btn-danger" type="submit" value="Supprimer">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+<div class="row">
+    <div class="col-md-6">
+            <a href="{{ path('article_index') }}" class="btn btn-info">Retour à la liste</a>
+
+            <a href="{{ path('article_edit', { 'idarticle': article.idarticle }) }}" class="btn btn-warning">Modifier</a>
+
+
+
+    <a href="{{ path('article_index') }}" class="btn btn-danger">Supprimer</a>
+    </div>
+    <div class="col-md-6">
+        <div class="pull-right">
+            <a href="{{ path('article_edit', { 'idarticle': article.idarticle }) }}" class="btn btn-success">Mettre en avant</a>
+        </div>
+    </div>
+
+</div>
+
 </section>
 {% endblock %}

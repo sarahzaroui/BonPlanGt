@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Publicites list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Idpublicite</th>
+                <th>Libelle</th>
+                <th>Type</th>
+                <th>Duree</th>
+                <th>Tarif</th>
+                <th>Etat</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for publicite in publicites %}
+            <tr>
+                <td><a href="{{ path('publicite_show', { 'idpublicite': publicite.idpublicite }) }}">{{ publicite.idpublicite }}</a></td>
+                <td>{{ publicite.libelle }}</td>
+                <td>{{ publicite.type }}</td>
+                <td>{{ publicite.duree }}</td>
+                <td>{{ publicite.tarif }}</td>
+                <td>{{ publicite.etat }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('publicite_show', { 'idpublicite': publicite.idpublicite }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('publicite_edit', { 'idpublicite': publicite.idpublicite }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('publicite_new') }}">Create a new publicite</a>
+        </li>
+    </ul>
+{% endblock %}
