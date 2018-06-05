@@ -7,7 +7,7 @@
  */
 
 namespace Front\BonPlanBundle\Entity;
-use doctrine\ORM as ORM;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Commande
