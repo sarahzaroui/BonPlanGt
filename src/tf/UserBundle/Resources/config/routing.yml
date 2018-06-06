@@ -51,3 +51,28 @@ evennement_delete:
     path:     /{idev}/deleteEvenements
     defaults: { _controller: "FrontBonPlanBundle:Evennement:delete" }
     methods:  DELETE
+
+publicitearticle_index:
+    path:     /
+    defaults: { _controller: "FrontBonPlanBundle:PubliciteArticle:index" }
+    methods:  GET
+
+publicitearticle_show:
+    path:     /{id}/show
+    defaults: { _controller: "FrontBonPlanBundle:PubliciteArticle:show" }
+    methods:  GET
+
+publicitearticle_new:
+    path:     /{id}/new
+    defaults: { _controller: "FrontBonPlanBundle:PubliciteArticle:new" }
+    methods:  [GET, POST]
+
+publicitearticle_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "FrontBonPlanBundle:PubliciteArticle:edit" }
+    methods:  [GET, POST]
+
+publicitearticle_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "FrontBonPlanBundle:PubliciteArticle:delete" }
+    methods:  DELETE

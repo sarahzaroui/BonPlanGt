@@ -3,6 +3,7 @@
 namespace Front\BonPlanBundle\Controller;
 
 use Front\BonPlanBundle\Entity\PubliciteArticle;
+use Front\BonPlanBundle\Entity\Article;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -33,16 +34,20 @@ class PubliciteArticleController extends Controller
      */
     public function newAction(Request $request)
     {
+        $id = $request->get('id');
+        $em = $this->getDoctrine()->getManager();
+        $article = $em->getRepository('FrontBonPlanBundle:Article')->find($id);
         $publiciteArticle = new Publicitearticle();
         $form = $this->createForm('Front\BonPlanBundle\Form\PubliciteArticleType', $publiciteArticle);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $publiciteArticle->setArticle($article);
             $em->persist($publiciteArticle);
             $em->flush();
 
-            return $this->redirectToRoute('publicitearticle_show', array('id' => $publiciteArticle->getId()));
+            return $this->redirectToRoute('article_show', array('idarticle' => $id));
         }
 
         return $this->render('publicitearticle/new.html.twig', array(
