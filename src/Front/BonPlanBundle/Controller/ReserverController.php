@@ -2,7 +2,9 @@
 
 namespace Front\BonPlanBundle\Controller;
 
+use Front\BonPlanBundle\Entity\Evennement;
 use Front\BonPlanBundle\Entity\Reserver;
+use Front\BonPlanBundle\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -67,11 +69,16 @@ class ReserverController extends Controller
      */
     public function showAction(Reserver $reserver)
     {
-        $deleteForm = $this->createDeleteForm($reserver);
+        $evennement = new Evennement();
+        $evennement = $reserver->getIdev();
+        $user = new User();
+        $user = $reserver ->getIduser();
+
 
         return $this->render('reserver/show.html.twig', array(
             'reserver' => $reserver,
-            'delete_form' => $deleteForm->createView(),
+            'user' => $user,
+            'evenement' => $evennement,
         ));
     }
 

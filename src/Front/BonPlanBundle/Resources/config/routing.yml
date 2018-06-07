@@ -29,6 +29,9 @@ articles_categorie:
 front_bon_plan_homepage:
     path:     /index
     defaults: { _controller: FrontBonPlanBundle:Default:index }
+front_bon_plan_user:
+    path:     /user
+    defaults: { _controller: FrontBonPlanBundle:User:user }
 front_bon_plan_menu:
     path:     /menu
     defaults: { _controller: FrontBonPlanBundle:Default:menu }

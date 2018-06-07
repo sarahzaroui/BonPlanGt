@@ -1,27 +1,14 @@
-{% extends "tfUserBundle::prestataire.html.twig" %}
-{% block tilte %}
-    Espace prestataire Bon plan
-{% endblock %}
+{% extends "Front\BonPlanBundle::layout.html.twig" %}
 {% block container %}
 
-<section class="content">
 
-    <br>
-    <div class="row">
-        <div class="col-xs-12">
-            <div class="box">
-                <div class="box-header">
-                    <h3 class="box-title">Liste des Réservations</h3>
-                </div>
-                <!-- /.box-header -->
-                <div class="box-body">
-                    <table id="example2" class="table table-bordered table-hover">
+    <table id="example2" class="table table-bordered table-hover">
         <thead>
-            <tr>
-                <th>Idreservation</th>
-                <th>Date</th>
-                <th>Actions</th>
-            </tr>
+        <tr>
+            <th>Idreservation</th>
+            <th>Date</th>
+            <th>Actions</th>
+        </tr>
         </thead>
         <tbody>
         {% for reserver in reservers %}

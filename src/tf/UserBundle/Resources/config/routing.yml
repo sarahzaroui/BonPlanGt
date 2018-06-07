@@ -76,3 +76,30 @@ publicitearticle_delete:
     path:     /{id}/delete
     defaults: { _controller: "FrontBonPlanBundle:PubliciteArticle:delete" }
     methods:  DELETE
+
+
+reserver_index:
+    path:     /
+    defaults: { _controller: "FrontBonPlanBundle:Reserver:index" }
+    methods:  GET
+
+reserver_show:
+    path:     /{idreservation}/showReservation
+    defaults: { _controller: "FrontBonPlanBundle:Reserver:show" }
+    methods:  GET
+
+reserver_new:
+    path:     /newReservation/{id}
+    defaults: { _controller: "FrontBonPlanBundle:Reserver:new" }
+    methods:  [GET, POST]
+
+reserver_edit:
+    path:     /{idreservation}/editReservation
+    defaults: { _controller: "FrontBonPlanBundle:Reserver:edit" }
+    methods:  [GET, POST]
+
+reserver_delete:
+    path:     /{idreservation}/deleteReservation
+    defaults: { _controller: "FrontBonPlanBundle:Reserver:delete" }
+    methods:  DELETE
+

@@ -1,32 +1,39 @@
-{% extends "Front\BonPlanBundle::layout.html.twig" %}
-
+{% extends "tfUserBundle::prestataire.html.twig" %}
+{% block tilte %}
+    Espace prestataire Bon plan
+{% endblock %}
 {% block container %}
-    <h1>Reserver</h1>
 
-    <table>
+<section class="content">
+    <a class="btn btn-success pull-right" href="{{ path('evennement_new') }}">Nouvelle Réservation</a>
+    <br>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Liste des Réservations</h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <table id="example2" class="table table-bordered table-hover">
         <tbody>
             <tr>
-                <th>Idreservation</th>
-                <td>{{ reserver.idreservation }}</td>
+                <th>Numéro de Réservation : {{ reserver.idreservation }} </th>
             </tr>
             <tr>
                 <th>Date</th>
                 <td>{% if reserver.date %}{{ reserver.date|date('Y-m-d H:i:s') }}{% endif %}</td>
             </tr>
+            <tr>
+                <th>Nombre de Places Réservés : {{ reserver.nbrePlaces }}</th>
+            </tr>
+            <tr>
+                <th>Utilisateur : {{ user.first_name }}</th>
+            </tr>
+            <tr>
+                <th>Evénement : {{ evenement.nom }}</th>
+            </tr>
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('reserver_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('reserver_edit', { 'idreservation': reserver.idreservation }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
 {% endblock %}

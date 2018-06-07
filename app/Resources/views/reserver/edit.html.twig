@@ -1,7 +1,7 @@
 {% extends "Front\BonPlanBundle::layout.html.twig" %}
 
 {% block container %}
-    <h1>Reserver edit</h1>
+    <h1>Modifier une réservation</h1>
 
     {{ form_start(edit_form) }}
         {{ form_widget(edit_form) }}
@@ -10,7 +10,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('reserver_index') }}">Back to the list</a>
+            <a href="{{ path('reserver_index') }}">Retourner à la liste des évenements</a>
         </li>
         <li>
             {{ form_start(delete_form) }}
