@@ -1,16 +1,39 @@
-{% extends 'base.html.twig' %}
+{% extends "tfUserBundle::prestataire.html.twig" %}
+{% block tilte %}
+    Espace prestataire Bon plan
+{% endblock %}
+{% block container %}
 
-{% block body %}
-    <h1>Publicitearticle creation</h1>
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Mettre en avant ce plan</h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
 
+<p>Ajouter le justificatif de paiement, et choisir le pack de publicité  </p>
+    <p>Cette demande sera traité par l'administrateur dans un délai de 3-4 jours</p>
+    <hr>
     {{ form_start(form) }}
         {{ form_widget(form) }}
-        <input type="submit" value="Create" />
+    <br>
+        <input type="submit" class="btn btn-success" value="Valider" />
     {{ form_end(form) }}
-
+<hr>
     <ul>
         <li>
-            <a href="{{ path('publicitearticle_index') }}">Back to the list</a>
+            <a href="{{ path('publicitearticle_index') }}">Retour à détails</a>
         </li>
     </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</section>
 {% endblock %}

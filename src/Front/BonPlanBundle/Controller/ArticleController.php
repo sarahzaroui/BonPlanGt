@@ -3,6 +3,7 @@
 namespace Front\BonPlanBundle\Controller;
 
 use Front\BonPlanBundle\Entity\Article;
+use Front\BonPlanBundle\Entity\PubliciteArticle;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -60,11 +61,16 @@ class ArticleController extends Controller
     
     public function showAction(Article $article)
     {
-        $deleteForm = $this->createDeleteForm($article);
 
+        $deleteForm = $this->createDeleteForm($article);
+        $em = $this->getDoctrine()->getManager();
+
+
+        $publiciteArticles = $em->getRepository('FrontBonPlanBundle:PubliciteArticle')->findBy(array("Article"=>$article));
         return $this->render('article/show.html.twig', array(
             'article' => $article,
             'delete_form' => $deleteForm->createView(),
+            'publiciteArticles' => $publiciteArticles,
         ));
     }
     public function detailsAction(Article $article)

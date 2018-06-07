@@ -52,6 +52,7 @@ evennement_delete:
     defaults: { _controller: "FrontBonPlanBundle:Evennement:delete" }
     methods:  DELETE
 
+<<<<<<< HEAD
 produit_index:
     path:     /lsp
     defaults: { _controller: "FrontBonPlanBundle:Produit:index" }
@@ -100,4 +101,28 @@ promotion_edit:
 promotion_delete:
     path:     /{idpromo}/deleteprom
     defaults: { _controller: "FrontBonPlanBundle:Promotion:delete" }
+
+publicitearticle_index:
+    path:     /
+    defaults: { _controller: "FrontBonPlanBundle:PubliciteArticle:index" }
+    methods:  GET
+
+publicitearticle_show:
+    path:     /{id}/show
+    defaults: { _controller: "FrontBonPlanBundle:PubliciteArticle:show" }
+    methods:  GET
+
+publicitearticle_new:
+    path:     /{id}/new
+    defaults: { _controller: "FrontBonPlanBundle:PubliciteArticle:new" }
+    methods:  [GET, POST]
+
+publicitearticle_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "FrontBonPlanBundle:PubliciteArticle:edit" }
+    methods:  [GET, POST]
+
+publicitearticle_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "FrontBonPlanBundle:PubliciteArticle:delete" }
     methods:  DELETE

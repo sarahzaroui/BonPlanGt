@@ -79,7 +79,7 @@ class PubliciteArticle
      *
      * @ORM\ManyToOne(targetEntity="Article")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="idarticle", referencedColumnName="idarticle")
+     *   @ORM\JoinColumn(name="idarticle", referencedColumnName="idArticle")
      * })
      */
     private $Article;

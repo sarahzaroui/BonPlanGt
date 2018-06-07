@@ -3,21 +3,17 @@
     Espace prestataire Bon plan
 {% endblock %}
 {% block container %}
-    <h1>Article edit</h1>
+    <h1>Modifier le plan</h1>
 
     {{ form_start(edit_form) }}
         {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
+        <input type="submit" class="btn btn-success" value="Modifier" />
     {{ form_end(edit_form) }}
 
     <ul>
         <li>
-            <a href="{{ path('article_index') }}">Back to the list</a>
+            <a href="{{ path('article_index') }}">Retour à la liste</a>
         </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
+
     </ul>
 {% endblock %}
