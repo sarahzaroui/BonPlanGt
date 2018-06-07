@@ -1,0 +1,43 @@
+{% extends "tfUserBundle::prestataire.html.twig" %}
+{% block tilte %}
+    Espace prestataire Bon plan
+{% endblock %}
+{% block container %}
+    <h1>Commandes list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Idcmd</th>
+                <th>Qtecmd</th>
+                <th>Datecmd</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for commande in commandes %}
+            <tr>
+                <td><a href="{{ path('commande_show', { 'idcmd': commande.idcmd }) }}">{{ commande.idcmd }}</a></td>
+                <td>{{ commande.qtecmd }}</td>
+                <td>{% if commande.datecmd %}{{ commande.datecmd|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('commande_show', { 'idcmd': commande.idcmd }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('commande_edit', { 'idcmd': commande.idcmd }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('commande_new') }}">Create a new commande</a>
+        </li>
+    </ul>
+{% endblock %}

@@ -20,124 +20,126 @@ class Commande
     /**
      * @var integer
      *
-     * @ORM\Column(name="id_cmd", type="integer", nullable=false)
+     * @ORM\Column(name="idCmd", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $id_cmd;
+    private $idcmd;
 
     /**
      * @var \utilisateur
      *
      * @ORM\ManyToOne(targetEntity="User")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_user", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="idUser", referencedColumnName="id")
      * })
      */
-    private $id_user;
+    private $iduser;
 
     /**
      * @var \Produit
      *
      * @ORM\ManyToOne(targetEntity="Produit")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_prod", referencedColumnName="id_produit")
+     *   @ORM\JoinColumn(name="idProd", referencedColumnName="idProduit")
      * })
      */
-    private $id_prod;
+    private $idprod;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="qte_cmd", type="integer", nullable=true)
+     * @ORM\Column(name="qteCmd", type="integer", nullable=true)
      */
-    private $qte_cmd;
+    private $qtecmd;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date_cmd", type="datetime", nullable=true)
+     * @ORM\Column(name="dateCmd", type="datetime", nullable=true)
      */
-    private $date_cmd;
+    private $datecmd;
 
     /**
      * @return int
      */
-    public function getIdCmd()
+    public function getIdcmd()
     {
-        return $this->id_cmd;
+        return $this->idcmd;
     }
 
     /**
-     * @param int $id_cmd
+     * @param int $idcmd
      */
-    public function setIdCmd($id_cmd)
+    public function setIdcmd($idcmd)
     {
-        $this->id_cmd = $id_cmd;
+        $this->idcmd = $idcmd;
     }
 
     /**
      * @return \utilisateur
      */
-    public function getIdUser()
+    public function getIduser()
     {
-        return $this->id_user;
+        return $this->iduser;
     }
 
     /**
-     * @param \utilisateur $id_user
+     * @param \utilisateur $iduser
      */
-    public function setIdUser($id_user)
+    public function setIduser($iduser)
     {
-        $this->id_user = $id_user;
+        $this->iduser = $iduser;
     }
 
     /**
      * @return \Produit
      */
-    public function getIdProd()
+    public function getIdprod()
     {
-        return $this->id_prod;
+        return $this->idprod;
     }
 
     /**
-     * @param \Produit $id_prod
+     * @param \Produit $idprod
      */
-    public function setIdProd($id_prod)
+    public function setIdprod($idprod)
     {
-        $this->id_prod = $id_prod;
+        $this->idprod = $idprod;
     }
 
     /**
      * @return int
      */
-    public function getQteCmd()
+    public function getQtecmd()
     {
-        return $this->qte_cmd;
+        return $this->qtecmd;
     }
 
     /**
-     * @param int $qte_cmd
+     * @param int $qtecmd
      */
-    public function setQteCmd($qte_cmd)
+    public function setQtecmd($qtecmd)
     {
-        $this->qte_cmd = $qte_cmd;
+        $this->qtecmd = $qtecmd;
     }
 
     /**
      * @return \DateTime
      */
-    public function getDateCmd()
+    public function getDatecmd()
     {
-        return $this->date_cmd;
+        return $this->datecmd;
     }
 
     /**
-     * @param \DateTime $date_cmd
+     * @param \DateTime $datecmd
      */
-    public function setDateCmd($date_cmd)
+    public function setDatecmd($datecmd)
     {
-        $this->date_cmd = $date_cmd;
+        $this->datecmd = $datecmd;
     }
+
+
 
 }

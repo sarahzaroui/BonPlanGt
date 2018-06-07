@@ -1,5 +1,5 @@
 tf_user_homepage:
-    path:     /home
+    path:    /home
     defaults: { _controller: tfUserBundle:Default:index }
 
 article_index:
@@ -50,4 +50,54 @@ evennement_edit:
 evennement_delete:
     path:     /{idev}/deleteEvenements
     defaults: { _controller: "FrontBonPlanBundle:Evennement:delete" }
+    methods:  DELETE
+
+produit_index:
+    path:     /lsp
+    defaults: { _controller: "FrontBonPlanBundle:Produit:index" }
+    methods:  GET
+
+produit_show:
+    path:     /{idproduit}/showpr
+    defaults: { _controller: "FrontBonPlanBundle:Produit:show" }
+    methods:  GET
+
+produit_new:
+    path:     /newPr
+    defaults: { _controller: "FrontBonPlanBundle:Produit:new" }
+    methods:  [GET, POST]
+
+produit_edit:
+    path:     /{idproduit}/editpr
+    defaults: { _controller: "FrontBonPlanBundle:Produit:edit" }
+    methods:  [GET, POST]
+
+produit_delete:
+    path:     /{idproduit}/deletepr
+    defaults: { _controller: "FrontBonPlanBundle:Produit:delete" }
+    methods:  DELETE
+
+promotion_index:
+    path:     /lsprom
+    defaults: { _controller: "FrontBonPlanBundle:Promotion:index" }
+    methods:  GET
+
+promotion_show:
+    path:     /{idpromo}/showprom
+    defaults: { _controller: "FrontBonPlanBundle:Promotion:show" }
+    methods:  GET
+
+promotion_new:
+    path:     /newprom
+    defaults: { _controller: "FrontBonPlanBundle:Promotion:new" }
+    methods:  [GET, POST]
+
+promotion_edit:
+    path:     /{idpromo}/editprom
+    defaults: { _controller: "FrontBonPlanBundle:Promotion:edit" }
+    methods:  [GET, POST]
+
+promotion_delete:
+    path:     /{idpromo}/deleteprom
+    defaults: { _controller: "FrontBonPlanBundle:Promotion:delete" }
     methods:  DELETE

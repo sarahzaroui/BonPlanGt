@@ -20,20 +20,20 @@ class Promotion
     /**
      * @var integer
      *
-     * @ORM\Column(name="id_promo", type="integer", nullable=false)
+     * @ORM\Column(name="idPromo", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $id_promo;
+    private $idpromo;
     /**
      * @var \Produit
      *
      * @ORM\ManyToOne(targetEntity="Produit")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_prod", referencedColumnName="id_produit")
+     *   @ORM\JoinColumn(name="idProd", referencedColumnName="idProduit")
      * })
      */
-    private $id_prod;
+    private $idprod;
 
     /**
      * @var float
@@ -45,46 +45,46 @@ class Promotion
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date_deb", type="datetime", nullable=true)
+     * @ORM\Column(name="dateDeb", type="datetime", nullable=true)
      */
-    private $date_deb;
+    private $datedeb;
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date_fin", type="datetime", nullable=true)
+     * @ORM\Column(name="dateFin", type="datetime", nullable=true)
      */
-    private $date_fin;
+    private $datefin;
 
     /**
      * @return int
      */
-    public function getIdPromo()
+    public function getIdpromo()
     {
-        return $this->id_promo;
+        return $this->idpromo;
     }
 
     /**
-     * @param int $id_promo
+     * @param int $idpromo
      */
-    public function setIdPromo($id_promo)
+    public function setIdpromo($idpromo)
     {
-        $this->id_promo = $id_promo;
+        $this->idpromo = $idpromo;
     }
 
     /**
      * @return \Produit
      */
-    public function getIdProd()
+    public function getIdprod()
     {
-        return $this->id_prod;
+        return $this->idprod;
     }
 
     /**
-     * @param \Produit $id_prod
+     * @param \Produit $idprod
      */
-    public function setIdProd($id_prod)
+    public function setIdprod($idprod)
     {
-        $this->id_prod = $id_prod;
+        $this->idprod = $idprod;
     }
 
     /**
@@ -106,33 +106,34 @@ class Promotion
     /**
      * @return \DateTime
      */
-    public function getDateDeb()
+    public function getDatedeb()
     {
-        return $this->date_deb;
+        return $this->datedeb;
     }
 
     /**
-     * @param \DateTime $date_deb
+     * @param \DateTime $datedeb
      */
-    public function setDateDeb($date_deb)
+    public function setDatedeb($datedeb)
     {
-        $this->date_deb = $date_deb;
+        $this->datedeb = $datedeb;
     }
 
     /**
      * @return \DateTime
      */
-    public function getDateFin()
+    public function getDatefin()
     {
-        return $this->date_fin;
+        return $this->datefin;
     }
 
     /**
-     * @param \DateTime $date_fin
+     * @param \DateTime $datefin
      */
-    public function setDateFin($date_fin)
+    public function setDatefin($datefin)
     {
-        $this->date_fin = $date_fin;
+        $this->datefin = $datefin;
     }
+
 
 }

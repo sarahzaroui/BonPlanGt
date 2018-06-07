@@ -1,0 +1,18 @@
+{% extends "tfUserBundle::prestataire.html.twig" %}
+{% block tilte %}
+    Espace prestataire Bon plan
+{% endblock %}
+{% block container %}
+    <h1>Produit creation</h1>
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <input type="submit" value="Create" />
+    {{ form_end(form) }}
+
+    <ul>
+        <li>
+            <a href="{{ path('produit_index') }}">Back to the list</a>
+        </li>
+    </ul>
+{% endblock %}

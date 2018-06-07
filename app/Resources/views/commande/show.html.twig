@@ -1,0 +1,38 @@
+{% extends "tfUserBundle::prestataire.html.twig" %}
+{% block tilte %}
+    Espace prestataire Bon plan
+{% endblock %}
+{% block container %}
+    <h1>Commande</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Idcmd</th>
+                <td>{{ commande.idcmd }}</td>
+            </tr>
+            <tr>
+                <th>Qtecmd</th>
+                <td>{{ commande.qtecmd }}</td>
+            </tr>
+            <tr>
+                <th>Datecmd</th>
+                <td>{% if commande.datecmd %}{{ commande.datecmd|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('commande_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('commande_edit', { 'idcmd': commande.idcmd }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
