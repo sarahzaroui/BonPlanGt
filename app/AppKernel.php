@@ -22,6 +22,7 @@ class AppKernel extends Kernel
             new FOS\UserBundle\FOSUserBundle(),
             new Vich\UploaderBundle\VichUploaderBundle(),
             new ApiBundle\ApiBundle(),
+            new Nomaya\SocialBundle\NomayaSocialBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
