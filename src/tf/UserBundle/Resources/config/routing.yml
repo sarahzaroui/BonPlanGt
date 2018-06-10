@@ -103,3 +103,13 @@ reserver_delete:
     defaults: { _controller: "FrontBonPlanBundle:Reserver:delete" }
     methods:  DELETE
 
+reserver_activer:
+    path:     /{idreservation}/activerReservation
+    defaults: { _controller: "FrontBonPlanBundle:Reserver:activer" }
+    methods:  [GET, POST]
+
+reserver_annuler:
+    path:     /{idreservation}/annulerReservation
+    defaults: { _controller: "FrontBonPlanBundle:Reserver:annuler" }
+    methods:  [GET, POST]
+

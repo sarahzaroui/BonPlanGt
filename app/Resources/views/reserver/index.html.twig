@@ -20,6 +20,7 @@
             <tr>
                 <th>Idreservation</th>
                 <th>Date</th>
+                <th>Etat</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -28,20 +29,15 @@
             <tr>
                 <td><a href="{{ path('reserver_show', { 'idreservation': reserver.idreservation }) }}">{{ reserver.idreservation }}</a></td>
                 <td>{% if reserver.date %}{{ reserver.date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ reserver.etat }}</td>
                 <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('reserver_show', { 'idreservation': reserver.idreservation }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('reserver_edit', { 'idreservation': reserver.idreservation }) }}">edit</a>
-                        </li>
-                    </ul>
+                    <a href="{{ path('reserver_show', { 'idreservation': reserver.idreservation }) }}" class="btn btn-info">Détail</a>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
+
 
 
 {% endblock %}

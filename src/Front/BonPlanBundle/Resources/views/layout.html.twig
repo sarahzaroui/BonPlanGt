@@ -60,7 +60,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <li><a class="active" href="{{ path('front_bon_plan_homepage') }}">Accueil</a></li>
                     <li><a href="{{ path('front_bon_plan_blog') }}">Restaurants et cafés</a></li>
                     <li><a href="{{ path('front_bon_plan_menu') }}">Evenements</a></li>
-                    <li><a href="{{ path('front_bon_plan_user') }}">Espace Utilisateur</a></li>
+
                     {% if is_granted('IS_AUTHENTICATED_REMEMBERED') == false %}
                     <li><a href="{{ path('front_bon_plan_login') }}">Connexion</a></li>
                     <li><a href="{{ path('fos_user_registration_register') }}">Inscription</a></li>
@@ -73,6 +73,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     {% if is_granted('ROLE_PRESTATAIRE') %}
                         <li><a href="{{ path('tf_user_homepage') }}">Espace Prestataire</a></li>
                     {% endif %}
+
+                    {% if is_granted('ROLE_USER') %}
+                        <li><a href="{{ path('front_bon_plan_user') }}">Espace Utilisateur</a></li>
+                    {% endif %}
+
                     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
 
 

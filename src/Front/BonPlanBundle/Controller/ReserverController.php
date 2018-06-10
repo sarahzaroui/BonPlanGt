@@ -138,4 +138,41 @@ class ReserverController extends Controller
             ->getForm()
         ;
     }
+
+    public function activerAction (Request $request)
+    {
+
+        $id = $request->get('idreservation');
+        $em = $this->getDoctrine()->getManager();
+        $reserver = $em->getRepository('FrontBonPlanBundle:Reserver')->find($id);
+        $reserver->SetEtat("Active");
+        $user = $reserver->getIduser();
+        $em->persist($reserver);
+        $em->flush();
+
+        $message = \Swift_Message::newInstance()
+            ->setSubject('Confirmation de réservation')
+            ->setFrom('bonplan2info@gmail.com')
+            ->setTo($user->getEmail())
+            ->setBody(
+                $this->renderView(
+                    'FrontBonPlanBundle:Default:ConfirmationReservation.html.twig'
+                ),
+                'text/html'
+            );
+        $this->get('mailer')->send($message);
+
+        return $this->redirectToRoute('reserver_index');
+    }
+
+    public function desactiverAction (Request $request)
+    {
+        $id = $request->get('idreservation');
+        $em = $this->getDoctrine()->getManager();
+        $reserver = $em->getRepository('FrontBonPlanBundle:Reserver')->find($id);
+        $reserver->SetEtat("Annulé");
+        $em->persist($reserver);
+        $em->flush();
+        return $this->redirectToRoute('reserver_index');
+    }
 }

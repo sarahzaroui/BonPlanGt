@@ -35,5 +35,9 @@
             </tr>
         </tbody>
     </table>
+                    {% if reserver.etat=="en attente" %}
+                    <a href="{{ path('reserver_activer', { 'idreservation': reserver.idreservation }) }}" class="btn btn-success">Valider la réservation</a>
+                    <a href="{{ path('reserver_annuler', { 'idreservation': reserver.idreservation }) }}" class="btn btn-danger">Annuler la réservation</a>
+                    {% endif %}
 
 {% endblock %}

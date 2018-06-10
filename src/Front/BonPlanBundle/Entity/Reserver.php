@@ -52,6 +52,29 @@ class Reserver
     private $nbrePlaces;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="etat", type="string", length=254, nullable=false)
+     */
+    private $etat="en attente";
+
+    /**
+     * @return string
+     */
+    public function getEtat()
+    {
+        return $this->etat;
+    }
+
+    /**
+     * @param string $etat
+     */
+    public function setEtat($etat)
+    {
+        $this->etat = $etat;
+    }
+
+    /**
      * @var \Client
      *
      * @ORM\OneToOne(targetEntity="User")
