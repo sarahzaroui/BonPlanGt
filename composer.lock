@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "2346c9ebebcb74adcb9290299961401f",
+    "content-hash": "ff42cb45ff32799721d41a06e5eb16aa",
     "packages": [
         {
             "name": "blackknight467/star-rating-bundle",
@@ -1713,17 +1713,80 @@
             "time": "2017-06-19T01:22:40+00:00"
         },
         {
-            "name": "paragonie/random_compat",
-            "version": "v2.0.14",
+            "name": "nomaya/social-bundle",
+            "version": "dev-master",
+            "target-dir": "Nomaya/SocialBundle",
             "source": {
                 "type": "git",
-                "url": "https://github.com/paragonie/random_compat.git",
-                "reference": "f6ce7dd93628088e1017fb5dd73b0b9fec7df9e5"
+                "url": "https://github.com/nomayann/NomayaSocialButtonsBundle.git",
+                "reference": "5a8a24954189e6f2d39368f755498bc2e13e0e6f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/f6ce7dd93628088e1017fb5dd73b0b9fec7df9e5",
-                "reference": "f6ce7dd93628088e1017fb5dd73b0b9fec7df9e5",
+                "url": "https://api.github.com/repos/nomayann/NomayaSocialButtonsBundle/zipball/5a8a24954189e6f2d39368f755498bc2e13e0e6f",
+                "reference": "5a8a24954189e6f2d39368f755498bc2e13e0e6f",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2",
+                "twig/twig": "*"
+            },
+            "require-dev": {
+                "matthiasnoback/symfony-config-test": "0.*",
+                "symfony/framework-bundle": ">=2.1"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Nomaya\\SocialBundle\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Yann Chauvel",
+                    "email": "yann@nomaya.net",
+                    "homepage": "http://www.nomaya.net/"
+                }
+            ],
+            "description": "A bundle to easily add facebook, twitter, G+, Linkedin buttons to your templates",
+            "homepage": "http://github.com/nomayann/NomayaSocialButtonsBundle",
+            "keywords": [
+                "Symfony2",
+                "bundle",
+                "buttons",
+                "facebook",
+                "google plus",
+                "like",
+                "linkedin",
+                "share",
+                "social",
+                "symfony",
+                "symfony2bundle",
+                "twitter"
+            ],
+            "time": "2016-01-28T15:39:34+00:00"
+        },
+        {
+            "name": "paragonie/random_compat",
+            "version": "v2.0.15",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/paragonie/random_compat.git",
+                "reference": "10bcb46e8f3d365170f6de9d05245aa066b81f09"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/10bcb46e8f3d365170f6de9d05245aa066b81f09",
+                "reference": "10bcb46e8f3d365170f6de9d05245aa066b81f09",
                 "shasum": ""
             },
             "require": {
@@ -1759,7 +1822,7 @@
                 "pseudorandom",
                 "random"
             ],
-            "time": "2018-06-06T17:40:22+00:00"
+            "time": "2018-06-08T15:26:40+00:00"
         },
         {
             "name": "phpcollection/phpcollection",
@@ -2100,16 +2163,16 @@
         },
         {
             "name": "sensio/distribution-bundle",
-            "version": "v5.0.21",
+            "version": "v5.0.22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/SensioDistributionBundle.git",
-                "reference": "eb6266b3b472e4002538610b28a0a04bcf94891a"
+                "reference": "209b11f8cee5bf71986dd703e45e27d3ed7a6d15"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioDistributionBundle/zipball/eb6266b3b472e4002538610b28a0a04bcf94891a",
-                "reference": "eb6266b3b472e4002538610b28a0a04bcf94891a",
+                "url": "https://api.github.com/repos/sensiolabs/SensioDistributionBundle/zipball/209b11f8cee5bf71986dd703e45e27d3ed7a6d15",
+                "reference": "209b11f8cee5bf71986dd703e45e27d3ed7a6d15",
                 "shasum": ""
             },
             "require": {
@@ -2148,7 +2211,7 @@
                 "configuration",
                 "distribution"
             ],
-            "time": "2017-08-25T16:55:44+00:00"
+            "time": "2018-06-07T06:22:12+00:00"
         },
         {
             "name": "sensio/framework-extra-bundle",
@@ -3370,7 +3433,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "nomaya/social-bundle": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
