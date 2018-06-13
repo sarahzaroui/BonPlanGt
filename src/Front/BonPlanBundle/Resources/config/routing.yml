@@ -38,6 +38,9 @@ front_bon_plan_blog:
 front_bon_plan_single:
     path:     /single/{id}
     defaults: { _controller: FrontBonPlanBundle:Default:single }
+front_bon_plan_singleProduit:
+    path:     /singleProduit/{id}
+    defaults: { _controller: FrontBonPlanBundle:Default:singleProduit }
 front_bon_plan_events:
     path:     /events/{id}
     defaults: { _controller: FrontBonPlanBundle:Default:events }
@@ -82,6 +85,7 @@ reserver_delete:
     path:     /{idreservation}/deleteReservation
     defaults: { _controller: "FrontBonPlanBundle:Reserver:delete" }
     methods:  DELETE
+
 
 
 

@@ -186,6 +186,54 @@
             </div>
         </div>
         <!--//news-->
+        <!--news-->
+        <div class="content-top-top">
+            <div class="container">
+                <div class="content-top">
+                    <div class="col-md-4 content-left animated wow fadeInLeft" data-wow-duration="1000ms" data-wow-delay="500ms">
+                        <h3>Shopping</h3>
+                        <label><i class="glyphicon glyphicon-menu-up"></i></label>
+                        <span>produits divers pour vous</span>
+                    </div>
+                    <div class="col-md-8 content-right animated wow fadeInRight" data-wow-duration="1000ms" data-wow-delay="500ms">
+                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour , or randomised words which don't look even slightly believable.There are many variations by injected humour. There are many variations of passages of Lorem Ipsum available.There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form by injected humour , or randomised words</p>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+                <div class="news-bottom">
+                    <div class="news-bot">
+                        {% for produit in produits %}
+                            <div class="col-md-6 news-bottom1 animated wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="500ms">
+                                <a href="{{ path('front_bon_plan_singleProduit',{'id': produit.idproduit}) }}">
+                                    <div class="content-item" style="background-image: url({{ asset('uploads/'~produit.imagename) }});background-size: cover">
+                                        <div class="overlay"></div>
+                                        <div class=" news-bottom2">
+                                            <ul class="grid-news">
+                                                {% for promotion in promotions %}
+                                                    {% if (promotion.idprod.idproduit) == (produit.idproduit) %}
+                                                        {% set pourcentage = promotion.reduction *100 %}
+                                                        <li><span><h1 style="color:red;font-weight: bold"> Promotion {{ pourcentage }} % </h1></span><b></b></li>
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </ul>
+                                            <ul class="grid-news">
+                                                <li><span><i class="glyphicon glyphicon-map-marker"> </i>{{ produit.adresse }}</span><b>/</b></li>
+
+                                            </ul>
+                                            <p>{{ produit.nompdt }}</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        {% endfor %}
+                        <div class="clearfix"> </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <!--//news-->
     </div>
     <!-- /.container -->
 {% endblock %}

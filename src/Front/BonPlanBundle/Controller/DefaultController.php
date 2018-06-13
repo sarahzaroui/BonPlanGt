@@ -12,10 +12,13 @@ class DefaultController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $articles = $em->getRepository('FrontBonPlanBundle:Article')->findAllOrderedByDate();
-
-        return $this->render('FrontBonPlanBundle:Default:index.html.twig', array(
+        $produits = $em->getRepository('FrontBonPlanBundle:Produit')->findAll();
+        $promotions = $em->getRepository('FrontBonPlanBundle:Promotion')->findLastPromo();
+        $info = array(
             'articles' => $articles,
-        ));
+            'promotions' => $promotions,
+            'produits' => $produits);
+        return $this->render('FrontBonPlanBundle:Default:index.html.twig', $info);
     }
     public function menuAction()
     {
@@ -63,6 +66,18 @@ class DefaultController extends Controller
         ));
 
     }
+    public function singleProduitAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $produit = $em->getRepository('FrontBonPlanBundle:Produit')->find($id);
+
+
+        return $this->render('FrontBonPlanBundle:Default:produitSingle.html.twig', array(
+            'produit' => $produit,
+        ));
+
+    }
     public function eventsAction($id)
     {
         $em = $this->getDoctrine()->getManager();
@@ -103,4 +118,9 @@ class DefaultController extends Controller
             'articles' => $articles,'categories' => $gategories,
         ));
 	}
+    public function voterAction (Request $request)
+    {
+
+        return $this->redirectToRoute('FrontBonPlanBundle:Default:single.html.twig');
+    }
 }

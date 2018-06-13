@@ -1,5 +1,5 @@
 tf_user_homepage:
-    path:    /home
+    path:     /home
     defaults: { _controller: tfUserBundle:Default:index }
 
 article_index:
@@ -52,7 +52,6 @@ evennement_delete:
     defaults: { _controller: "FrontBonPlanBundle:Evennement:delete" }
     methods:  DELETE
 
-<<<<<<< HEAD
 produit_index:
     path:     /lsp
     defaults: { _controller: "FrontBonPlanBundle:Produit:index" }

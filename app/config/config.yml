@@ -90,7 +90,7 @@ fos_user:
 vich_uploader:
     db_driver: orm
     mappings:
-        product_images:
+        product_image:
             uri_prefix: /uploads/
             upload_destination: '%kernel.root_dir%/../web/uploads/'
             inject_on_load: false

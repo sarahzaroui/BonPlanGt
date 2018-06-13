@@ -36,19 +36,35 @@ class PromotionController extends Controller
         $promotion = new Promotion();
         $form = $this->createForm('Front\BonPlanBundle\Form\PromotionType', $promotion);
         $form->handleRequest($request);
+        $retour=0;
+        $currentdate=new \DateTime("now");
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $em->persist($promotion);
-            $em->flush();
 
-            return $this->redirectToRoute('promotion_show', array('idpromo' => $promotion->getIdpromo()));
+            $promotions = $em->getRepository('FrontBonPlanBundle:Promotion')->findAll();
+               foreach($promotions as $promo){
+                   if($promotion->getDatefin() >= $currentdate && $promotion->getIdprod()->getIdproduit() == $promo->getIdprod()->getIdproduit() && $promotion->getDatedeb()<=$promo->getDatefin()){
+
+                       $retour=1;
+                   }
+
+               }
+
+            if($retour==0){
+
+                $em->persist($promotion);
+                $em->flush();
+
+                return $this->redirectToRoute('promotion_show', array('idpromo' => $promotion->getIdpromo()));
+            }
         }
-
-        return $this->render('promotion/new.html.twig', array(
+        $info = array(
             'promotion' => $promotion,
             'form' => $form->createView(),
-        ));
+            'currentdate' => $currentdate,
+            'retour' => $retour);
+        return $this->render('promotion/new.html.twig',$info);
     }
 
     /**

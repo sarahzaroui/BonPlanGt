@@ -895,7 +895,7 @@ ul.grid-blog {
 	 padding: 1.5em 0;
 }
 .comment h3{
-	font-size: 2.5em;
+	font-size: 1em;
     color: #97824B;
     font-family: 'Raleway', sans-serif;
     font-weight: 700;
@@ -1955,4 +1955,11 @@ span.label {
 td.add-check a {
     width: 86px;
 }
+    .star-rating {
+        line-height:32px;
+        font-size:1.25em;
+    }
+
+    .star-rating .fa-star{color: yellow;}
+
 }

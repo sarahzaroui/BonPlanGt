@@ -10,21 +10,18 @@
                     height="370"
                     frameborder="0" style="border:0"
                     src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCa3zx0bVXbv-VJRbYOQwUSbnLMOucv92c
-    &q={{ article.adresse }}" allowfullscreen>
+    &q={{ produit.adresse }}" allowfullscreen>
             </iframe>
             <div class="row">
                 <hr>
                 <div class="col-md-5">
-                    <img class="img-responsive img-thumbnail wow fadeInUp animated" style="height: 300px;width: auto" data-wow-delay=".5s" src="{{ asset('uploads/'~ article.imagename) }}" alt="" />
+                    <img class="img-responsive img-thumbnail wow fadeInUp animated" style="height: 300px;width: auto" data-wow-delay=".5s" src="{{ asset('uploads/'~ produit.imageName) }}" alt="" />
                 </div>
                 <div class="col-md-7">
                     <div class="lone-line">
-                        <form class="navbar-search pull-right" action="{{ path('article_voter') }}" method="POST">
-                            <input type="hidden" name="article"  value="{{ article.idarticle }}" >
-                        </form>
                         <table >
                            <tr>
-                       <td style="padding-bottom: 17px"><h4>{{ article.titre }}</h4></td>
+                       <td style="padding-bottom: 17px"><h4>{{ produit.nompdt }}</h4></td>
                                <td>  <div class="container">
 
                             <div class="row">
@@ -46,11 +43,16 @@
                         </table>
 
                         <ul class="grid-blog">
-                            <li><span><i class="glyphicon glyphicon-time"> </i>{{ article.date|date('Y-m-d') }}</span></li>
-                            <li><i class="glyphicon glyphicon-map-marker"> </i>{{ article.adresse }}</li>
+                            <li><h4> Prix:  {{ produit.prix }} DT </h4></li>
 
                         </ul>
-                        <p class="wow fadeInLeft animated" data-wow-delay=".5s">{{ article.description }}</span></p>
+                        <ul class="grid-blog">
+                            <li><i class="glyphicon glyphicon-map-marker"> </i>{{ produit.adresse }}</li>
+
+                        </ul>
+
+
+                        <p class="wow fadeInLeft animated" data-wow-delay=".5s">{{ produit.detailpdt }}</span></p>
 
                     </div>
                 </div>
@@ -86,7 +88,7 @@
     <script>
 
         var $star_rating = $('.star-rating .fa');
-       document.getElementById('rate').value=1;
+       // document.getElementById('rate').value=1;
         var SetRatingStar = function() {
 
             return $star_rating.each(function() {
@@ -102,7 +104,7 @@
         $star_rating.on('click', function() {
 
             $star_rating.siblings('input.rating-value').val($(this).data('rating'));
-             document.getElementById('rate').value=$(this).data('rating');
+          //  document.getElementById('rate').value=$(this).data('rating');
             return SetRatingStar();
         });
 
