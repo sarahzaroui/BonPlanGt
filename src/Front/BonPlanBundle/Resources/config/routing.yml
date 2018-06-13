@@ -82,5 +82,14 @@ reserver_delete:
     defaults: { _controller: "FrontBonPlanBundle:Reserver:delete" }
     methods:  DELETE
 
+get_Evennement:
+    path:     /getAllEvennement
+    defaults: { _controller: FrontBonPlanBundle:Evennement:getAllEvennement}
+
+New_Res:
+    path:     /nouvelleReservation/{idevent}/{iduser}/{nbrePlace}
+    defaults: { _controller: FrontBonPlanBundle:Reserver:createreservation}
+
+
 
 

@@ -77,7 +77,7 @@ class Reserver
     /**
      * @var \Client
      *
-     * @ORM\OneToOne(targetEntity="User")
+     * @ORM\ManyToOne(targetEntity="User")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="idUser", referencedColumnName="id")
      * })
@@ -87,7 +87,7 @@ class Reserver
     /**
      * @var \Evennement
      *
-     * @ORM\OneToOne(targetEntity="Evennement")
+     * @ORM\ManyToOne(targetEntity="Evennement")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="idEv", referencedColumnName="idEv")
      * })
