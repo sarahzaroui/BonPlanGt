@@ -80,12 +80,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <ul class="toggle-menu">
                     <li><a class="active" href="{{ path('front_bon_plan_homepage') }}">Accueil</a></li>
                     <li><a href="{{ path('front_bon_plan_blog') }}">Restaurants et cafés</a></li>
-
                     <li><a href="{{ path('front_bon_plan_menu') }}">Evenements</a></li>
+
                     {% if is_granted('IS_AUTHENTICATED_REMEMBERED') == false %}
                     <li><a href="{{ path('front_bon_plan_login') }}">Connexion</a></li>
                     <li><a href="{{ path('fos_user_registration_register') }}">Inscription</a></li>
-
                     <li><a href="{{ path('fos_user_registration_register') }}">Espace prestataire</a></li>
                     {% endif %}
                     <li><a href="{{ path('front_bon_plan_contact') }}">Contact</a></li>
@@ -95,6 +94,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     {% if is_granted('ROLE_PRESTATAIRE') %}
                         <li><a href="{{ path('tf_user_homepage') }}">Espace Prestataire</a></li>
                     {% endif %}
+
+                    {% if is_granted('ROLE_USER') %}
+                        <li><a href="{{ path('front_bon_plan_user') }}">Espace Utilisateur</a></li>
+                    {% endif %}
+
                     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
 
 
@@ -145,12 +149,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <li><a href="{{ path('front_bon_plan_blog') }}">Restaurant et Café</a></li>
                     <li><a href="{{ path('front_bon_plan_contact') }}">Contact</a></li>
                 </ul>
-                <span>There are many variations of passages</span>
+                <span></span>
             </div>
             <div class="col-md-4 footer-bottom  animated wow fadeInLeft" data-wow-duration="1000ms" data-wow-delay="500ms">
                 <h2>Follow Us</h2>
                 <label><i class="glyphicon glyphicon-menu-up"></i></label>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis.</p>
+                <p></p>
                 <ul class="social-ic">
                     <li><a href="#"><i></i></a></li>
                     <li><a href="#"><i class="ic"></i></a></li>
@@ -163,7 +167,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="clearfix"> </div>
 
         </div>
-        <p class="footer-class animated wow bounce" data-wow-duration="1000ms" data-wow-delay="500ms">&copy; 2016 Cookery . All Rights Reserved | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
+
     </div>
 </div>
 

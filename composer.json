@@ -29,7 +29,9 @@
         "symfony/symfony": "3.3.*",
         "twig/twig": "^1.0||^2.0",
         "vich/uploader-bundle": "^1.4",
-        "blackknight467/star-rating-bundle": "2.*"
+        "blackknight467/star-rating-bundle": "2.*",
+        "nomaya/social-bundle": "dev-master"
+
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",

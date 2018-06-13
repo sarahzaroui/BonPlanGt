@@ -52,9 +52,32 @@ class Reserver
     private $nbrePlaces;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="etat", type="string", length=254, nullable=false)
+     */
+    private $etat="en attente";
+
+    /**
+     * @return string
+     */
+    public function getEtat()
+    {
+        return $this->etat;
+    }
+
+    /**
+     * @param string $etat
+     */
+    public function setEtat($etat)
+    {
+        $this->etat = $etat;
+    }
+
+    /**
      * @var \Client
      *
-     * @ORM\OneToOne(targetEntity="User")
+     * @ORM\ManyToOne(targetEntity="User")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="idUser", referencedColumnName="id")
      * })
@@ -64,7 +87,7 @@ class Reserver
     /**
      * @var \Evennement
      *
-     * @ORM\OneToOne(targetEntity="Evennement")
+     * @ORM\ManyToOne(targetEntity="Evennement")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="idEv", referencedColumnName="idEv")
      * })

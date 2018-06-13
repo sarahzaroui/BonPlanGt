@@ -1,13 +1,26 @@
-{% extends "Front\BonPlanBundle::layout.html.twig" %}
-
+{% extends "tfUserBundle::prestataire.html.twig" %}
+{% block tilte %}
+    Espace prestataire Bon plan
+{% endblock %}
 {% block container %}
-    <h1>Reservers list</h1>
 
-    <table>
+<section class="content">
+
+    <br>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Liste des Réservations</h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <table id="example2" class="table table-bordered table-hover">
         <thead>
             <tr>
                 <th>Idreservation</th>
                 <th>Date</th>
+                <th>Etat</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -16,24 +29,15 @@
             <tr>
                 <td><a href="{{ path('reserver_show', { 'idreservation': reserver.idreservation }) }}">{{ reserver.idreservation }}</a></td>
                 <td>{% if reserver.date %}{{ reserver.date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ reserver.etat }}</td>
                 <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('reserver_show', { 'idreservation': reserver.idreservation }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('reserver_edit', { 'idreservation': reserver.idreservation }) }}">edit</a>
-                        </li>
-                    </ul>
+                    <a href="{{ path('reserver_show', { 'idreservation': reserver.idreservation }) }}" class="btn btn-info">Détail</a>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('reserver_new') }}">Create a new reserver</a>
-        </li>
-    </ul>
+
+
 {% endblock %}
