@@ -30,6 +30,7 @@ class AppKernel extends Kernel
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new ApiBundle\ApiBundle(),
             new blackknight467\StarRatingBundle\StarRatingBundle(),
+            new Nomaya\SocialBundle\NomayaSocialBundle(),
 
         ];
 
