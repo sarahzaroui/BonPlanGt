@@ -3,6 +3,7 @@
 namespace Front\BonPlanBundle\Controller;
 
 use Front\BonPlanBundle\Entity\Publicite;
+use Front\BonPlanBundle\Entity\PubliciteArticle;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -20,10 +21,12 @@ class PubliciteController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $publicites = $em->getRepository('FrontBonPlanBundle:Publicite')->findAll();
-
+        $publicites = $em->getRepository('FrontBonPlanBundle:Publicite')->findBy(array("etat"=>"publié"));
+        $publiciteArticles = $em->getRepository('FrontBonPlanBundle:PubliciteArticle')->findBy(array("etat"=>array("en attente","validée")));
+        
         return $this->render('publicite/index.html.twig', array(
             'publicites' => $publicites,
+            'publiciteArticles' => $publiciteArticles,
         ));
     }
 

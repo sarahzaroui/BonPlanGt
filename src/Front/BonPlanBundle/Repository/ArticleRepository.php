@@ -7,6 +7,7 @@
  */
 namespace Front\BonPlanBundle\Repository;
 use Doctrine\ORM\EntityRepository;
+use Front\BonPlanBundle\Entity\PubliciteArticle;
 
 class ArticleRepository extends EntityRepository
 
@@ -26,4 +27,19 @@ class ArticleRepository extends EntityRepository
 
         return $query->execute();
     }
+    public function findAllSideBar()
+    {
+        $dql = 'SELECT art FROM Front\BonPlanBundle\Entity\Article art where art.etat = :etat ORDER BY art.date DESC ';
+        $query = $this->getEntityManager()->createQuery($dql)->setParameter('etat', 'publié')->setMaxResults(3);
+
+        return $query->execute();
+    }
+    public function findAllSponsored()
+    {
+        $dql = 'SELECT art.Article FROM Front\BonPlanBundle\Entity\PubliciteArticle art where art.etat = :etat ORDER BY art.dateeffet DESC';
+        $query = $this->getEntityManager()->createQuery($dql)->setParameter('etat', 'validée');
+
+        return $query->execute();
+    }
+
 }

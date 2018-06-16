@@ -24,7 +24,7 @@ class Publicite
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $idpublicite;
+    private $idpublicte;
 
     /**
      * @var string
@@ -63,18 +63,23 @@ class Publicite
     /**
      * @return int
      */
-    public function getIdPublicite()
+    public function getIdpublicte()
     {
-        return $this->idPublicite;
+        return $this->idpublicte;
     }
 
     /**
-     * @param int $idPublicite
+     * @param int $idpublicte
      */
-    public function setIdPublicite($idPublicite)
+    public function setIdpublicte($idpublicte)
     {
-        $this->idPublicite = $idPublicite;
+        $this->idpublicte = $idpublicte;
     }
+
+    /**
+     * @return int
+     */
+
 
     /**
      * @return string

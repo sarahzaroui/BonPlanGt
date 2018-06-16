@@ -1,17 +1,28 @@
-{% extends 'base.html.twig' %}
+{% extends "BackBonPlanBackBundle::layout.html.twig" %}
+{% block tilte %}
+    Administration Bon plan
+{% endblock %}
+{% block container %}
 
-{% block body %}
-    <h1>Publicitearticles list</h1>
-
-    <table>
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Tous les demandes</h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <table id="example2" class="table table-bordered table-hover">
+                        <thead>
         <thead>
             <tr>
-                <th>Id</th>
+                <th>Référence</th>
                 <th>Etat</th>
-                <th>Datepublication</th>
-                <th>Dateeffet</th>
-                <th>Dateexpiration</th>
-                <th>Imagename</th>
+                <th>Date publication</th>
+                <th>Date effet</th>
+                <th>Date expiration</th>
+                <th>Justificatif</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -23,7 +34,7 @@
                 <td>{% if publiciteArticle.datepublication %}{{ publiciteArticle.datepublication|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{% if publiciteArticle.dateeffet %}{{ publiciteArticle.dateeffet|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{% if publiciteArticle.dateexpiration %}{{ publiciteArticle.dateexpiration|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{{ publiciteArticle.imageName }}</td>
+                <td><a href="{{ asset('uploads/' ~ publiciteArticle.imageName) }}" target="_blank"> <img class="img-responsive" style="width: 150px;height: 100px;" src="{{ asset('uploads/' ~ publiciteArticle.imageName) }}" alt=" "></a></td>
                 <td>
                     <ul>
                         <li>
@@ -37,11 +48,11 @@
             </tr>
         {% endfor %}
         </tbody>
-    </table>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-    <ul>
-        <li>
-            <a href="{{ path('publicitearticle_new') }}">Create a new publiciteArticle</a>
-        </li>
-    </ul>
 {% endblock %}

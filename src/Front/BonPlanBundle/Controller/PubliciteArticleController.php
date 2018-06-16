@@ -3,6 +3,7 @@
 namespace Front\BonPlanBundle\Controller;
 
 use Front\BonPlanBundle\Entity\PubliciteArticle;
+use Front\BonPlanBundle\Entity\Publicite;
 use Front\BonPlanBundle\Entity\Article;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -126,4 +127,35 @@ class PubliciteArticleController extends Controller
             ->getForm()
         ;
     }
+    public function acceptAction (Request $request)
+    {
+        $id = $request->get('id');
+        $em = $this->getDoctrine()->getManager();
+        $pub = $em->getRepository('FrontBonPlanBundle:PubliciteArticle')->find($id);
+        $parampub = new Publicite();
+        $parampub = $pub->getPublicite();
+        $now = new \DateTime('now');
+        $pub->SetEtat("validée");
+        $pub->setDateeffet(new \DateTime('now'));
+        $pub->setDateexpiration($now->modify('+'. $parampub->getDuree().' days'));
+
+        $em->persist($pub);
+        $em->flush();
+        return $this->redirectToRoute('publicite_index');
+    }
+    public function cancelAction (Request $request)
+    {
+        $id = $request->get('id');
+        $em = $this->getDoctrine()->getManager();
+        $pub = $em->getRepository('FrontBonPlanBundle:PubliciteArticle')->find($id);
+
+
+        $pub->SetEtat("refusée");
+
+
+        $em->persist($pub);
+        $em->flush();
+        return $this->redirectToRoute('publicite_index');
+    }
+
 }

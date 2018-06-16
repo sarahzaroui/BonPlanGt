@@ -7,14 +7,27 @@ use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller
 {
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
+        if($request->getMethod()=="POST")
+        {
+            $p=$request->get('search');
+            $gategories = $em->getRepository('FrontBonPlanBundle:Categoriearticle')->findAll();
+            $articles = $em->getRepository('FrontBonPlanBundle:Article')->findByName($p);
+            $articles1 = $em->getRepository('FrontBonPlanBundle:Article')->findAllSideBar();
+            return $this->render('FrontBonPlanBundle:Default:blog.html.twig', array(
+                'articles' => $articles,'categories' => $gategories,'articles1' => $articles1
+            ));
+        }
+
 
         $articles = $em->getRepository('FrontBonPlanBundle:Article')->findAllOrderedByDate();
+        $pub = $em->getRepository('FrontBonPlanBundle:PubliciteArticle')->findAllSponsored();
+
 
         return $this->render('FrontBonPlanBundle:Default:index.html.twig', array(
-            'articles' => $articles,
+            'articles' => $articles,'pubs'=> $pub,
         ));
     }
     public function menuAction()
@@ -33,6 +46,7 @@ class DefaultController extends Controller
 		
          $gategories = $em->getRepository('FrontBonPlanBundle:Categoriearticle')->findAll();
          $articles = $em->getRepository('FrontBonPlanBundle:Article')->findAllOrderedByDate();
+        $articles1 = $em->getRepository('FrontBonPlanBundle:Article')->findAllSideBar();
 		 if($request->getMethod()=="POST")
         {
 			 $p=$request->get('search');
@@ -40,7 +54,7 @@ class DefaultController extends Controller
 		}
 
         return $this->render('FrontBonPlanBundle:Default:blog.html.twig', array(
-            'articles' => $articles,'categories' => $gategories,
+            'articles' => $articles,'categories' => $gategories, 'articles1' => $articles1,
         ));
     }
     public function singleAction($id)
@@ -85,6 +99,7 @@ class DefaultController extends Controller
 		$cat = $em->getRepository('FrontBonPlanBundle:Categoriearticle')->find($id);
          $gategories = $em->getRepository('FrontBonPlanBundle:Categoriearticle')->findAll();
          $articles = $em->getRepository('FrontBonPlanBundle:Article')->findBy(array('idcatart' => $cat,'etat'=>'publié'));
+        $articles1 = $em->getRepository('FrontBonPlanBundle:Article')->findAllSideBar();
 		 if($request->getMethod()=="POST")
         {
 			 $p=$request->get('search');
@@ -92,7 +107,7 @@ class DefaultController extends Controller
 		}
 
         return $this->render('FrontBonPlanBundle:Default:blog.html.twig', array(
-            'articles' => $articles,'categories' => $gategories,
+            'articles' => $articles,'categories' => $gategories,'articles1'=>$articles1,
         ));
 	}
 }

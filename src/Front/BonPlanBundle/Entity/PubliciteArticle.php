@@ -16,7 +16,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
  * PubliciteArticle
  *
  * @ORM\Table(name="PubliciteArticle")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Front\BonPlanBundle\Repository\PubliciteArticleRepository")
  * @Vich\Uploadable
  */
 class PubliciteArticle

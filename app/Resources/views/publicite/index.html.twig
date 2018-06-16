@@ -1,16 +1,30 @@
-{% extends 'base.html.twig' %}
+{% extends "BackBonPlanBackBundle::layout.html.twig" %}
+{% block tilte %}
+    Administration Bon plan
+{% endblock %}
+{% block container %}
 
-{% block body %}
-    <h1>Publicites list</h1>
+<section class="content">
+    <div class="row">
 
-    <table>
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Offres publicitaires</h3>
+                    <a href="{{ path('publicite_new') }}" class="btn btn-success pull-right">Nouveau</a>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <table id="example2" class="table table-bordered table-hover">
+
+
         <thead>
             <tr>
-                <th>Idpublicite</th>
+
                 <th>Libelle</th>
                 <th>Type</th>
                 <th>Duree</th>
-                <th>Tarif</th>
+                <th>Tarif(DT)</th>
                 <th>Etat</th>
                 <th>Actions</th>
             </tr>
@@ -18,7 +32,7 @@
         <tbody>
         {% for publicite in publicites %}
             <tr>
-                <td><a href="{{ path('publicite_show', { 'idpublicite': publicite.idpublicite }) }}">{{ publicite.idpublicite }}</a></td>
+
                 <td>{{ publicite.libelle }}</td>
                 <td>{{ publicite.type }}</td>
                 <td>{{ publicite.duree }}</td>
@@ -27,21 +41,77 @@
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('publicite_show', { 'idpublicite': publicite.idpublicite }) }}">show</a>
+                            <a href="#">show</a>
                         </li>
                         <li>
-                            <a href="{{ path('publicite_edit', { 'idpublicite': publicite.idpublicite }) }}">edit</a>
+                            <a href="#">edit</a>
                         </li>
                     </ul>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
-    </table>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Promotions en attente</h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <table id="example1" class="table table-bordered table-hover">
+                        <thead>
+                        <tr>
+                            <th>Id</th>
 
-    <ul>
-        <li>
-            <a href="{{ path('publicite_new') }}">Create a new publicite</a>
-        </li>
-    </ul>
+                            <th>Date Demande</th>
+                            <th>Date effet</th>
+                            <th>Date expiration</th>
+                            <th>Justificatif</th>
+                            <th>Etat</th>
+                            <th>Actions</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for publiciteArticle in publiciteArticles %}
+                            <tr>
+                                <td><a href="{{ path('publicitearticle_show', { 'id': publiciteArticle.id }) }}">{{ publiciteArticle.id }}</a></td>
+
+                                <td>{% if publiciteArticle.datepublication %}{{ publiciteArticle.datepublication|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                <td>{% if publiciteArticle.dateeffet %}{{ publiciteArticle.dateeffet|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                <td>{% if publiciteArticle.dateexpiration %}{{ publiciteArticle.dateexpiration|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                <td><a href="{{ asset('uploads/' ~ publiciteArticle.imageName) }}" target="_blank"> <img class="img-responsive" style="width: 150px;height: 100px;" src="{{ asset('uploads/' ~ publiciteArticle.imageName) }}" alt=" "></a></td>
+                                <td>{{ publiciteArticle.etat }}</td>
+                                <td>
+
+                                            <a href="{{ path('publicitearticle_show', { 'id': publiciteArticle.id }) }}" class="btn btn-info">Détails</a>
+                                    {% if publiciteArticle.etat == "en attente" %}
+                                            <a href="{{ path('publicitearticle_activer', { 'id': publiciteArticle.id }) }}" class="btn btn-success">Valider</a>
+
+                                    <a href="{{ path('publicitearticle_refuser', { 'id': publiciteArticle.id }) }}" class="btn btn-danger">Refuser</a>
+                                    {% endif %}
+
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+
+                    </table>
+                    <a href="#" >Voir tous</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
 {% endblock %}

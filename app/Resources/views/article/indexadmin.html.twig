@@ -37,11 +37,11 @@
                                     <td>{% if article.date %}{{ article.date|date('Y-m-d H:i:s') }}{% endif %}</td>
                                     <td>{{ article.etat }}</td>
                                     <td>
-
-
-                                                <a class="btn btn-xs btn-danger" onclick="return confirm('êtes vous sure de vouloir publier ce plan?')" href="{{ path('article_desactiver', { 'idarticle': article.idarticle }) }}">supprimer</a>
-
-                                                <a class="btn btn-xs btn-success" onclick="return confirm('êtes vous sure de vouloir supprimer ce plan?')" href="{{ path('article_activer', { 'idarticle': article.idarticle }) }}">publier</a>
+                                {% if article.etat == "publié" or article.etat == "en attente"  %}
+                                        <a class="btn btn-xs btn-danger" onclick="return confirm('êtes vous sure de vouloir supprimer ce plan?')" href="{{ path('article_desactiver', { 'idarticle': article.idarticle }) }}">supprimer</a>
+                                    {% elseif article.etat == "en attente" %}
+                                        <a class="btn btn-xs btn-success" onclick="return confirm('êtes vous sure de vouloir publier ce plan?')" href="{{ path('article_activer', { 'idarticle': article.idarticle }) }}">publier</a>
+                                {% endif %}
                                         <a class="btn btn-xs btn-info"  href="{{ path('article_details', { 'idarticle': article.idarticle }) }}">Détails</a>
 
                                     </td>
