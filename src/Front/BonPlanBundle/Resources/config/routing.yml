@@ -44,6 +44,9 @@ front_bon_plan_single:
 front_bon_plan_singleProduit:
     path:     /singleProduit/{id}
     defaults: { _controller: FrontBonPlanBundle:Default:singleProduit }
+front_bon_plan_promotion:
+    path:     /promotion/{idprod}
+    defaults: { _controller: FrontBonPlanBundle:Promotion:detailsPromo }
 front_bon_plan_events:
     path:     /events/{id}
     defaults: { _controller: FrontBonPlanBundle:Default:events }

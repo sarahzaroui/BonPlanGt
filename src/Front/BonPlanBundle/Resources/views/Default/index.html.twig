@@ -204,7 +204,7 @@
                     <div class="news-bot">
                         {% for produit in produits %}
                             <div class="col-md-6 news-bottom1 animated wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="500ms">
-                                <a href="{{ path('front_bon_plan_singleProduit',{'id': produit.idproduit}) }}">
+                                <a href="{{ path('front_bon_plan_singleProduit',{'id': produit.idproduit }) }}">
                                     <div class="content-item" style="background-image: url({{ asset('uploads/'~produit.imagename) }});background-size: cover">
                                         <div class="overlay"></div>
                                         <div class=" news-bottom2">

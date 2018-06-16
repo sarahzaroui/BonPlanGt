@@ -4,6 +4,9 @@ namespace Front\BonPlanBundle\Entity;
 use FOS\CommentBundle\Entity\Comment as BaseComment;
 
 use Doctrine\ORM\Mapping as ORM;
+use FOS\CommentBundle\Model\SignedCommentInterface;
+use Symfony\Component\Security\Core\User\UserInterface;
+
 
 /**
  * Commentaire
@@ -12,7 +15,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity
  * @ORM\ChangeTrackingPolicy("DEFERRED_EXPLICIT")
  */
-class Commentaire extends BaseComment
+class Commentaire extends BaseComment implements SignedCommentInterface
 {
     /**
      * @var integer
@@ -40,15 +43,6 @@ class Commentaire extends BaseComment
      */
     private $idarticle;
 
-    /**
-     * @var \Client
-     *
-     * @ORM\ManyToOne(targetEntity="User")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="idUser", referencedColumnName="id")
-     * })
-     */
-    private $iduser;
 
     /**
      * @var \Evennement
@@ -66,6 +60,13 @@ class Commentaire extends BaseComment
      * @ORM\ManyToOne(targetEntity="Front\BonPlanBundle\Entity\Thread")
      */
     protected $thread;
+    /**
+     * Author of the comment
+     *
+     * @ORM\ManyToOne(targetEntity="Front\BonPlanBundle\Entity\User")
+     * @var User
+     */
+    protected $author;
 
     /**
      * @return int
@@ -83,7 +84,24 @@ class Commentaire extends BaseComment
         $this->id = $id;
     }
 
+    public function setAuthor(UserInterface $author)
+    {
+        $this->author = $author;
+    }
 
+    public function getAuthor()
+    {
+        return $this->author;
+    }
+
+    public function getAuthorName()
+    {
+        if (null === $this->getAuthor()) {
+            return 'Anonymous';
+        }
+
+        return $this->getAuthor()->getUsername();
+    }
 
 }
 

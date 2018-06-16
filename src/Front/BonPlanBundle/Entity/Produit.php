@@ -15,7 +15,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
  * Produit
  *
  * @ORM\Table(name="Produit")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Front\BonPlanBundle\Repository\ProduitRepository")
  * @Vich\Uploadable
  */
 class Produit

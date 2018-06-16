@@ -71,11 +71,11 @@ class DefaultController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $produit = $em->getRepository('FrontBonPlanBundle:Produit')->find($id);
-
-
-        return $this->render('FrontBonPlanBundle:Default:produitSingle.html.twig', array(
-            'produit' => $produit,
-        ));
+        $promotion = $em->getRepository('FrontBonPlanBundle:Promotion')->getPromoByProduct($id);
+        $info = array(
+            'promotion' => $promotion,
+            'produit' => $produit);
+        return $this->render('FrontBonPlanBundle:Default:produitSingle.html.twig',$info);
 
     }
     public function eventsAction($id)

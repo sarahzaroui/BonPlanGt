@@ -1,21 +1,3 @@
-promotion_show:
-    path:     /{idpromo}/showprom
-    defaults: { _controller: "FrontBonPlanBundle:Promotion:show" }
-    methods:  GET
 
-promotion_new:
-    path:     /newprom
-    defaults: { _controller: "FrontBonPlanBundle:Promotion:new" }
-    methods:  [GET, POST]
-
-promotion_edit:
-    path:     /{idpromo}/editprom
-    defaults: { _controller: "FrontBonPlanBundle:Promotion:edit" }
-    methods:  [GET, POST]
-
-promotion_delete:
-    path:     /{idpromo}/deleteprom
-    defaults: { _controller: "FrontBonPlanBundle:Promotion:delete" }
-    methods:  DELETE
 
 

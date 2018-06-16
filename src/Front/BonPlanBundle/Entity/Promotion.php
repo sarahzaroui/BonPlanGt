@@ -45,13 +45,13 @@ class Promotion
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="dateDeb", type="datetime", nullable=true)
+     * @ORM\Column(name="dateDeb", type="date", nullable=true)
      */
     private $datedeb;
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="dateFin", type="datetime", nullable=true)
+     * @ORM\Column(name="dateFin", type="date", nullable=true)
      */
     private $datefin;
 

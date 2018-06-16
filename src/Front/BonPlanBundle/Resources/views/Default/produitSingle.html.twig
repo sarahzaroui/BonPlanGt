@@ -53,7 +53,13 @@
 
 
                         <p class="wow fadeInLeft animated" data-wow-delay=".5s">{{ produit.detailpdt }}</span></p>
-
+                        {% if promotion %}
+                        <div class="more">
+                            <a class="link link-yaku"href="{{ path('front_bon_plan_promotion',{'idprod': produit.idproduit}) }}">
+                                <span>Voir détails promotion</span>
+                            </a>
+                        </div>
+                        {% endif %}
                     </div>
                 </div>
             </div>

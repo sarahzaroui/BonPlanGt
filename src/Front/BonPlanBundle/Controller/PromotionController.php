@@ -5,6 +5,7 @@ namespace Front\BonPlanBundle\Controller;
 use Front\BonPlanBundle\Entity\Promotion;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Front\BonPlanBundle\Entity\Produit;
 
 /**
  * Promotion controller.
@@ -137,4 +138,24 @@ class PromotionController extends Controller
             ->getForm()
         ;
     }
+    public function detailsPromoAction($idprod,Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $nom=$request->get('search');
+        $promotion = $em->getRepository('FrontBonPlanBundle:Promotion')->getPromoByProduct($idprod);
+        $produit = $em->getRepository('FrontBonPlanBundle:Produit')->find($idprod);
+        if($nom !="" ){
+            $produits = $em->getRepository('FrontBonPlanBundle:Produit')->findProduitPromotionByName($nom);
+
+        }else {
+            $produits = $em->getRepository('FrontBonPlanBundle:Produit')->findAllProductsPromotions($idprod);
+        }
+        $info = array(
+
+            'promotion' => $promotion,
+            'produit' => $produit,
+            'produits' => $produits);
+        return $this->render('FrontBonPlanBundle:Default:promotion.html.twig', $info);
+    }
+
 }

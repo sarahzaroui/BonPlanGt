@@ -19,9 +19,6 @@
                 </div>
                 <div class="col-md-7">
                     <div class="lone-line">
-                        <form class="navbar-search pull-right" action="{{ path('article_voter') }}" method="POST">
-                            <input type="hidden" name="article"  value="{{ article.idarticle }}" >
-                        </form>
                         <table >
                            <tr>
                        <td style="padding-bottom: 17px"><h4>{{ article.titre }}</h4></td>
@@ -68,7 +65,7 @@
          <!--       <div class="media-body">
 
                     <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>-->
-            {% include '@FOSComment/Thread/async.html.twig' with {'id': 'foo'} %}
+              {% include '@FOSComment/Thread/async.html.twig' with {'id': 'article'~article.idarticle } %}
 
               </div>
          <!--       </div> -->
