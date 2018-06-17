@@ -10,6 +10,8 @@ class DefaultController extends Controller
     public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
+       $updateEtatPublicite = $em->getRepository('FrontBonPlanBundle:PubliciteArticle')->updatePub();
+
         if($request->getMethod()=="POST")
         {
             $p=$request->get('search');
@@ -23,21 +25,18 @@ class DefaultController extends Controller
 
 
         $articles = $em->getRepository('FrontBonPlanBundle:Article')->findAllOrderedByDate();
-<<<<<<< .mine
+
         $pub = $em->getRepository('FrontBonPlanBundle:PubliciteArticle')->findAllSponsored();
+        $produits = $em->getRepository('FrontBonPlanBundle:Produit')->findAll();
+        $promotions = $em->getRepository('FrontBonPlanBundle:Promotion')->findLastPromo();
 
 
         return $this->render('FrontBonPlanBundle:Default:index.html.twig', array(
-=======
-        $produits = $em->getRepository('FrontBonPlanBundle:Produit')->findAll();
-        $promotions = $em->getRepository('FrontBonPlanBundle:Promotion')->findLastPromo();
-        $info = array(
 
->>>>>>> .theirs
             'articles' => $articles,'pubs'=> $pub,
             'promotions' => $promotions,
-            'produits' => $produits);
-        return $this->render('FrontBonPlanBundle:Default:index.html.twig', $info);
+            'produits' => $produits));
+
     }
     public function menuAction()
     {

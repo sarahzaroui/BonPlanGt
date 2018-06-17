@@ -25,5 +25,20 @@ class PubliciteArticleRepository extends EntityRepository
 
         return $query->execute();
     }
+    public function updatePub ()
+    {
+        $qb = $this->createQueryBuilder('a');
+
+$date = new \DateTime('now');
+
+$qb->update('FrontBonPlanBundle:PubliciteArticle', 'a')
+            ->set('a.etat', "'expirée'")
+            ->where('a.etat = :etat')
+            ->andWhere('a.dateexpiration <= :dateexp')
+            ->setParameter('etat', 'validée')
+            ->setParameter('dateexp', $date)
+            ->getQuery()
+            ->execute();
+    }
 
 }
