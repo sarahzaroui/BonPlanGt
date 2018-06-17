@@ -1,6 +1,6 @@
 back_bon_plan_back_homepage:
     path:     /
-    defaults: { _controller: BackBonPlanBackBundle:Default:index }
+    defaults: { _controller: "BackBonPlanBackBundle:Default:index" }
 bonplan_admin_template:
     path:     /temp
     defaults: { _controller: BackBonPlanBackBundle:Default:index }
@@ -142,4 +142,87 @@ publicitearticle_refuser:
     defaults: { _controller: "FrontBonPlanBundle:PubliciteArticle:cancel" }
     methods:  [GET, POST]
 
+listuser:
+    path:     /listUser
+    defaults: { _controller: "FrontBonPlanBundle:User:index" }
+    methods:  GET
+user_activer:
+    path:     /{iduser}/activerUser
+    defaults: { _controller: "FrontBonPlanBundle:User:activer" }
+    methods:  [GET, POST]
+user_desactiver:
+    path:     /{iduser}/desactiverUser
+    defaults: { _controller: "FrontBonPlanBundle:User:desactiver" }
+    methods:  [GET, POST]
+categorieevenement_index:
+    path:     /listCategorieEvennement
+    defaults: { _controller: "FrontBonPlanBundle:Categorieevenement:index" }
+    methods:  GET
 
+categorieevenement_show:
+    path:     /{idcatev}/showEvennement
+    defaults: { _controller: "FrontBonPlanBundle:Categorieevenement:show" }
+    methods:  GET
+
+categorieevenement_new:
+    path:     /newEvennement
+    defaults: { _controller: "FrontBonPlanBundle:Categorieevenement:new" }
+    methods:  [GET, POST]
+
+categorieevenement_edit:
+    path:     /{idcatev}/editEvennement
+    defaults: { _controller: "FrontBonPlanBundle:Categorieevenement:edit" }
+    methods:  [GET, POST]
+
+categorieevenement_delete:
+    path:     /{idcatev}/deleteEvennement
+    defaults: { _controller: "FrontBonPlanBundle:Categorieevenement:delete" }
+    methods:  DELETE
+
+
+categoriearticle_index:
+    path:     /listCategorieArticle
+    defaults: { _controller: "FrontBonPlanBundle:Categoriearticle:index" }
+    methods:  GET
+
+categoriearticle_show:
+    path:     /{idcatart}/show
+    defaults: { _controller: "FrontBonPlanBundle:Categoriearticle:show" }
+    methods:  GET
+
+categoriearticle_new:
+    path:     /newCategorieArticle
+    defaults: { _controller: "FrontBonPlanBundle:Categoriearticle:new" }
+    methods:  [GET, POST]
+
+categoriearticle_edit:
+    path:     /{idcatart}/editCategorieArticle
+    defaults: { _controller: "FrontBonPlanBundle:Categoriearticle:edit" }
+    methods:  [GET, POST]
+
+categoriearticle_delete:
+    path:     /{idcatart}/deleteCategorieArticle
+    defaults: { _controller: "FrontBonPlanBundle:Categoriearticle:delete" }
+    methods:  DELETE
+region_new:
+    path:     /newRegion
+    defaults: { _controller: "FrontBonPlanBundle:Region:new" }
+    methods:  [GET, POST]
+
+region_show:
+    path:     /{idregion}/showRegion
+    defaults: { _controller: "FrontBonPlanBundle:Region:show" }
+    methods:  GET
+region_index:
+    path:     /listRegion
+    defaults: { _controller: "FrontBonPlanBundle:Region:index" }
+    methods:  GET
+
+region_edit:
+    path:     /{idregion}/editRegion
+    defaults: { _controller: "FrontBonPlanBundle:Region:edit" }
+    methods:  [GET, POST]
+region_delete:
+    path:     /{idregion}/deleteRegion
+    defaults: { _controller: "FrontBonPlanBundle:Region:delete" }
+    methods:  DELETE

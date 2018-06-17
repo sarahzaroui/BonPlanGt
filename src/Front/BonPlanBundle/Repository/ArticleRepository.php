@@ -41,5 +41,11 @@ class ArticleRepository extends EntityRepository
 
         return $query->execute();
     }
+    public function nombrearticle()
+    {
+        $query = $this->getEntityManager()
+            ->createQuery('SELECT count (DISTINCT s.idarticle) AS y FROM FrontBonPlanBundle:Article s ');
+        return $query->getResult();
+    }
 
 }

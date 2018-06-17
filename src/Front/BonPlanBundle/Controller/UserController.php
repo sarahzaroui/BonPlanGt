@@ -30,4 +30,33 @@ class UserController extends Controller
             'reservers' => $reservers,
         ));
     }
+    public function indexAction(){
+        $em = $this->getDoctrine()->getManager();
+
+        $user = $em->getRepository('FrontBonPlanBundle:User')->findAll();
+        return $this->render('user/index.html.twig', array(
+            'users' => $user,
+        ));
+    }
+    public function activerAction (Request $request)
+    {
+        $id = $request->get('iduser');
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository('FrontBonPlanBundle:User')->find($id);
+        $user->setEnabled(true);
+        $em->persist($user);
+        $em->flush();
+        return $this->redirectToRoute('listuser');
+    }
+
+    public function desactiverAction (Request $request)
+    {
+        $id = $request->get('iduser');
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository('FrontBonPlanBundle:User')->find($id);
+        $user->setEnabled(false);
+        $em->persist($user);
+        $em->flush();
+        return $this->redirectToRoute('listuser');
+    }
 }

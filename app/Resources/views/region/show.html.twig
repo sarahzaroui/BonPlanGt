@@ -1,0 +1,39 @@
+{% extends "BackBonPlanBackBundle::layout.html.twig" %}
+{% block tilte %}
+    Administration Bon plan
+{% endblock %}
+{% block container %}
+    <h1>Region</h1>
+
+    <table class="table">
+        <tbody>
+        <tr>
+            <th>IdRegion</th>
+            <td>{{ region.idregion }}</td>
+        </tr>
+        <tr>
+            <th>Nom</th>
+            <td>{{ region.nom }}</td>
+        </tr>
+        <tr>
+            <th>TypeRegion</th>
+            <td>{{ region.typeregion }}</td>
+        </tr>
+        <tr>
+            <th>Regionparente</th>
+            <td>{{ region.regionparente }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+
+    <a href="{{ path('region_index') }}"><button class="btn btn-primary btn-sm btn-block">Back to the list</button></a>
+
+    <a href="{{ path('region_edit', { 'idregion': region.idregion }) }}"><button class="btn btn-success btn-block" type="submit" style="margin-top: 10px;">Edit</button></a>
+
+    {{ form_start(delete_form) }}
+    <button class="btn btn-danger btn-sm btn-block" type="submit" style="margin-top: 10px;">Delete</button>
+    {{ form_end(delete_form) }}
+
+
+{% endblock %}

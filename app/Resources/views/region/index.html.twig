@@ -3,33 +3,37 @@
     Administration Bon plan
 {% endblock %}
 {% block container %}
-    <h2>Categories des articles</h2>
+    <h2>Region list</h2>
     <div class="col-md-12" style="padding-bottom: 10px;">
-        <a href="{{ path('categoriearticle_new') }}"><button class="btn btn-xs btn-success">Create a new category article</button></a>
+        <a href="{{ path('region_new') }}"><button class="btn btn-xs btn-success">Create a new Region</button></a>
     </div>
     <table class="table" id="example2">
         <thead>
         <tr>
-            <th>Idcatart</th>
+            <th>IdRegion</th>
             <th>Nom</th>
+            <th>Type Region</th>
+            <th>Region parente</th>
             <th>Actions</th>
         </tr>
         </thead>
         <tbody>
-        {% for categoriearticle in categoriearticles %}
+        {% for region in regions %}
             <tr>
-                <td><a href="{{ path('categoriearticle_show', { 'idcatart': categoriearticle.idcatart }) }}">{{ categoriearticle.idcatart }}</a></td>
-                <td>{{ categoriearticle.nom }}</td>
+                <td><a href="{{ path('region_show', { 'idregion': region.idregion }) }}">{{ region.idregion }}</a></td>
+                <td>{{ region.nom }}</td>
+                <td>{{ region.typeregion }}</td>
+                <td>{{ region.regionparente }}</td>
                 <td>
 
-                    <a href="{{ path('categoriearticle_show', { 'idcatart': categoriearticle.idcatart }) }}">
+                    <a href="{{ path('region_show', { 'idregion': region.idregion }) }}">
                         <button class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></button>
                     </a>
 
-                    <a href="{{ path('categoriearticle_edit', { 'idcatart': categoriearticle.idcatart }) }}">
+                    <a href="{{ path('region_edit', { 'idregion': region.idregion }) }}">
                         <button class="btn btn-xs btn-primary"><i class="fa fa-edit"></i></button>
                     </a>
-                    <a href="{{ path('categoriearticle_show', { 'idcatart': categoriearticle.idcatart }) }}">
+                    <a href="{{ path('region_show', { 'idregion': region.idregion }) }}">
                         <button class="btn btn-xs btn-success"><i class="fa fa-eye"></i></button>
                     </a>
 
