@@ -2,9 +2,15 @@
 
 namespace Front\BonPlanBundle\Controller;
 
+use Front\BonPlanBundle\Entity\Evennement;
 use Front\BonPlanBundle\Entity\Reserver;
+use Front\BonPlanBundle\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 /**
  * Reserver controller.
@@ -52,7 +58,8 @@ class ReserverController extends Controller
             $em->persist($reserver);
             $em->flush();
 
-            return $this->redirectToRoute('reserver_show', array('idreservation' => $reserver->getIdreservation()));
+            //return $this->redirectToRoute('reserver_show', array('idreservation' => $reserver->getIdreservation()));
+            return $this->redirectToRoute('front_bon_plan_menu');
         }
 
         return $this->render('reserver/new.html.twig', array(
@@ -67,11 +74,16 @@ class ReserverController extends Controller
      */
     public function showAction(Reserver $reserver)
     {
-        $deleteForm = $this->createDeleteForm($reserver);
+        $evennement = new Evennement();
+        $evennement = $reserver->getIdev();
+        $user = new User();
+        $user = $reserver ->getIduser();
+
 
         return $this->render('reserver/show.html.twig', array(
             'reserver' => $reserver,
-            'delete_form' => $deleteForm->createView(),
+            'user' => $user,
+            'evenement' => $evennement,
         ));
     }
 
@@ -130,5 +142,78 @@ class ReserverController extends Controller
             ->setMethod('DELETE')
             ->getForm()
         ;
+    }
+
+    public function activerAction (Request $request)
+    {
+
+        $id = $request->get('idreservation');
+        $em = $this->getDoctrine()->getManager();
+        $reserver = $em->getRepository('FrontBonPlanBundle:Reserver')->find($id);
+        $reserver->SetEtat("Active");
+        $user = $reserver->getIduser();
+        $em->persist($reserver);
+        $em->flush();
+
+        $message = \Swift_Message::newInstance()
+            ->setSubject('Confirmation de réservation')
+            ->setFrom('bonplan2info@gmail.com')
+            ->setTo($user->getEmail())
+            ->setBody(
+                $this->renderView(
+                    'FrontBonPlanBundle:Default:ConfirmationReservation.html.twig'
+                ),
+                'text/html'
+            );
+        $this->get('mailer')->send($message);
+
+        return $this->redirectToRoute('reserver_index');
+    }
+
+    public function desactiverAction (Request $request)
+    {
+        $id = $request->get('idreservation');
+        $em = $this->getDoctrine()->getManager();
+        $reserver = $em->getRepository('FrontBonPlanBundle:Reserver')->find($id);
+        $reserver->SetEtat("Annulé");
+        $em->persist($reserver);
+        $em->flush();
+        return $this->redirectToRoute('reserver_index');
+    }
+
+
+    public function createreservationAction(Request $request,$idevent,$iduser,$nbrePlace)
+    {
+        //connexion
+        $em = $this->getDoctrine()->getManager();
+        //get annonce and client object
+        $user = $em->getRepository('FrontBonPlanBundle:User')->find($iduser);
+        $event = $em->getRepository('FrontBonPlanBundle:Evennement')->find($idevent);
+        //instance réserver
+        $Reserver= new Reserver();
+        //affecter les champs
+        $Reserver->setIdev($event);
+        $Reserver->setIduser($user);
+        $Reserver->setNbrePlaces($nbrePlace);
+        $Reserver->setDate(new \DateTime('now'));
+        $em->persist($Reserver);
+        $em->flush();
+        //format date
+        $callback = function ($dateTime) {
+            return $dateTime instanceof \DateTime
+                ? $dateTime->format('Y-m-d')
+                : '';
+        };
+        $normalizer = new ObjectNormalizer();
+        //ne pas envoyer client,annonce,commentaires dans le retour json
+        $normalizer->setIgnoredAttributes(array('user','evennement','reserver'));
+        $normalizer->setCallbacks(array('Date' => $callback));
+        $normalizer->setCircularReferenceLimit(1);
+        $serializer = new Serializer([$normalizer]);
+        $normalizer->setCircularReferenceHandler(function ($object) {
+            return $object->getId();
+        });
+        $formatted= $serializer->normalize($Reserver, 'json');
+        return new JsonResponse($formatted);
     }
 }

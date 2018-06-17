@@ -16,12 +16,13 @@
 
     {{ form_start(form) }}
         {{ form_widget(form) }}
+
         <input type="submit" value="Create" />
     {{ form_end(form) }}
 
     <ul>
         <li>
-            <a href="{{ path('evennement_index') }}">Back to the list</a>
+            <a href="{{ path('evennement_index') }}">Retourner à la liste des évenements</a>
         </li>
     </ul>
 {% endblock %}

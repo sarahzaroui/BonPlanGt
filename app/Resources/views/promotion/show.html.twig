@@ -1,0 +1,42 @@
+{% extends "tfUserBundle::prestataire.html.twig" %}
+{% block tilte %}
+    Espace prestataire Bon plan
+{% endblock %}
+{% block container %}
+    <h1>Promotion</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Idpromo</th>
+                <td>{{ promotion.idpromo }}</td>
+            </tr>
+            <tr>
+                <th>Reduction</th>
+                <td>{{ promotion.reduction }}</td>
+            </tr>
+            <tr>
+                <th>Datedeb</th>
+                <td>{% if promotion.datedeb %}{{ promotion.datedeb|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Datefin</th>
+                <td>{% if promotion.datefin %}{{ promotion.datefin|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('promotion_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('promotion_edit', { 'idpromo': promotion.idpromo }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

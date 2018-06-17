@@ -1,0 +1,24 @@
+{% extends "tfUserBundle::prestataire.html.twig" %}
+{% block tilte %}
+    Espace prestataire Bon plan
+{% endblock %}
+{% block container %}
+    <h1>Promotion creation</h1>
+
+    {% if retour == 1 %}
+        <div class="alert alert-danger" role="alert">
+            <strong>Erreur!</strong> Une autre promotion pour le même produit est déjà en cours
+        </div>
+    {% endif %}
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <input type="submit" value="Create" />
+    {{ form_end(form) }}
+
+    <ul>
+        <li>
+            <a href="{{ path('promotion_index') }}">Back to the list  </a>
+        </li>
+    </ul>
+{% endblock %}

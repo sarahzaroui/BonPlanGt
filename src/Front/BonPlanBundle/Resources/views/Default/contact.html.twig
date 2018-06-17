@@ -6,10 +6,10 @@
                 <div class="col-md-4 menu-left animated wow fadeInLeft" data-wow-duration="1000ms" data-wow-delay="500ms">
                     <h3>Contact</h3>
                     <label><i class="glyphicon glyphicon-menu-up"></i></label>
-                    <span>Votre avis est le bienvenu</span>
+                    <span>There are many variations</span>
                 </div>
                 <div class="col-md-8 menu-right animated wow fadeInRight" data-wow-duration="1000ms" data-wow-delay="500ms">
-                    <p>Bon Plan est un site développé par le groupe Task Force : nous sommes prêts à vous écouter .Merci de nous donner votre avis votre feed bak</p>
+                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour , or randomised words which don't look even slightly believable.There are many variations by injected humour. There are many variations of passages of Lorem Ipsum available.There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form by injected humour , or randomised words</p>
                 </div>
                 <div class="clearfix"> </div>
             </div>
@@ -17,48 +17,48 @@
                 <div class="col-md-5 contact-map">
                     <h5>Google Map</h5>
                     <div class="map animated wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="500ms">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3192.5477267652295!2d10.204999214924579!3d36.853306379937635!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12fd34d3c96bec6b%3A0x9f458fbb48b78af4!2sESPRIT+-+Cours+de+soir!5e0!3m2!1sfr!2stn!4v1523790651283" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d37494223.23909492!2d103!3d55!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x453c569a896724fb%3A0x1409fdf86611f613!2sRussia!5e0!3m2!1sen!2sin!4v1415776049771"></iframe>
+
                     </div>
                     <div class="address">
-                        <h4>Addresse</h4>
-                        <p> Pon Plan Task Force</p>
-                        <p>Site des bons affaires </p>
-                        <p>Tel: 70 100 100</p>
-                        <p>Email : <a href="bonplan2info@gmail.com">bonplan2info@gmail.com</a></p>
+                        <h4>Address</h4>
+                        <p> Richard McClintock</p>
+                        <p>Letraset sheets </p>
+                        <p>ph : +123 859 6050</p>
+                        <p>Email : <a href="mailto:example@gmail.com">example@gmail.com</a></p>
                     </div>
                 </div>
                 <div class="col-md-7 contact-para animated wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="500ms">
-                    <h5>Formulaire de Contact</h5>
-                    {{ form_start(form) }}
-                    <div class="grid-contact">
-                        <div class="col-md-6 contact-grid">
-                            <p class="your-para">Nom </p>
-
-                            {{ form_widget(form.nom) }}
+                    <h5>Contact Form</h5>
+                    <form>
+                        <div class="grid-contact">
+                            <div class="col-md-6 contact-grid">
+                                <p class="your-para">Name </p>
+                                <input type="text" value="" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}">
+                            </div>
+                            <div class="col-md-6 contact-grid">
+                                <p class="your-para">Phone number</p>
+                                <input type="text" value="" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}">
+                            </div>
+                            <div class="clearfix"> </div>
                         </div>
-                        <div class="col-md-6 contact-grid">
-                            <p class="your-para">Prénom</p>
-                            {{ form_widget(form.prenom) }}
+                        <div class="grid-contact">
+                            <div class="col-md-6 contact-grid">
+                                <p class="your-para">Email</p>
+                                <input type="text" value="" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}">
+                            </div>
+                            <div class="col-md-6 contact-grid">
+                                <p class="your-para">Password</p>
+                                <input type="Password" value="" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}">
+                            </div>
+                            <div class="clearfix"> </div>
                         </div>
-                        <div class="clearfix"> </div>
-                    </div>
-                    <div class="grid-contact">
-                        <div class="col-md-6 contact-grid">
-                            <p class="your-para">E-Mail</p>
-                            {{ form_widget(form.email) }}
+                        <p class="your-para msg-para">MESSAGE</p>
+                        <textarea cols="77" rows="6" value=" " onfocus="this.value='';" onblur="if (this.value == '') {this.value = '';}"></textarea>
+                        <div class="send">
+                            <input type="submit" value="Send " >
                         </div>
-                        <div class="col-md-6 contact-grid">
-                            <p class="your-para">Numéro de téléphone</p>
-                            {{ form_widget(form.tel) }}
-                        </div>
-                        <div class="clearfix"> </div>
-                    </div>
-                    <p class="your-para msg-para">MESSAGE</p>
-                    {{ form_widget(form.text) }}
-                    <div class="send">
-                        {{ form_widget(form.envoyer) }}
-                    </div>
-                    {{ form_end(form) }}
+                    </form>
                 </div>
 
                 <div class="clearfix"> </div>
@@ -66,4 +66,11 @@
         </div>
     </div>
     <!-- /.container -->
+<div class="container">
+    {%  block commentaire %}
+
+        {% include '@FOSComment/Thread/async.html.twig' with {'id': 'foo'} %}
+    {%  endblock %}
+</div>
+
 {% endblock %}

@@ -1,16 +1,65 @@
 {% extends "Front\BonPlanBundle::layout.html.twig" %}
 {% block container %}
+<br>
+    <br>
+    <br>
+    <div class="row">
+        <div class="col-md-2">
 
-    <h1>Réservation</h1>
+        </div>
+        <div class="col-md-8">
+            <h3 class="text-center">Bienvenue à notre platforme de réservation en ligne</h3>
+            <p class="text-center">
+                Veuillez etre attentifs aux détails de la réservation fournis<br>
+                Notez Bien que la réservation ne peut pas etre annulé avant 24h de la date de réservation<br>
+                Merci pour votre confiance avec les salutations de toute l'équipe Bon Plan
 
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Confirmer Réservation" />
-    {{ form_end(form) }}
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
 
-    <ul>
-        <li>
-            <a href="{{ path('reserver_index') }}">Retourner à la liste des évenements</a>
-        </li>
-    </ul>
+        </div>
+        <div class="col-md-4">
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            <br>
+            <input type="submit" class="btn btn-success" value="Confirmer Réservation" />
+            {{ form_end(form) }}
+
+
+        </div>
+    </div>
+    <div class="row">
+        <hr>
+        <div class="col-md-2">
+
+        </div>
+        <div class="col-md-8">
+            <a href="{{ path('reserver_index') }}" class="btn btn-info btn-sm">Retourner à la liste des évenements</a>
+            <p> Pour Plus de détails veuillez contactez notre RP Omar Turki
+                Merci encore pour votre confiance</p>
+
+        </div>
+    </div>
+    <div class="row">
+        <hr>
+        <div class="col-md-2">
+
+        </div>
+        <div class="col-md-8">
+
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
 {% endblock %}

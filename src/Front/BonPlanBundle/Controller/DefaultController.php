@@ -23,12 +23,21 @@ class DefaultController extends Controller
 
 
         $articles = $em->getRepository('FrontBonPlanBundle:Article')->findAllOrderedByDate();
+<<<<<<< .mine
         $pub = $em->getRepository('FrontBonPlanBundle:PubliciteArticle')->findAllSponsored();
 
 
         return $this->render('FrontBonPlanBundle:Default:index.html.twig', array(
+=======
+        $produits = $em->getRepository('FrontBonPlanBundle:Produit')->findAll();
+        $promotions = $em->getRepository('FrontBonPlanBundle:Promotion')->findLastPromo();
+        $info = array(
+
+>>>>>>> .theirs
             'articles' => $articles,'pubs'=> $pub,
-        ));
+            'promotions' => $promotions,
+            'produits' => $produits);
+        return $this->render('FrontBonPlanBundle:Default:index.html.twig', $info);
     }
     public function menuAction()
     {
@@ -38,6 +47,14 @@ class DefaultController extends Controller
 
         return $this->render('FrontBonPlanBundle:Default:menu.html.twig', array(
             'events' => $events
+        ));
+    }
+    public function ratingAction()
+    {
+        $form = $this->createForm('Front\BonPlanBundle\Form\RatingType');
+
+        return $this->render('FrontBonPlanBundle:Default:rating.html.twig', array(
+            'formrating' => $form->createView()
         ));
     }
     public function blogAction(Request $request)
@@ -67,6 +84,18 @@ class DefaultController extends Controller
         return $this->render('FrontBonPlanBundle:Default:single.html.twig', array(
             'article' => $article,
         ));
+
+    }
+    public function singleProduitAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $produit = $em->getRepository('FrontBonPlanBundle:Produit')->find($id);
+        $promotion = $em->getRepository('FrontBonPlanBundle:Promotion')->getPromoByProduct($id);
+        $info = array(
+            'promotion' => $promotion,
+            'produit' => $produit);
+        return $this->render('FrontBonPlanBundle:Default:produitSingle.html.twig',$info);
 
     }
     public function eventsAction($id)
@@ -110,4 +139,9 @@ class DefaultController extends Controller
             'articles' => $articles,'categories' => $gategories,'articles1'=>$articles1,
         ));
 	}
+    public function voterAction (Request $request)
+    {
+
+        return $this->redirectToRoute('FrontBonPlanBundle:Default:single.html.twig');
+    }
 }

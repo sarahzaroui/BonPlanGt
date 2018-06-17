@@ -1,0 +1,19 @@
+commande_show:
+    path:     /{idcmd}/showcmd
+    defaults: { _controller: "FrontBonPlanBundle:Commande:show" }
+    methods:  GET
+
+commande_new:
+    path:     /newcmd
+    defaults: { _controller: "FrontBonPlanBundle:Commande:new" }
+    methods:  [GET, POST]
+
+commande_edit:
+    path:     /{idcmd}/editcmd
+    defaults: { _controller: "FrontBonPlanBundle:Commande:edit" }
+    methods:  [GET, POST]
+
+commande_delete:
+    path:     /{idcmd}/deletecmd
+    defaults: { _controller: "FrontBonPlanBundle:Commande:delete" }
+    methods:  DELETE

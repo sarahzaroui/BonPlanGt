@@ -8,46 +8,49 @@
 
 namespace Front\BonPlanBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * Produit
  *
  * @ORM\Table(name="Produit")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Front\BonPlanBundle\Repository\ProduitRepository")
+ * @Vich\Uploadable
  */
 class Produit
 {
     /**
      * @var integer
      *
-     * @ORM\Column(name="id_produit", type="integer", nullable=false)
+     * @ORM\Column(name="idProduit", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $id_produit;
+    private $idproduit;
 
     /**
      * @var \Prestataire
      *
      * @ORM\ManyToOne(targetEntity="User")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_prestataire", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="idPrestataire", referencedColumnName="id")
      * })
      */
-    private $id_prestataire;
+    private $idprestataire;
     /**
      * @var string
      *
-     * @ORM\Column(name="nom_pdt", type="string", length=254, nullable=true)
+     * @ORM\Column(name="nomPdt", type="string", length=254, nullable=true)
      */
-    private $nom_pdt;
+    private $nompdt;
 
     /**
  * @var integer
  *
- * @ORM\Column(name="qte_dispo", type="integer", nullable=true)
+ * @ORM\Column(name="qteDispo", type="integer", nullable=true)
  */
-    private $qte_dispo;
+    private $qtedispo;
 
     /**
      * @var float
@@ -59,9 +62,9 @@ class Produit
     /**
      * @var string
      *
-     * @ORM\Column(name="detail_pdt", type="string", length=500, nullable=true)
+     * @ORM\Column(name="detailPdt", type="string", length=500, nullable=true)
      */
-    private $detail_pdt;
+    private $detailpdt;
 
     /**
      * @var string
@@ -73,65 +76,81 @@ class Produit
     /**
      * @return int
      */
-    public function getIdProduit()
+    /**
+     * NOTE: This is not a mapped field of entity metadata, just a simple property.
+     *
+     * @Vich\UploadableField(mapping="product_image", fileNameProperty="imageName")
+     *
+     * @var File
+     */
+    private $imageFile;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="image_name", type="string", length=255, nullable=true)
+     */
+    private $imageName;
+
+    public function getIdproduit()
     {
-        return $this->id_produit;
+        return $this->idproduit;
     }
 
     /**
-     * @param int $id_produit
+     * @param int $idproduit
      */
-    public function setIdProduit($id_produit)
+    public function setIdproduit($idproduit)
     {
-        $this->id_produit = $id_produit;
+        $this->idproduit = $idproduit;
     }
 
     /**
      * @return \Prestataire
      */
-    public function getIdPrestataire()
+    public function getIdprestataire()
     {
-        return $this->id_prestataire;
+        return $this->idprestataire;
     }
 
     /**
-     * @param \Prestataire $id_prestataire
+     * @param \Prestataire $idprestataire
      */
-    public function setIdPrestataire($id_prestataire)
+    public function setIdprestataire($idprestataire)
     {
-        $this->id_prestataire = $id_prestataire;
+        $this->idprestataire = $idprestataire;
     }
 
     /**
      * @return string
      */
-    public function getNomPdt()
+    public function getNompdt()
     {
-        return $this->nom_pdt;
+        return $this->nompdt;
     }
 
     /**
-     * @param string $nom_pdt
+     * @param string $nompdt
      */
-    public function setNomPdt($nom_pdt)
+    public function setNompdt($nompdt)
     {
-        $this->nom_pdt = $nom_pdt;
+        $this->nompdt = $nompdt;
     }
 
     /**
      * @return int
      */
-    public function getQteDispo()
+    public function getQtedispo()
     {
-        return $this->qte_dispo;
+        return $this->qtedispo;
     }
 
     /**
-     * @param int $qte_dispo
+     * @param int $qtedispo
      */
-    public function setQteDispo($qte_dispo)
+    public function setQtedispo($qtedispo)
     {
-        $this->qte_dispo = $qte_dispo;
+        $this->qtedispo = $qtedispo;
     }
 
     /**
@@ -153,17 +172,17 @@ class Produit
     /**
      * @return string
      */
-    public function getDetailPdt()
+    public function getDetailpdt()
     {
-        return $this->detail_pdt;
+        return $this->detailpdt;
     }
 
     /**
-     * @param string $detail_pdt
+     * @param string $detailpdt
      */
-    public function setDetailPdt($detail_pdt)
+    public function setDetailpdt($detailpdt)
     {
-        $this->detail_pdt = $detail_pdt;
+        $this->detailpdt = $detailpdt;
     }
 
     /**
@@ -181,6 +200,39 @@ class Produit
     {
         $this->adresse = $adresse;
     }
+
+    /**
+     * @return File
+     */
+    public function getImageFile()
+    {
+        return $this->imageFile;
+    }
+
+    /**
+     * @param File $imageFile
+     */
+    public function setImageFile($imageFile)
+    {
+        $this->imageFile = $imageFile;
+    }
+
+    /**
+     * @return string
+     */
+    public function getImageName()
+    {
+        return $this->imageName;
+    }
+
+    /**
+     * @param string $imageName
+     */
+    public function setImageName($imageName)
+    {
+        $this->imageName = $imageName;
+    }
+
 
 
 }

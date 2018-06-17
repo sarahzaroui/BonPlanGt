@@ -71,7 +71,7 @@ class User extends BaseUser
     /**
      * @ORM\Column(type="string")
      */
-    protected $first_name;
+    public $first_name;
 
     /**
      * @ORM\Column(type="string")

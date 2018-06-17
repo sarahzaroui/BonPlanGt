@@ -1,0 +1,63 @@
+{% extends "tfUserBundle::prestataire.html.twig" %}
+{% block tilte %}
+    Espace prestataire Bon plan
+{% endblock %}
+{% block container %}
+<section class="content">
+    <a class="btn btn-success pull-right" href="{{ path('article_new') }}">Nouveau Plan</a>
+    <br>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Liste des plans</h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <table id="example2" class="table table-bordered table-hover">
+                        <thead>
+            <tr>
+                <th>Idproduit</th>
+                <th>Nompdt</th>
+                <th>Qtedispo</th>
+                <th>Prix</th>
+                <th>Detailpdt</th>
+                <th>Adresse</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for produit in produits %}
+            <tr>
+                <td><a href="{{ path('produit_show', { 'idproduit': produit.idproduit }) }}">{{ produit.idproduit }}</a></td>
+                <td>{{ produit.nompdt }}</td>
+                <td>{{ produit.qtedispo }}</td>
+                <td>{{ produit.prix }}</td>
+                <td>{{ produit.detailpdt }}</td>
+                <td>{{ produit.adresse }}</td>
+                <td>
+                    <ul>
+                        <td>
+                            <a class="btn btn-xs btn-info" onclick="myFunction()" href="{{ path('produit_show', { 'idproduit': produit.idproduit }) }}">show</a>
+
+
+                            <a class="btn btn-xs btn-info" onclick="myFunction()" href="{{ path('produit_edit', { 'idproduit': produit.idproduit }) }}">edit</a>
+                </td>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <ul>
+        <li>
+            <a href="{{ path('produit_new') }}">Create a new produit</a>
+        </li>
+    </ul>
+{% endblock %}

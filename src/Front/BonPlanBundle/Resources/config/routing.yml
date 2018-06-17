@@ -29,6 +29,9 @@ articles_categorie:
 front_bon_plan_homepage:
     path:     /index
     defaults: { _controller: FrontBonPlanBundle:Default:index }
+front_bon_plan_user:
+    path:     /user
+    defaults: { _controller: FrontBonPlanBundle:User:user }
 front_bon_plan_menu:
     path:     /menu
     defaults: { _controller: FrontBonPlanBundle:Default:menu }
@@ -38,6 +41,12 @@ front_bon_plan_blog:
 front_bon_plan_single:
     path:     /single/{id}
     defaults: { _controller: FrontBonPlanBundle:Default:single }
+front_bon_plan_singleProduit:
+    path:     /singleProduit/{id}
+    defaults: { _controller: FrontBonPlanBundle:Default:singleProduit }
+front_bon_plan_promotion:
+    path:     /promotion/{idprod}
+    defaults: { _controller: FrontBonPlanBundle:Promotion:detailsPromo }
 front_bon_plan_events:
     path:     /events/{id}
     defaults: { _controller: FrontBonPlanBundle:Default:events }
@@ -53,6 +62,10 @@ front_bon_plan_login:
 fos_user_registration_register:
     path:     /register
     defaults: { _controller: FOSUserBundle:Registration:register }
+rating:
+    path:     /rating
+    defaults: { _controller: FrontBonPlanBundle:Default:rating }
+
 
 reserver_index:
     path:     /
@@ -78,6 +91,16 @@ reserver_delete:
     path:     /{idreservation}/deleteReservation
     defaults: { _controller: "FrontBonPlanBundle:Reserver:delete" }
     methods:  DELETE
+
+get_Evennement:
+    path:     /getAllEvennement
+    defaults: { _controller: FrontBonPlanBundle:Evennement:getAllEvennement}
+
+New_Res:
+    path:     /nouvelleReservation/{idevent}/{iduser}/{nbrePlace}
+    defaults: { _controller: FrontBonPlanBundle:Reserver:createreservation}
+
+
 
 
 

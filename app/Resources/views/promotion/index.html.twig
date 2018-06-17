@@ -1,0 +1,59 @@
+{% extends "tfUserBundle::prestataire.html.twig" %}
+{% block tilte %}
+    Espace prestataire Bon plan
+{% endblock %}
+{% block container %}
+<section class="content">
+    <a class="btn btn-success pull-right" href="{{ path('article_new') }}">Nouveau Plan</a>
+    <br>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Liste des plans</h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <table id="example2" class="table table-bordered table-hover">
+                        <thead>
+            <tr>
+                <th>Idpromo</th>
+                <th>Reduction</th>
+                <th>Datedeb</th>
+                <th>Datefin</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for promotion in promotions %}
+            <tr>
+                <td><a href="{{ path('promotion_show', { 'idpromo': promotion.idpromo }) }}">{{ promotion.idpromo }}</a></td>
+                <td>{{ promotion.reduction }}</td>
+                <td>{% if promotion.datedeb %}{{ promotion.datedeb|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if promotion.datefin %}{{ promotion.datefin|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                       <td>
+                            <a class="btn btn-xs btn-info" onclick="myFunction()" href="{{ path('promotion_show', { 'idpromo': promotion.idpromo }) }}">show</a>
+
+
+                            <a class="btn btn-xs btn-info" onclick="myFunction()" href="{{ path('promotion_edit', { 'idpromo': promotion.idpromo }) }}">edit</a>
+                </td>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <ul>
+        <li>
+            <a href="{{ path('promotion_new') }}">Create a new promotion</a>
+        </li>
+    </ul>
+{% endblock %}

@@ -19,13 +19,36 @@
                 </div>
                 <div class="col-md-7">
                     <div class="lone-line">
-                        <h4>{{ article.titre }}</h4>
+                        <table >
+                           <tr>
+                       <td style="padding-bottom: 17px"><h4>{{ article.titre }}</h4></td>
+                               <td>  <div class="container">
+
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="star-rating">
+                                        <span class="fa fa-star-o" data-rating="1" id="one" valuee="1"></span>
+                                        <span class="fa fa-star-o" data-rating="2" id="two" valuee="2"></span>
+                                        <span class="fa fa-star-o" data-rating="3" id="three" valuee="3"></span>
+                                        <span class="fa fa-star-o" data-rating="4" id="four" valuee="4"></span>
+                                        <span class="fa fa-star-o" data-rating="5" id="five" valuee="5"></span>
+
+                                        <input type="hidden"  class="rating-value" id="rate" name="vote">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div></td>
+                           </tr>
+                        </table>
+
                         <ul class="grid-blog">
                             <li><span><i class="glyphicon glyphicon-time"> </i>{{ article.date|date('Y-m-d') }}</span></li>
                             <li><i class="glyphicon glyphicon-map-marker"> </i>{{ article.adresse }}</li>
 
                         </ul>
                         <p class="wow fadeInLeft animated" data-wow-delay=".5s">{{ article.description }}</span></p>
+
                     </div>
                 </div>
             </div>
@@ -34,47 +57,59 @@
         </div>
         <div class="comment">
             <h3>Commentaires</h3>
-            <div class="media wow fadeInLeft animated" data-wow-delay=".5s">
+          <div class="media wow fadeInLeft animated" data-wow-delay=".5s">
                 <div class="code-in">
-                    <p class="smith"><a href="#">Andey</a> <span>02 June 2014, 15:20</span></p>
-                    <p class="reply"><a href="#"><i class="glyphicon glyphicon-repeat"> </i>REPLY</a></p>
-                    <div class="clearfix"> </div>
-                </div>
-                <div class="media-left">
-                    <a href="#">
-                        <img src="{{ asset('images/si1.jpg') }}" alt="">
-                    </a>
-                </div>
-                <div class="media-body">
 
-                    <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
                 </div>
+
+         <!--       <div class="media-body">
+
+                    <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>-->
+              {% include '@FOSComment/Thread/async.html.twig' with {'id': 'article'~article.idarticle } %}
+
+              </div>
+         <!--       </div> -->
             </div>
 
 
         </div>
-        <div class="leave">
-            <h3>Laissez un commentaire</h3>
-            <form>
-                <div class="single-grid wow fadeInLeft animated" data-wow-delay=".5s">
 
-                    <input type="text" value="Name" onfocus="this.value='';" onblur="if (this.value == '') {this.value = 'Name';}">
-
-                    <input type="text" value="E-mail" onfocus="this.value='';" onblur="if (this.value == '') {this.value = 'E-mail';}">
-
-
-                    <input type="text" value="Web site" onfocus="this.value='';" onblur="if (this.value == '') {this.value = 'Web site';}">
-
-                    <textarea value=" " onfocus="this.value='';" onblur="if (this.value == '') {this.value = 'Comment';}">Comment</textarea>
-                    <label class="hvr-rectangle-out">
-                        <input type="submit" value="Envoyer">
-                    </label>
-                </div>
-            </form>
-        </div>
-
-    </div>
         <br><hr>
     </div>
+
     <!-- /.container -->
 {% endblock %}
+{%  block script %}
+    <script>
+
+        var $star_rating = $('.star-rating .fa');
+       document.getElementById('rate').value=1;
+        var SetRatingStar = function() {
+
+            return $star_rating.each(function() {
+
+                if (parseInt($star_rating.siblings('input.rating-value').val()) >= parseInt($(this).data('rating'))) {
+                    return $(this).removeClass('fa-star-o').addClass('fa-star');
+                } else {
+                    return $(this).removeClass('fa-star').addClass('fa-star-o');
+                }
+            });
+        };
+
+        $star_rating.on('click', function() {
+
+            $star_rating.siblings('input.rating-value').val($(this).data('rating'));
+             document.getElementById('rate').value=$(this).data('rating');
+            return SetRatingStar();
+        });
+
+        SetRatingStar();
+        $(document).ready(function() {
+
+        });
+
+
+
+
+    </script>
+{%  endblock %}

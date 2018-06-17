@@ -5,6 +5,9 @@ namespace Front\BonPlanBundle\Controller;
 use Front\BonPlanBundle\Entity\Evennement;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Serializer\Serializer;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 
 /**
  * Evennement controller.
@@ -120,5 +123,14 @@ class EvennementController extends Controller
             ->setMethod('DELETE')
             ->getForm()
         ;
+    }
+
+    public function getAllEvennementAction()
+    {
+        $evennement=$this->getDoctrine()->getRepository('FrontBonPlanBundle:Evennement')->findAll();
+
+        $serializer = new Serializer([new ObjectNormalizer()]);
+        $formatted= $serializer->normalize($evennement);
+        return new JsonResponse($formatted);
     }
 }

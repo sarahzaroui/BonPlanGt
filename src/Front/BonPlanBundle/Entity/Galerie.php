@@ -60,9 +60,9 @@ class Galerie
      *
      * @ORM\ManyToOne(targetEntity="Produit")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_produit", referencedColumnName="id_produit")
+     *   @ORM\JoinColumn(name="idProduit", referencedColumnName="idProduit")
      * })
      */
-    private $id_produit;
+    private $idproduit;
 }
 

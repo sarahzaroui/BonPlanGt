@@ -1,0 +1,93 @@
+{% extends "Front\BonPlanBundle::layout.html.twig" %}
+
+    {% block container %}
+        <div class="blog">
+            <div class="container">
+                <div class="menu-top">
+                    <div class="col-md-9 menu-left">
+                        <h3>Produits et promotions </h3>
+                        <label><i class="glyphicon glyphicon-menu-up"></i></label>
+                        <span>Retrouvez les meilleurs bons plans et les conseils des plus grands experts dans tous les domaines !</span>
+                    </div>
+
+                    <div class="clearfix"> </div>
+                </div>
+                <div class="col-md-9 blog-header">
+
+                        <div class="col-md-4 blog-top">
+                            <div class="blog-in">
+                                <a href="#"><img class="img-responsive" src="{{ asset('uploads/' ~ produit.imagename) }}" alt=" "></a>
+                                <div class="blog-grid">
+                                    <h1 style="padding-bottom: 17px;color:red;font-family: Impact"><a  href="#">    {{ produit.nompdt }}  </a></h1>
+
+                                    <p>
+                                    <ul class="grid-blog">
+                                        <li><h5 > <b>Ancien Prix: </b><s> {{ produit.prix }}  DT </s></h5></li>
+
+                                    </ul>
+                                    <ul class="grid-blog">
+                                        {% for promotion in promotion %}
+                                            {% set nouveauprix  =   (promotion.reduction) * (produit.prix) %}
+                                            <li><h5><b> Nouveau Prix: </b>  {{ nouveauprix }} </h5></li>
+                                        {% endfor %}
+                                    </ul>
+                                    <ul class="grid-blog">
+                                        {% for promotion in promotion %}
+                                            <li><h5 style="color:darkred;font-weight: bold">  Promotion du   {{ promotion.datedeb|date('Y-m-d H:i:s') }}   Au   {{ promotion.datefin|date('Y-m-d H:i:s') }}    </h5></li>
+                                        {% endfor %}
+                                    </ul>
+                                    </p>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+
+                </div>
+                <div class="col-md-3 categories-grid">
+                    <div class="search-in animated wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="500ms">
+                        <h4>Recherche</h4>
+                        <div class="search">
+                            <form method="POST" action="{{ path('front_bon_plan_promotion',{'idprod': produit.idproduit }) }}">
+                                <input type="text" placeholder="Trouvez votre bon plan" name="search"  >
+                                <input type="submit" value="" >
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="blog-bottom animated wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="500ms">
+                        <h4>Autres promotions </h4>
+                        {% for produitpromotion in produits %}
+                            <div class="product-go">
+                                <a href="#" class="fashion"><img class="img-responsive " style="height:120px" src="{{ asset('uploads/' ~ produitpromotion.imagename) }}" alt=""></a>
+                                <div class="grid-product">
+                                    <a href="{{ path('front_bon_plan_singleProduit',{'id': produitpromotion.idproduit }) }}" class="elit">{{ produitpromotion.nompdt }}</a>
+                                    <p>{{ produitpromotion.detailpdt }}</p>
+                                </div>
+                                <div class="clearfix"> </div>
+                            </div>
+
+                        {% endfor %}
+
+
+                    </div>
+
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+        <!-- /.container -->
+    {% endblock %}
+
+
+
+
+
+
+
