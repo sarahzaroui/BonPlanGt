@@ -4,6 +4,9 @@ api_homepage:
 get_User:
     path:     /user/{login}/{password}
     defaults: { _controller: ApiBundle:UserApi:getUser}
+get_AllUser:
+    path:     /users
+    defaults: { _controller: ApiBundle:UserApi:getAllUsers}
 get_Article:
     path:     /Article
     defaults: { _controller: ApiBundle:ArticleApi:getAllArticle}

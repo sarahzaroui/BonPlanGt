@@ -35,4 +35,18 @@ class UserApiController extends Controller
             return new JsonResponse($formatted);
         }
     }
+    public function getAllUsersAction()
+    {
+        $users=$this->getDoctrine()->getRepository('FrontBonPlanBundle:User')->findAll();
+
+        $normalizer = new ObjectNormalizer();
+        $normalizer->setCircularReferenceLimit(1);
+        $serializer = new Serializer([$normalizer]);
+        $normalizer->setCircularReferenceHandler(function ($object) {
+            return $object->getId();
+        });
+        /* $serializer = new Serializer(array($normalizer), array(new JsonEncoder()));*/
+        $formatted= $serializer->normalize($users, 'json');
+        return new JsonResponse($formatted);
+    }
 }

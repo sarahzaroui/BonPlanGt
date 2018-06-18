@@ -4,7 +4,7 @@
         <div class="blog">
             <div class="container">
                 <div class="menu-top">
-                    <div class="col-md-9 menu-left">
+                    <div class="col-md-6 menu-left">
                         <h3>Produits et promotions </h3>
                         <label><i class="glyphicon glyphicon-menu-up"></i></label>
                         <span>Retrouvez les meilleurs bons plans et les conseils des plus grands experts dans tous les domaines !</span>
@@ -12,11 +12,11 @@
 
                     <div class="clearfix"> </div>
                 </div>
-                <div class="col-md-9 blog-header">
+                <div class="col-md-8 blog-header">
 
-                        <div class="col-md-4 blog-top">
+                        <div class="col-md-6 blog-top">
                             <div class="blog-in">
-                                <a href="#"><img class="img-responsive" src="{{ asset('uploads/' ~ produit.imagename) }}" alt=" "></a>
+                                <a href="#"><img style="width:400px" class="img-responsive" src="{{ asset('uploads/' ~ produit.imagename) }}" alt=" "></a>
                                 <div class="blog-grid">
                                     <h1 style="padding-bottom: 17px;color:red;font-family: Impact"><a  href="#">    {{ produit.nompdt }}  </a></h1>
 
@@ -28,12 +28,12 @@
                                     <ul class="grid-blog">
                                         {% for promotion in promotion %}
                                             {% set nouveauprix  =   (promotion.reduction) * (produit.prix) %}
-                                            <li><h5><b> Nouveau Prix: </b>  {{ nouveauprix }} </h5></li>
+                                            <li><h5><b> Nouveau Prix: </b>  {{ nouveauprix }} DT </h5></li>
                                         {% endfor %}
                                     </ul>
                                     <ul class="grid-blog">
                                         {% for promotion in promotion %}
-                                            <li><h5 style="color:darkred;font-weight: bold">  Promotion du   {{ promotion.datedeb|date('Y-m-d H:i:s') }}   Au   {{ promotion.datefin|date('Y-m-d H:i:s') }}    </h5></li>
+                                            <li><h5 style="color:darkred;font-weight: bold">  Promotion du   {{ promotion.datedeb|date('Y-m-d') }}   Au   {{ promotion.datefin|date('Y-m-d') }}    </h5></li>
                                         {% endfor %}
                                     </ul>
                                     </p>
@@ -50,7 +50,7 @@
 
 
                 </div>
-                <div class="col-md-3 categories-grid">
+                <div class="col-md-4 categories-grid">
                     <div class="search-in animated wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="500ms">
                         <h4>Recherche</h4>
                         <div class="search">
