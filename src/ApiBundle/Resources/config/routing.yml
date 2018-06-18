@@ -7,9 +7,18 @@ get_User:
 get_AllUser:
     path:     /users
     defaults: { _controller: ApiBundle:UserApi:getAllUsers}
-get_Article:
-    path:     /Article
-    defaults: { _controller: ApiBundle:ArticleApi:getAllArticle}
+get_Articles:
+    path:     /Articles
+    defaults: { _controller: ApiBundle:ArticleApi:allArticle}
+new_Article:
+    path:     /newArticle/{iduser}/{idr}/{idc}/{titre}/{description}/{imagename}/{adresse}
+    defaults: { _controller: ApiBundle:ArticleApi:newArticle}
+get_DetailArticle:
+    path:     /detailsarticle/{idArticle}
+    defaults: { _controller: ApiBundle:ArticleApi:article}
+get_articlesByUser:
+    path:     /articlebyuser/{idUser}
+    defaults: { _controller: ApiBundle:ArticleApi:articleByUser}
 
 
 

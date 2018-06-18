@@ -42,15 +42,16 @@
     <!-- Google Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 
+
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
     <header class="main-header">
         <!-- Logo -->
-        <a href="{{ asset ('index2.html') }}" class="logo">
+        <a href="{{ path('back_bon_plan_back_homepage') }}" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
-            <span class="logo-mini"><b>A</b>LT</span>
+            <span class="logo-mini"><b>B</b>P</span>
             <!-- logo for regular state and mobile devices -->
             <span class="logo-lg"><b>Administrateur</b></span>
         </a>
@@ -99,9 +100,7 @@
                         </ul>
                     </li>
                     <!-- Control Sidebar Toggle Button -->
-                    <li>
-                        <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-                    </li>
+
                 </ul>
             </div>
         </nav>
@@ -117,14 +116,14 @@
                 </div>
                 <div class="pull-left info">
                     <p>Administrateur</p>
-                    <a href="#"><i class="fa fa-circle text-success"></i> Connecté</a>
+                    <a href=""><i class="fa fa-circle text-success"></i> Connecté</a>
                 </div>
             </div>
 
             <ul class="sidebar-menu" data-widget="tree">
                 <li class="header">MENU DE NAVIGATION</li>
                 <li class="active">
-                    <a href="#">
+                    <a href="{{ path('back_bon_plan_back_homepage') }}">
                         <i class="fa fa-dashboard"></i> <span>Tableau de bord</span>
                         <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
@@ -150,7 +149,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ asset ('pages/widgets.html')}}">
+                    <a href="{{ path('listuser') }}">
                         <i class="fa fa-user"></i> <span>Utilisateurs</span>
                         <span class="pull-right-container">
 
@@ -191,6 +190,23 @@
             </span>
                     </a>
                 </li>
+                <li>
+                    <a href="{{ path('publicite_index') }}">
+                        <i class="fa fa-thumbs-up"></i> <span>Publicités</span>
+                        <span class="pull-right-container">
+
+            </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ path('front_bon_plan_homepage') }}">
+                        <i class="fa fa-globe"></i> <span>Site web</span>
+                        <span class="pull-right-container">
+
+            </span>
+                    </a>
+                </li>
+
 
                 </li>
 
@@ -482,8 +498,6 @@
         })
     })
 </script>
-<!--End Wadii-->
-</body>
-</html>
+
 
 

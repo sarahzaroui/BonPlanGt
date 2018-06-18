@@ -1,12 +1,22 @@
-{% extends 'base.html.twig' %}
+{% extends "BackBonPlanBackBundle::layout.html.twig" %}
+{% block tilte %}
+    Administration Bon plan
+{% endblock %}
+{% block container %}
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Détails</h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <table id="example2" class="table table-bordered table-hover">
 
-{% block body %}
-    <h1>Publicitearticle</h1>
-
-    <table>
         <tbody>
             <tr>
-                <th>Id</th>
+                <th>Référence</th>
                 <td>{{ publiciteArticle.id }}</td>
             </tr>
             <tr>
@@ -14,23 +24,28 @@
                 <td>{{ publiciteArticle.etat }}</td>
             </tr>
             <tr>
-                <th>Datepublication</th>
+                <th>Date publication</th>
                 <td>{% if publiciteArticle.datepublication %}{{ publiciteArticle.datepublication|date('Y-m-d H:i:s') }}{% endif %}</td>
             </tr>
             <tr>
-                <th>Dateeffet</th>
+                <th>Date effet</th>
                 <td>{% if publiciteArticle.dateeffet %}{{ publiciteArticle.dateeffet|date('Y-m-d H:i:s') }}{% endif %}</td>
             </tr>
             <tr>
-                <th>Dateexpiration</th>
+                <th>Date expiration</th>
                 <td>{% if publiciteArticle.dateexpiration %}{{ publiciteArticle.dateexpiration|date('Y-m-d H:i:s') }}{% endif %}</td>
             </tr>
             <tr>
-                <th>Imagename</th>
-                <td>{{ publiciteArticle.imageName }}</td>
+                <th>Justificatif</th>
+                <td><td><a href="{{ asset('uploads/' ~ publiciteArticle.imageName) }}" target="_blank"> <img class="img-responsive" style="width: 220px;height: 250px;" src="{{ asset('uploads/' ~ publiciteArticle.imageName) }}" alt=" "></a></td></td>
             </tr>
         </tbody>
-    </table>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <ul>
         <li>
@@ -39,10 +54,7 @@
         <li>
             <a href="{{ path('publicitearticle_edit', { 'id': publiciteArticle.id }) }}">Edit</a>
         </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
+
     </ul>
+</section>
 {% endblock %}

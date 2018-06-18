@@ -1,0 +1,67 @@
+{% extends "BackBonPlanBackBundle::layout.html.twig" %}
+{% block tilte %}
+    Administration Bon plan
+{% endblock %}
+{% block container %}
+
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title">Liste des utilisateurs</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <table id="example2" class="table table-bordered table-hover">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nom</th>
+
+
+                                <th>Prenom</th>
+                                <th>Email</th>
+                                <th>Etat</th>
+                                <th>Actions</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for user in users %}
+                                <tr>
+                                    <td>{{ user.id }}</td>
+                                    <td>{{ user.firstname }}</td>
+
+
+                                    <td>{{ user.lastname }}</td>
+                                    <td>{{ user.email }}</td>
+                                    <td>
+                                        {% if user.enabled == true   %}
+                                       Actif
+                                        {% else %}
+                                       Inactif
+                                        {% endif %}
+
+
+                                    </td>
+                                    <td>
+                                {% if user.enabled == true   %}
+                                        <a class="btn btn-xs btn-danger" onclick="return confirm('êtes vous sure de vouloir désactiver cet utilisateur?')" href="{{ path('user_desactiver', { 'iduser': user.id }) }}">désactiver compte</a>
+                                    {% else %}
+                                        <a class="btn btn-xs btn-success" onclick="return confirm('êtes vous sure de vouloir activer cet utilisateur?')" href="{{ path('user_activer', { 'iduser': user.id }) }}">activer compte</a>
+                                {% endif %}
+
+
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+{% endblock %}
