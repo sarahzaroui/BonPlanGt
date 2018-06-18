@@ -19,6 +19,12 @@ get_DetailArticle:
 get_articlesByUser:
     path:     /articlebyuser/{idUser}
     defaults: { _controller: ApiBundle:ArticleApi:articleByUser}
+get_allRegions:
+    path:     /allRegions
+    defaults: { _controller: ApiBundle:RegionApi:getAllRegion}
+get_Calegories:
+    path:     /allCalegories
+    defaults: { _controller: ApiBundle:CategorieArticleApi:getAllCategorieaArticle}
 
 
 
