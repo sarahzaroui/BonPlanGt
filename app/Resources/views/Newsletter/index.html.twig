@@ -1,0 +1,81 @@
+{% extends "BackBonPlanBackBundle::layout.html.twig" %}
+{% block tilte %}
+    Administration Bon plan
+{% endblock %}
+{% block container %}
+
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title">Liste des emails internautes inscrits</h3>
+                        <a class="btn btn-xs btn-default"  href="{{ path('mailnews_sendallposti') }}">envoyer un mail à tous</a>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <table id="example2" class="table table-bordered table-hover">
+                            <thead>
+                            <tr>
+                                <th>Référence</th>
+                                <th>Email</th>
+                                <th>Actions</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for email in emails %}
+                                <tr>
+                                    <td><a href="#">{{ email.idnewsl }}</a></td>
+                                    <td>{{ email.mailinter }}</td>
+                                    <td>
+                                        <a class="btn btn-xs btn-danger" onclick="return confirm('êtes vous sure de vouloir supprimer ce mail?')" href="{{ path('mailnews_delete_mail_I', { 'idnewsl': email.idnewsl }) }}">Supprimer</a>
+
+                                        <a class="btn btn-xs btn-success"  href="{{ path('mailnews_senduniqinter',{'email': email.mailinter}) }}">envoie mail</a>
+
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+
+                        </table>
+
+        </div>
+        <div class="box-header">
+            <h3 class="box-title">Liste des emails des users inscrits</h3>
+            <a class="btn btn-xs btn-default"  href="{{ path('mailnews_sendallpostu') }}">envoyer un mail à tous</a>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+            <table id="example2" class="table table-bordered table-hover">
+                <thead>
+
+                <tr>
+                    <th>Référence</th>
+                    <th>Email</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for usermail in usermails %}
+                    <tr>
+                        <td><a href="#">{{ usermail.id }}</a></td>
+                        <td>{{ usermail.email }}</td>
+                        <td>
+                            <a class="btn btn-xs btn-danger" onclick="return confirm('êtes vous sûr de vouloir désactiver cette adresse mail?')" href="{{ path('mailnews_delete_mail_U', { 'id': usermail.id }) }}">Désactiver</a>
+
+                            <a class="btn btn-xs btn-success" href="{{ path('mailnews_senduniquser',{'email': usermail.email}) }}">envoie mail</a>
+
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+
+            </table>
+        </div>
+        </div>
+        </div>
+        </div>
+    </section>
+
+
+{% endblock %}

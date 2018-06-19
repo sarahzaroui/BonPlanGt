@@ -1,0 +1,78 @@
+{% extends "Front\BonPlanBundle::layout.html.twig" %}
+{% block container %}
+    <div class="container">
+        <br><br>
+        <div class="single">
+
+            <div class="single-top">
+
+                <h1>Commande creation</h1>
+
+                <div class="row">
+                    <hr>
+                    <div class="col-md-5">
+                        <img class="img-responsive img-thumbnail wow fadeInUp animated" style="height: 300px;width: auto" data-wow-delay=".5s" src="{{ asset('uploads/'~ produit.imageName) }}" alt="" />
+                    </div>
+                    <div class="col-md-7">
+                        <div class="lone-line">
+                            <table >
+                                <tr>
+                                    <td style="padding-bottom: 17px"><h4>{{ produit.nompdt }}</h4></td>
+                                    <td>  <div class="container">
+
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <div class="star-rating">
+                                                        <span class="fa fa-star-o" data-rating="1" id="one" valuee="1"></span>
+                                                        <span class="fa fa-star-o" data-rating="2" id="two" valuee="2"></span>
+                                                        <span class="fa fa-star-o" data-rating="3" id="three" valuee="3"></span>
+                                                        <span class="fa fa-star-o" data-rating="4" id="four" valuee="4"></span>
+                                                        <span class="fa fa-star-o" data-rating="5" id="five" valuee="5"></span>
+                                                        <input type="hidden"  class="rating-value" id="rate" name="vote">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div></td>
+                                </tr>
+                            </table>
+
+                            <ul>
+                                <li><h4> Prix:  {{ produit.prix }} DT </h4></li>
+                            </ul>
+                            <ul>
+                                <li><h4> Qte:  {{ qtecommande }} </h4></li>
+                            </ul>
+                            <ul>
+                                <li><h4> Total:  {{ prix_total }} DT </h4></li>
+
+                            </ul>
+                            <ul class="grid-blog">
+                                <li><i class="glyphicon glyphicon-map-marker"> </i>{{ produit.adresse }}</li>
+
+                            </ul>
+                            <p class="wow fadeInLeft animated" data-wow-delay=".5s">{{ produit.detailpdt }}</span></p>
+                            <p>{{ (produit.qtedispo >0) ? '<span style="color:green">En Stock</span>' : '<span style="color:red">Repture de stock</span>'  }}</p>
+                            <form method="post" >
+                                <input type="hidden" name="qtecommande" max="{{ produit.qtedispo }}" {{ (produit.qtedispo >0) ? '':'disabled=disabled' }} value="{{ qtecommande }}">
+                                <input type="hidden" name="productid" value="{{ produit.idproduit }}" >
+                                <button class="btn btn-primary"  > Valider la Commander </button>
+                            </form>
+                            <a href="{{ path('front_bon_plan_singleProduit',{'id':produit.idproduit})}}" class="btn btn-danger" > Editer la Commander </a>
+                            <a href="{{ path('front_bon_plan_homepage')}}" class="btn btn-warning" > Annuler la Commander </a>
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+
+        </div>
+
+        <br><hr>
+    </div>
+
+    <!-- /.container -->
+{% endblock %}
