@@ -28,16 +28,22 @@ get_Calegories:
 
 get_Produits:
     path:     /produits
-    defaults: { _controller: ApiBundle:ArticleApi:allProduit}
+    defaults: { _controller: ApiBundle:ProduitApi:allProduit}
 new_Produits:
     path:     /newproduit/{idprestataire}/{nom}/{qte}/{prix}/{detail}/{imagename}/{adresse}
-    defaults: { _controller: ApiBundle:ArticleApi:newProduit}
+    defaults: { _controller: ApiBundle:ProduitApi:newProduit}
 get_DetailProduit:
     path:     /detailsproduit/{idpoduit}
-    defaults: { _controller: ApiBundle:ArticleApi:produit}
+    defaults: { _controller: ApiBundle:ProduitApi:produit}
 get_produisByPrest:
     path:     /produitsbyprest/{idprestataire}
-    defaults: { _controller: ApiBundle:ArticleApi:produitByPrest}
+    defaults: { _controller: ApiBundle:ProduitApi:produitByPrest}
 
+get_Commandes:
+    path:     /commandes
+    defaults: { _controller: ApiBundle:CommandeApi:allCommande}
 
+new_Commandes:
+    path:     /newcommande/{iduser}/{idprod}/{qtecmd}
+    defaults: { _controller: ApiBundle:CommandeApi:newCommande}
 
