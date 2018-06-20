@@ -8,15 +8,15 @@
     <table>
         <tbody>
             <tr>
-                <th>Idcmd</th>
+                <th>Id_cmd</th>
                 <td>{{ commande.idcmd }}</td>
             </tr>
             <tr>
-                <th>Qtecmd</th>
+                <th>Qte_cmd</th>
                 <td>{{ commande.qtecmd }}</td>
             </tr>
             <tr>
-                <th>Datecmd</th>
+                <th>Date_cmd</th>
                 <td>{% if commande.datecmd %}{{ commande.datecmd|date('Y-m-d H:i:s') }}{% endif %}</td>
             </tr>
         </tbody>

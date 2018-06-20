@@ -3,14 +3,26 @@
     Espace prestataire Bon plan
 {% endblock %}
 {% block container %}
-    <h1>Commandes list</h1>
-
-    <table>
+<section class="content">
+    <a class="btn btn-success pull-right" href="#">Nouvelle commande</a>
+    <br>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Liste des commandes</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+    <table id="example2" class="table table-bordered table-hover">
         <thead>
             <tr>
-                <th>Idcmd</th>
-                <th>Qtecmd</th>
-                <th>Datecmd</th>
+                <th>Id_cmd</th>
+                <th>Qte_cmd</th>
+                <th>Date_cmd</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -22,12 +34,10 @@
                 <td>{% if commande.datecmd %}{{ commande.datecmd|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>
                     <ul>
-                        <li>
-                            <a href="{{ path('commande_show', { 'idcmd': commande.idcmd }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('commande_edit', { 'idcmd': commande.idcmd }) }}">edit</a>
-                        </li>
+                        <a class="btn btn-success" onclick="myFunction()" href="{{ path('commande_edit', { 'idcmd': commande.idcmd }) }}">edit</a>
+
+                        <a class="btn btn-danger" onclick="return confirm('êtes vous sûr de vouloir supprimer cette commande?')"  href="{{ path('commande_delete', { 'idcmd': commande.idcmd }) }}">supprimer</a>
+
                     </ul>
                 </td>
             </tr>
@@ -37,7 +47,9 @@
 
     <ul>
         <li>
-            <a href="{{ path('commande_new') }}">Create a new commande</a>
+            <a href="{{ path('commande_newadmin') }}">Create a new commande</a>
         </li>
     </ul>
+                </div>
+</section>
 {% endblock %}

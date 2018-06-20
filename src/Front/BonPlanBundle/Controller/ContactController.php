@@ -13,7 +13,6 @@ use Front\BonPlanBundle\FrontBonPlanBundle;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Swift_Message;
-use Symfony\Component\HttpFoundation\Response;
 
 
 class ContactController extends Controller
@@ -23,9 +22,11 @@ class ContactController extends Controller
         $mail = new Contact();
         $form= $this->createForm(ContactType::class, $mail);
         $form->handleRequest($request);
-        //var_dump($mail);
-        if ($form->isValid()) {
-            //var_dump("if");die;
+
+        if ($form->isValid() && $form->isSubmitted()) {
+            $em= $this->getDoctrine()->getManager();
+            $em->persist($mail);
+            $em->flush();
             $message = \Swift_Message::newInstance()
                 ->setSubject('Accusé de réception')
                 ->setFrom('bonplan2info@gmail.com')
@@ -40,11 +41,21 @@ class ContactController extends Controller
             $this->get('mailer')->send($message);
             return $this->redirect($this->generateUrl('front_bon_plan_success'));
         }
-        return $this->render('FrontBonPlanBundle:Default:contact.html.twig',
+
+        return $this->render('FrontBonPlanBundle:Default:contactS.html.twig',
             array('form'=>$form->createView()));
+
     }
 
  public function successAction(){
      return $this->render("FrontBonPlanBundle:Default:ContactMail.html.twig");
     }
+
+ public function listcntAction()
+ {
+     $em= $this->getDoctrine()->getManager();
+     $ctn= $em->getRepository("FrontBonPlanBundle:Contact")->findAll();
+     return $this->render('contact/listcontact.html.twig', array(
+         'ctns' => $ctn,));
+ }
 }

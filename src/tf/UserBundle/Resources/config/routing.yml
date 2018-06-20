@@ -162,3 +162,32 @@ reserver_annuler:
     defaults: { _controller: "FrontBonPlanBundle:Reserver:annuler" }
     methods:  [GET, POST]
 
+commande_index:
+    path:     /lstcmd
+    defaults: { _controller: "FrontBonPlanBundle:Commande:index" }
+    methods:  GET
+
+commande_show:
+    path:     /{idcmd}/show
+    defaults: { _controller: "FrontBonPlanBundle:Commande:show" }
+    methods:  GET
+
+commande_new:
+    path:     /{idproduit}/newcmd
+    defaults: { _controller: "FrontBonPlanBundle:Commande:new" }
+    methods:  [GET, POST]
+
+commande_newadmin:
+    path:     /newcmdadm
+    defaults: { _controller: "FrontBonPlanBundle:Commande:newadmin" }
+    methods:  [GET, POST]
+
+commande_edit:
+    path:     /cmd/{idcmd}/edit
+    defaults: { _controller: "FrontBonPlanBundle:Commande:edit" }
+    methods:  [GET, POST]
+
+commande_delete:
+    path:     /{idcmd}/delete
+    defaults: { _controller: "FrontBonPlanBundle:Commande:delete" }
+    methods:  [GET, POST, DELETE]

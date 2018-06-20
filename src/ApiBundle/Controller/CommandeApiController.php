@@ -1,53 +1,46 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Elliot
- * Date: 19/06/2018
- * Time: 00:57
- */
-
 namespace ApiBundle\Controller;
-use Front\BonPlanBundle\Entity\Produit;
+use Front\BonPlanBundle\Entity\Commande;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
-
-class ProduitApiController extends Controller
+class CommandeApiController extends Controller
 {
-    public function allProduitAction()
+    public function allCommandeAction()
     {
-        $produit=$this->getDoctrine()->getRepository('FrontBonPlanBundle:Produit')->findAll();
+        $article=$this->getDoctrine()->getRepository('FrontBonPlanBundle:Produit')->findAll();
 
         $normalizer = new ObjectNormalizer();
         $normalizer->setCircularReferenceLimit(1);
         $serializer = new Serializer([$normalizer]);
+
         $normalizer->setCircularReferenceHandler(function ($object) {
             return $object->getId();
         });
 
-        $formatted= $serializer->normalize($produit, 'json');
+        $formatted= $serializer->normalize($article, 'json');
         return new JsonResponse($formatted);
     }
-    public function newProduitAction(Request $request,$idprestataire,$nom,$qte,$prix,$detail,$imagename,$adresse)
+    public function newCommandeAction(Request $request,$iduser,$idprod,$qtecmd)
     {
         //connexion
         $em = $this->getDoctrine()->getManager();
+        //get annonce and client object
+        $user = $em->getRepository('FrontBonPlanBundle:User')->find($iduser);
+        $prod = $em->getRepository('FrontBonPlanBundle:Produit')->find($idprod);
 
-        $prestatiare = $em->getRepository('FrontBonPlanBundle:User')->find($idprestataire);
 
 
-
-       $produit = new Produit();
-       $produit->setAdresse($adresse);
-       $produit->setDetailpdt($detail);
-       $produit->setIdprestataire($prestatiare);
-       $produit->setImageName($imagename);
-       $produit->setNompdt($nom);
-       $produit->setPrix($prix);
-       $produit->setQtedispo($qte);
+        $commande = new Commande();
         //affecter les champs
+       $commande->setDatecmd(new \DateTime('now'));
+$commande->setIduser($user);
+        $commande->setIdprod($prod);
+        $commande->setQtecmd($qtecmd);
+        $em->persist($commande);
+        $em->flush();
 
 
         $normalizer = new ObjectNormalizer();
@@ -58,13 +51,13 @@ class ProduitApiController extends Controller
         $normalizer->setCircularReferenceHandler(function ($object) {
             return $object->getId();
         });
-        $formatted= $serializer->normalize($produit, 'json');
+        $formatted= $serializer->normalize($commande, 'json');
         return new JsonResponse($formatted);
     }
 
-    public function produitAction(Request $request,$idpoduit)
+    public function articleAction(Request $request,$idArticle)
     {
-        $produit=$this->getDoctrine()->getRepository('FrontBonPlanBundle:Produit')->find($idpoduit);
+        $article=$this->getDoctrine()->getRepository('FrontBonPlanBundle:Article')->find($idArticle);
         $normalizer = new ObjectNormalizer();
         $normalizer->setCircularReferenceLimit(1);
         $serializer = new Serializer([$normalizer]);
@@ -72,12 +65,12 @@ class ProduitApiController extends Controller
             return $object->getId();
         });
 
-        $formatted= $serializer->normalize($produit, 'json');
+        $formatted= $serializer->normalize($article, 'json');
         return new JsonResponse($formatted);
     }
-    public function produitByPrestAction(Request $request,$idprestataire)
+    public function articleByUserAction(Request $request,$idUser)
     {
-        $produit=$this->getDoctrine()->getRepository('FrontBonPlanBundle:Produit')->findBy(array('idprestataire'=>$idprestataire));
+        $article=$this->getDoctrine()->getRepository('FrontBonPlanBundle:Article')->findBy(array('idUser'=>$idUser));
         $normalizer = new ObjectNormalizer();
         $normalizer->setCircularReferenceLimit(1);
         $serializer = new Serializer([$normalizer]);
@@ -85,8 +78,7 @@ class ProduitApiController extends Controller
             return $object->getId();
         });
 
-        $formatted= $serializer->normalize($produit, 'json');
+        $formatted= $serializer->normalize($article, 'json');
         return new JsonResponse($formatted);
     }
-
 }

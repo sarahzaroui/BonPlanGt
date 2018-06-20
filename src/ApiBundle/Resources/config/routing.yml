@@ -28,16 +28,38 @@ get_Calegories:
 
 get_Produits:
     path:     /produits
-    defaults: { _controller: ApiBundle:ArticleApi:allProduit}
+    defaults: { _controller: ApiBundle:ProduitApi:allProduit}
 new_Produits:
     path:     /newproduit/{idprestataire}/{nom}/{qte}/{prix}/{detail}/{imagename}/{adresse}
-    defaults: { _controller: ApiBundle:ArticleApi:newProduit}
+    defaults: { _controller: ApiBundle:ProduitApi:newProduit}
 get_DetailProduit:
     path:     /detailsproduit/{idpoduit}
-    defaults: { _controller: ApiBundle:ArticleApi:produit}
+    defaults: { _controller: ApiBundle:ProduitApi:produit}
 get_produisByPrest:
     path:     /produitsbyprest/{idprestataire}
-    defaults: { _controller: ApiBundle:ArticleApi:produitByPrest}
+    defaults: { _controller: ApiBundle:ProduitApi:produitByPrest}
 
+get_Commandes:
+    path:     /commandes
+    defaults: { _controller: ApiBundle:CommandeApi:allCommande}
+
+new_Commandes:
+    path:     /newcommande/{iduser}/{idprod}/{qtecmd}
+    defaults: { _controller: ApiBundle:CommandeApi:newCommande}
+
+
+get_All_Promotions:
+    path:     /promotions
+    defaults: { _controller: ApiBundle:PromotionApi:allPromotions}
+
+get_details_promotion:
+    path:     /promodetails/{idprod}
+    defaults: { _controller: ApiBundle:PromotionApi:detailsPromo}
+get_produit_promotion:
+    path:     /produitpromo/{nom}
+    defaults: { _controller: ApiBundle:PromotionApi:produitPromo}
+get_all_produit_promotion:
+    path:     /allprodpromo
+    defaults: { _controller: ApiBundle:PromotionApi:allProdPromotions}
 
 

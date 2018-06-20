@@ -81,7 +81,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <li><a class="active" href="{{ path('front_bon_plan_homepage') }}">Accueil</a></li>
                     <li><a href="{{ path('front_bon_plan_blog') }}">Restaurants et cafés</a></li>
                     <li><a href="{{ path('front_bon_plan_menu') }}">Evenements</a></li>
-
+                    <li><a href="{{ path('front_bon_plan_multiplProduit') }}">Shopping</a></li>
                     {% if is_granted('IS_AUTHENTICATED_REMEMBERED') == false %}
                     <li><a href="{{ path('front_bon_plan_login') }}">Connexion</a></li>
                     <li><a href="{{ path('fos_user_registration_register') }}">Inscription</a></li>
@@ -139,39 +139,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 {%  block commentaire %}
 {%  endblock %}
 <!--footer-->
-<div class="footer">
-    <div class="container">
-        <div class="footer-head">
-            <div class="col-md-8 footer-top animated wow fadeInRight" data-wow-duration="1000ms" data-wow-delay="500ms">
-                <ul class=" in">
-                    <li><a class="active" href="{{ path('front_bon_plan_homepage') }}">Home</a></li>
-                    <li><a href="{{ path('front_bon_plan_menu') }}">Events</a></li>
-                    <li><a href="{{ path('front_bon_plan_blog') }}">Restaurant et Café</a></li>
-                    <li><a href="{{ path('front_bon_plan_contact') }}">Contact</a></li>
-                </ul>
-                <span></span>
-            </div>
-            <div class="col-md-4 footer-bottom  animated wow fadeInLeft" data-wow-duration="1000ms" data-wow-delay="500ms">
-                <h2>Follow Us</h2>
-                <label><i class="glyphicon glyphicon-menu-up"></i></label>
-                <p></p>
-                <ul class="social-ic">
-                    <li><a href="#"><i></i></a></li>
-                    <li><a href="#"><i class="ic"></i></a></li>
-                    <li><a href="#"><i class="ic1"></i></a></li>
-                    <li><a href="#"><i class="ic2"></i></a></li>
-                    <li><a href="#"><i class="ic3"></i></a></li>
-                </ul>
-
-            </div>
-            <div class="clearfix"> </div>
-
-        </div>
-
-    </div>
-</div>
-
-
+{% block Footer %}
+{% endblock %}
 {%  block script %}
 {%  endblock %}
 

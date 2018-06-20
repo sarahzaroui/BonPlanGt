@@ -26,7 +26,18 @@ class ProduitController extends Controller
             'produits' => $produits,
         ));
     }
+// view all product at the front
 
+    public function indexfrontAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $produits = $em->getRepository('FrontBonPlanBundle:Produit')->findAll();
+
+        return $this->render('FrontBonPlanBundle:Default:produitMultp.html.twig', array(
+            'produits' => $produits,
+        ));
+    }
     /**
      * Creates a new produit entity.
      *

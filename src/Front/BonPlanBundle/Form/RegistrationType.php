@@ -4,6 +4,7 @@
 namespace Front\BonPlanBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\FormBuilderInterface;
 
 class RegistrationType extends AbstractType
@@ -12,6 +13,7 @@ class RegistrationType extends AbstractType
     {
         $builder->add('first_name');
         $builder->add('last_name');
+        $builder->add('news' ,CheckboxType::class, array('label'=>'accepter de recevoir des newsletters','required'=>false));
     }
 
     public function getParent()
