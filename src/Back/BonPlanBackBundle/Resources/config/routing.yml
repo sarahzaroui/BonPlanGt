@@ -252,7 +252,7 @@ contact_list:
 contact_del:
     path:     /supp/{idcnt}
     defaults: { _controller: "FrontBonPlanBundle:Contact:delete" }
-    methods:  GET
+    methods:  [DELETE, GET, POST]
 
 mailnews_senduniquser:
     path:     /senduu/{email}
