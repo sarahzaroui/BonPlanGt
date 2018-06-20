@@ -5,25 +5,40 @@ namespace Front\BonPlanBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Front\BonPlanBundle\Entity\Newsletter;
+
 class DefaultController extends Controller
 {
     public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
        $updateEtatPublicite = $em->getRepository('FrontBonPlanBundle:PubliciteArticle')->updatePub();
-//à verifier
         $Newsletter = new Newsletter();
         $mail=$request->get('email');
+
         if($request->getMethod()=="POST")
         {
-            $p=$request->get('search');
-            $gategories = $em->getRepository('FrontBonPlanBundle:Categoriearticle')->findAll();
+
+          $p=$request->get('search');
+           $gategories = $em->getRepository('FrontBonPlanBundle:Categoriearticle')->findAll();
             $articles = $em->getRepository('FrontBonPlanBundle:Article')->findByName($p);
             $articles1 = $em->getRepository('FrontBonPlanBundle:Article')->findAllSideBar();
-            return $this->render('FrontBonPlanBundle:Default:blog.html.twig', array(
-                'articles' => $articles,'categories' => $gategories,'articles1' => $articles1
-            ));
-        }
+            $emnews = $this->getDoctrine()->getManager()->getRepository('FrontBonPlanBundle:Newsletter')->findBy(array('mailinter'=>$mail));
+            if ($emnews==null)
+            {
+                $Newsletter->setMailinter($mail);
+                $em->persist($Newsletter);
+                $em->flush();
+
+                return $this->render('FrontBonPlanBundle:Default:inscrinews.html.twig');
+            }
+            else
+            {
+                return $this->render('FrontBonPlanBundle:Default:alertnews.html.twig');
+            }
+
+           return $this->render('FrontBonPlanBundle:Default:blog.html.twig', array(
+               'articles' => $articles,'categories' => $gategories,'articles1' => $articles1));
+     }
 
 
         $articles = $em->getRepository('FrontBonPlanBundle:Article')->findAllOrderedByDate();
@@ -31,7 +46,6 @@ class DefaultController extends Controller
         $pub = $em->getRepository('FrontBonPlanBundle:PubliciteArticle')->findAllSponsored();
         $produits = $em->getRepository('FrontBonPlanBundle:Produit')->findAll();
         $promotions = $em->getRepository('FrontBonPlanBundle:Promotion')->findLastPromo();
-
 
         return $this->render('FrontBonPlanBundle:Default:index.html.twig', array(
 
