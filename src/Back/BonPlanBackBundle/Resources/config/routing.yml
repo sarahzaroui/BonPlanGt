@@ -118,10 +118,7 @@ publicitearticle_show:
     defaults: { _controller: "FrontBonPlanBundle:PubliciteArticle:show" }
     methods:  GET
 
-publicitearticle_new:
-    path:     /newpubarticle
-    defaults: { _controller: "FrontBonPlanBundle:PubliciteArticle:new" }
-    methods:  [GET, POST]
+
 
 publicitearticle_edit:
     path:     /{id}/editpubarticle

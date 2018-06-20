@@ -8,6 +8,7 @@
          <form method="post" class="col-md-offset-3 col-md-6">
              <input type="text" name="search" class="form-control form-control-lg" style="height: 50px"  placeholder="Trouvez un plan !!">
              <br>
+             <input type="hidden" value="recherche" name="type">
              <input type="Submit" value="Rechercher" class="btn btn-success btn-lg">
          </form>
          <a class="scroll down" href="#content-down"><img src="{{ asset('images/down.png') }}" alt=""></a>
@@ -169,6 +170,7 @@
 
                     <form method="POST" >
                         <input type="email" style="width: 90% ; height: 80%; margin-bottom: 7px ;font-size:25px"  name="email" placeholder="Votre mail"  >
+                        <input type="hidden" value="nl" name="type">
                         <input type="submit" style="font-size: 20px
 " value="S'inscrire" >
                     </form>

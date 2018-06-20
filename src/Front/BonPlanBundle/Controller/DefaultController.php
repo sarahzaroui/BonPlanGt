@@ -13,31 +13,37 @@ class DefaultController extends Controller
         $em = $this->getDoctrine()->getManager();
        $updateEtatPublicite = $em->getRepository('FrontBonPlanBundle:PubliciteArticle')->updatePub();
         $Newsletter = new Newsletter();
-        $mail=$request->get('email');
 
-        if($request->getMethod()=="POST")
+        $type = $request->get('type');
+
+        if($request->getMethod()=="POST" && $type=="recherche")
         {
 
           $p=$request->get('search');
            $gategories = $em->getRepository('FrontBonPlanBundle:Categoriearticle')->findAll();
             $articles = $em->getRepository('FrontBonPlanBundle:Article')->findByName($p);
             $articles1 = $em->getRepository('FrontBonPlanBundle:Article')->findAllSideBar();
-            $emnews = $this->getDoctrine()->getManager()->getRepository('FrontBonPlanBundle:Newsletter')->findBy(array('mailinter'=>$mail));
-            if ($emnews==null)
-            {
-                $Newsletter->setMailinter($mail);
-                $em->persist($Newsletter);
-                $em->flush();
 
-                return $this->render('FrontBonPlanBundle:Default:inscrinews.html.twig');
-            }
-            else
-            {
-                return $this->render('FrontBonPlanBundle:Default:alertnews.html.twig');
-            }
 
            return $this->render('FrontBonPlanBundle:Default:blog.html.twig', array(
                'articles' => $articles,'categories' => $gategories,'articles1' => $articles1));
+     }
+     else if($request->getMethod()=="POST" && $type=="nl"){
+         $mail=$request->get('email');
+         $emnews = $this->getDoctrine()->getManager()->getRepository('FrontBonPlanBundle:Newsletter')->findBy(array('mailinter'=>$mail));
+         if ($emnews==null)
+         {
+             $Newsletter->setMailinter($mail);
+             $em->persist($Newsletter);
+             $em->flush();
+
+             return $this->render('FrontBonPlanBundle:Default:inscrinews.html.twig');
+         }
+         else
+         {
+             return $this->render('FrontBonPlanBundle:Default:alertnews.html.twig');
+         }
+
      }
 
 

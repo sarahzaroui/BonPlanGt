@@ -42,6 +42,7 @@ class PubliciteController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+
             $em->persist($publicite);
             $em->flush();
 
@@ -58,13 +59,18 @@ class PubliciteController extends Controller
      * Finds and displays a publicite entity.
      *
      */
-    public function showAction(Publicite $publicite)
+    public function showAction(Request $request)
     {
-        $deleteForm = $this->createDeleteForm($publicite);
+        $em = $this->getDoctrine()->getManager();
+        $id = $request->get('idpublicite');
+
+        $publicite = $em->getRepository('FrontBonPlanBundle:Publicite')->find($id);
+
+
 
         return $this->render('publicite/show.html.twig', array(
             'publicite' => $publicite,
-            'delete_form' => $deleteForm->createView(),
+
         ));
     }
 
@@ -74,21 +80,11 @@ class PubliciteController extends Controller
      */
     public function editAction(Request $request, Publicite $publicite)
     {
-        $deleteForm = $this->createDeleteForm($publicite);
-        $editForm = $this->createForm('Front\BonPlanBundle\Form\PubliciteType', $publicite);
-        $editForm->handleRequest($request);
-
-        if ($editForm->isSubmitted() && $editForm->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
-
-            return $this->redirectToRoute('publicite_edit', array('idpublicite' => $publicite->getIdpublicite()));
-        }
-
-        return $this->render('publicite/edit.html.twig', array(
-            'publicite' => $publicite,
-            'edit_form' => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
-        ));
+        $em = $this->getDoctrine()->getManager();
+        $publicite->SetEtat("supprimer");
+        $em->persist($publicite);
+        $em->flush();
+        return $this->redirectToRoute('publicite_index');
     }
 
     /**

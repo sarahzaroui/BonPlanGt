@@ -39,14 +39,11 @@
                 <td>{{ publicite.tarif }}</td>
                 <td>{{ publicite.etat }}</td>
                 <td>
-                    <ul>
-                        <li>
-                            <a href="#">show</a>
-                        </li>
-                        <li>
-                            <a href="#">edit</a>
-                        </li>
-                    </ul>
+
+                            <a href="{{ path('publicite_show', { 'idpublicite': publicite.idpublicite }) }}" class="btn btn-info">Détails</a>
+
+                            <a href="{{ path('publicite_edit', { 'idpublicite': publicite.idpublicite }) }}" class="btn btn-danger">supprimer</a>
+
                 </td>
             </tr>
         {% endfor %}
