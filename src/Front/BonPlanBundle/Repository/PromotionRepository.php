@@ -20,6 +20,7 @@ class PromotionRepository extends EntityRepository
 
         return $query->execute();
     }
+
     public function getPromoByProduct($idprod)
     {
         $dql = 'SELECT promo FROM Front\BonPlanBundle\Entity\Promotion promo where promo.datedeb <= CURRENT_DATE() and promo.datefin >= CURRENT_DATE() and promo.idprod =:idprod ORDER BY promo.datefin DESC ';

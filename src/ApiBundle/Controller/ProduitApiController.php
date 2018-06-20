@@ -62,9 +62,9 @@ class ProduitApiController extends Controller
         return new JsonResponse($formatted);
     }
 
-    public function produitAction(Request $request,$idproduit)
+    public function produitAction(Request $request,$idpoduit)
     {
-        $produit=$this->getDoctrine()->getRepository('FrontBonPlanBundle:Produit')->find($idproduit);
+        $produit=$this->getDoctrine()->getRepository('FrontBonPlanBundle:Produit')->find($idpoduit);
         $normalizer = new ObjectNormalizer();
         $normalizer->setCircularReferenceLimit(1);
         $serializer = new Serializer([$normalizer]);

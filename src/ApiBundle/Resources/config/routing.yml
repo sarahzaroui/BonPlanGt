@@ -47,3 +47,19 @@ new_Commandes:
     path:     /newcommande/{iduser}/{idprod}/{qtecmd}
     defaults: { _controller: ApiBundle:CommandeApi:newCommande}
 
+
+get_All_Promotions:
+    path:     /promotions
+    defaults: { _controller: ApiBundle:PromotionApi:allPromotions}
+
+get_details_promotion:
+    path:     /promodetails/{idprod}
+    defaults: { _controller: ApiBundle:PromotionApi:detailsPromo}
+get_produit_promotion:
+    path:     /produitpromo/{nom}
+    defaults: { _controller: ApiBundle:PromotionApi:produitPromo}
+get_all_produit_promotion:
+    path:     /allprodpromo
+    defaults: { _controller: ApiBundle:PromotionApi:allProdPromotions}
+
+
