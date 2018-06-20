@@ -100,6 +100,19 @@ New_Res:
     path:     /nouvelleReservation/{idevent}/{iduser}/{nbrePlace}
     defaults: { _controller: FrontBonPlanBundle:Reserver:createreservation}
 
+front_bon_plan_multiplProduit:
+    path:     /multProduit
+    defaults: { _controller: FrontBonPlanBundle:Default:indexfront }
+
+commande_new:
+    path:     /{idproduit}/newcmd
+    defaults: { _controller: "FrontBonPlanBundle:Commande:new" }
+    methods:  [GET, POST]
+
+confirmation_inscri_news:
+    path:     /confinsc
+    defaults: { _controller: "FrontBonPlanBundle:Newsletter:confirinscri" }
+
 
 
 

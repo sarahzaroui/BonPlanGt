@@ -23,9 +23,11 @@ class ContactController extends Controller
         $mail = new Contact();
         $form= $this->createForm(ContactType::class, $mail);
         $form->handleRequest($request);
-        //var_dump($mail);
+
         if ($form->isValid()) {
-            //var_dump("if");die;
+            $em= $this->getDoctrine()->getManager();
+            $em->persist($mail);
+            $em->flush();
             $message = \Swift_Message::newInstance()
                 ->setSubject('Accusé de réception')
                 ->setFrom('bonplan2info@gmail.com')
@@ -47,4 +49,12 @@ class ContactController extends Controller
  public function successAction(){
      return $this->render("FrontBonPlanBundle:Default:ContactMail.html.twig");
     }
+
+ public function listcntAction()
+ {
+     $em= $this->getDoctrine()->getManager();
+     $ctn= $em->getRepository("FrontBonPlanBundle:Contact")->findAll();
+     return $this->render('contact/listcontact.html.twig', array(
+         'ctns' => $ctn,));
+ }
 }

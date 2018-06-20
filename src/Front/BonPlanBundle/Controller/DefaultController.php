@@ -4,14 +4,16 @@ namespace Front\BonPlanBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-
+use Front\BonPlanBundle\Entity\Newsletter;
 class DefaultController extends Controller
 {
     public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
        $updateEtatPublicite = $em->getRepository('FrontBonPlanBundle:PubliciteArticle')->updatePub();
-
+//à verifier
+        $Newsletter = new Newsletter();
+        $mail=$request->get('email');
         if($request->getMethod()=="POST")
         {
             $p=$request->get('search');
@@ -142,5 +144,18 @@ class DefaultController extends Controller
     {
 
         return $this->redirectToRoute('FrontBonPlanBundle:Default:single.html.twig');
+    }
+
+    // view all product at the front
+
+    public function indexfrontAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $produits = $em->getRepository('FrontBonPlanBundle:Produit')->findAll();
+
+        return $this->render('FrontBonPlanBundle:Default:produitMultp.html.twig', array(
+            'produits' => $produits,
+        ));
     }
 }

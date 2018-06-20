@@ -1,0 +1,90 @@
+{% extends "Front\BonPlanBundle::layout.html.twig" %}
+{% block container %}
+    <div class="container">
+        <br><br>
+    <div class="single">
+
+        <div class="single-top">
+           {% for produit in produits %}
+            <div class="row">
+                <hr>
+                <div class="col-md-5">
+                    <img class="img-responsive img-thumbnail wow fadeInUp animated" style="height: 300px;width: auto" data-wow-delay=".5s" src="{{ asset('uploads/'~ produit.imageName) }}" alt="" />
+                </div>
+                <div class="col-md-7">
+                    <div class="lone-line">
+                        <table >
+                           <tr>
+                       <td style="padding-bottom: 17px"><h4>{{ produit.nompdt }}</h4></td>
+                               <td>  <div class="container">
+
+                            <div class="row">
+                                <div class="col-lg-12">
+                                </div>
+                            </div>
+                        </div></td>
+                           </tr>
+                        </table>
+
+                        <ul class="grid-blog">
+                            <li><h4> Prix:  {{ produit.prix }} DT </h4></li>
+
+                        </ul>
+                        <ul class="grid-blog">
+                            <li><i class="glyphicon glyphicon-map-marker"> </i>{{ produit.adresse }}</li>
+
+                        </ul>
+                        <p class="wow fadeInLeft animated" data-wow-delay=".5s">{{ produit.detailpdt }}</span></p>
+
+                        <p>{{ (produit.qtedispo >0) ? '<span style="color:green">En Stock</span>' : '<span style="color:red">Repture de stock</span>'  }}</p>
+                        <form method="get" action="{{ path('commande_new' ,{'idproduit':produit.idproduit})}}">
+                            <input type="number" name="qtecommande" max="{{ produit.qtedispo }}" {{ (produit.qtedispo >0) ? '':'disabled=disabled' }}>
+                            <button type="submit" class="btn btn-primary" {{ (produit.qtedispo >0) ? '':'disabled=disabled' }} > Commander </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+{% endfor %}
+        </div>
+
+        </div>
+
+        <br><hr>
+    </div>
+
+    <!-- /.container -->
+{% endblock %}
+{%  block script %}
+    <script>
+
+        var $star_rating = $('.star-rating .fa');
+       // document.getElementById('rate').value=1;
+        var SetRatingStar = function() {
+
+            return $star_rating.each(function() {
+
+                if (parseInt($star_rating.siblings('input.rating-value').val()) >= parseInt($(this).data('rating'))) {
+                    return $(this).removeClass('fa-star-o').addClass('fa-star');
+                } else {
+                    return $(this).removeClass('fa-star').addClass('fa-star-o');
+                }
+            });
+        };
+
+        $star_rating.on('click', function() {
+
+            $star_rating.siblings('input.rating-value').val($(this).data('rating'));
+          //  document.getElementById('rate').value=$(this).data('rating');
+            return SetRatingStar();
+        });
+
+        SetRatingStar();
+        $(document).ready(function() {
+
+        });
+
+
+
+
+    </script>
+{%  endblock %}
