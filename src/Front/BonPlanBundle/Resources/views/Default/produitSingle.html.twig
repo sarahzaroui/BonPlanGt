@@ -60,6 +60,12 @@
                             </a>
                         </div>
                         {% endif %}
+                        <p>{{ (produit.qtedispo >0) ? '<span style="color:green">En Stock</span>' : '<span style="color:red">Repture de stock</span>'  }}</p>
+                        <form method="get" action="{{ path('commande_new' ,{'idproduit':produit.idproduit})}}">
+                            <input type="number" name="qtecommande" max="{{ produit.qtedispo }}" {{ (produit.qtedispo >0) ? '':'disabled=disabled' }}>
+                            <button type="submit" class="btn btn-primary" {{ (produit.qtedispo >0) ? '':'disabled=disabled' }} > Commander </button>
+                        </form>
+
                     </div>
                 </div>
             </div>
