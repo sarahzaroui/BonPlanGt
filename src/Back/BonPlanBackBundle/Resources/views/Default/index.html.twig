@@ -27,6 +27,19 @@
     {% set i=i+1 %}
 {% endfor %}
 {% set ch=ch~"]" %}
+<script type="text/javascript" xmlns="http://www.w3.org/1999/html">
+
+    function printDiv(divName) {
+        var printContents = document.getElementById(divName).innerHTML;
+        var originalContents = document.body.innerHTML;
+
+        document.body.innerHTML = printContents;
+
+        window.print();
+
+        document.body.innerHTML = originalContents;
+    }
+</script>
 
 <!DOCTYPE html>
 <html>
@@ -204,7 +217,7 @@
                     </a>
                 </li>
                 <li class="treeview">
-                    <a href="{{ path('mailnews_index')}}">
+                    <a href="#">
                         <i class="fa fa-book"></i>
                         <span>NewsLetter</span>
 
@@ -213,7 +226,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ path('contact_list')}}">
+                    <a href="{{ asset ('pages/mailbox/mailbox.html')}}">
                         <i class="fa fa-envelope"></i> <span>Messagerie</span>
                         <span class="pull-right-container">
 
@@ -235,6 +248,11 @@
 
             </span>
                     </a>
+                </li>
+                <li>
+                        <a href="{{ path('region_index') }}">
+                            <i class="fa fa-map-marker"></i> <span>Région</span>
+                        </a>
                 </li>
 
 
@@ -348,7 +366,7 @@
 
 
             <div class="row">
-                <section class="col-lg-6 ">
+                <section class="col-lg-6 " id="PDF">
                     <div class="box box-primary">
                         <div class="box-header">
                             <div class="box-title">
@@ -358,6 +376,7 @@
                         <div class="box-body">
                             <div class="box-body chart-responsive">
                                 <div class="chart" id="line-chart-reservation" style="height: 300px;"></div>
+                                <button class="n btn-xs btn-success" onclick="printDiv('PDF');">Imprimer Courbe Reservation</button>
                             </div>
                         </div>
                     </div>
@@ -367,7 +386,7 @@
                     <li><i class="fa fa-inbox"></i> Evolution des Evènements</li>
 
                 </h1-->
-                <section class="col-lg-6 ">
+                <section class="col-lg-6 " id="PDF">
                     <div class="box  box-primary">
                         <div class="box-header">
                             <div class="box-title">
@@ -377,6 +396,7 @@
                         <div class="box-body">
                             <div class="box-body chart-responsive">
                                 <div class="chart" id="line-chart" style="height: 300px;"></div>
+                                <button class="n btn-xs btn-success" onclick="printDiv('wadii');">Imprimer Courbe Evenement</button>
                             </div>
                         </div>
                     </div>
@@ -410,6 +430,7 @@
                                             <td>{{ events.nom  }}</td>
                                             <td>{{ events.datedabut|date("Y-m-d")  }}</td>
                                             <td>{{ events.dateexpiration|date("Y-m-d")  }}</td>
+
                                         </tr>
                                     {% endif %}
                                 {% endfor %}

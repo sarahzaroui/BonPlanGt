@@ -37,9 +37,7 @@
                                     <td>
 
 
-                                        <a class="btn btn-xs btn-danger" onclick="return confirm('êtes vous sure de vouloir publier ce plan?')" href="#">supprimer</a>
-
-                                        <a class="btn btn-xs btn-success" onclick="return confirm('êtes vous sure de vouloir supprimer ce plan?')" href="#">publier</a>
+                                        <a class="btn btn-xs btn-danger" onclick="return confirm('êtes vous sure de vouloir supprimer ce plan?')" href="{{ path('contact_del', {'idcnt':ctn.idcnt}) }}">supprimer</a>
 
                                     </td>
                                 </tr>

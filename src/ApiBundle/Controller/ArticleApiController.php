@@ -18,7 +18,7 @@ class ArticleApiController extends Controller
 {
     public function allArticleAction()
     {
-        $article=$this->getDoctrine()->getRepository('FrontBonPlanBundle:Article')->findAll();
+        $article=$this->getDoctrine()->getRepository('FrontBonPlanBundle:Article')->findAllOrderedByDate();
 
         $normalizer = new ObjectNormalizer();
         $normalizer->setCircularReferenceLimit(1);
@@ -50,6 +50,7 @@ class ArticleApiController extends Controller
         $article->setTitre($titre);
         $article->setDescription($description);
         $article->setImageName($imagename);
+        $article->setEtat("publié");
         $article->setUpdateAt(new \DateTime('now'));
         $em->persist($article);
         $em->flush();
@@ -82,7 +83,7 @@ class ArticleApiController extends Controller
     }
     public function articleByUserAction(Request $request,$idUser)
     {
-        $article=$this->getDoctrine()->getRepository('FrontBonPlanBundle:Article')->findBy(array('idUser'=>$idUser));
+        $article=$this->getDoctrine()->getRepository('FrontBonPlanBundle:Article')->findBy(array('iduser'=>$idUser));
         $normalizer = new ObjectNormalizer();
         $normalizer->setCircularReferenceLimit(1);
         $serializer = new Serializer([$normalizer]);
@@ -90,6 +91,43 @@ class ArticleApiController extends Controller
             return $object->getId();
         });
 
+        $formatted= $serializer->normalize($article, 'json');
+        return new JsonResponse($formatted);
+    }
+    public function updateImageAction (Request $request,$id,$image){
+        $em = $this->getDoctrine()->getManager();
+        $article=$this->getDoctrine()->getRepository('FrontBonPlanBundle:Article')->find($id);
+        $article->setImageName($image);
+
+        $em->persist($article);
+        $em->flush();
+        $normalizer = new ObjectNormalizer();
+
+        $normalizer->setIgnoredAttributes(array('user'));
+        $normalizer->setCircularReferenceLimit(1);
+        $serializer = new Serializer([$normalizer]);
+        $normalizer->setCircularReferenceHandler(function ($object) {
+            return $object->getId();
+        });
+        $formatted= $serializer->normalize($article, 'json');
+        return new JsonResponse($formatted);
+    }
+    public function updateArticleAction(Request $request,$id,$titre,$description,$adresse){
+        $em = $this->getDoctrine()->getManager();
+        $article=$this->getDoctrine()->getRepository('FrontBonPlanBundle:Article')->find($id);
+        $article->setAdresse($adresse);
+        $article->setTitre($titre);
+        $article->setDescription($description);
+        $em->persist($article);
+        $em->flush();
+        $normalizer = new ObjectNormalizer();
+
+        $normalizer->setIgnoredAttributes(array('user'));
+        $normalizer->setCircularReferenceLimit(1);
+        $serializer = new Serializer([$normalizer]);
+        $normalizer->setCircularReferenceHandler(function ($object) {
+            return $object->getId();
+        });
         $formatted= $serializer->normalize($article, 'json');
         return new JsonResponse($formatted);
     }

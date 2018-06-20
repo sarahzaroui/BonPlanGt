@@ -256,5 +256,8 @@ class Produit
     }
 
 
-
+    public function __toString()
+    {
+        return $this->getNompdt();
+    }
 }

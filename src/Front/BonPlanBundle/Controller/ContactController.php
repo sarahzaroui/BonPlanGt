@@ -13,7 +13,6 @@ use Front\BonPlanBundle\FrontBonPlanBundle;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Swift_Message;
-use Symfony\Component\HttpFoundation\Response;
 
 
 class ContactController extends Controller
@@ -24,7 +23,7 @@ class ContactController extends Controller
         $form= $this->createForm(ContactType::class, $mail);
         $form->handleRequest($request);
 
-        if ($form->isValid()) {
+        if ($form->isValid() && $form->isSubmitted()) {
             $em= $this->getDoctrine()->getManager();
             $em->persist($mail);
             $em->flush();
@@ -42,8 +41,10 @@ class ContactController extends Controller
             $this->get('mailer')->send($message);
             return $this->redirect($this->generateUrl('front_bon_plan_success'));
         }
-        return $this->render('FrontBonPlanBundle:Default:contact.html.twig',
+
+        return $this->render('FrontBonPlanBundle:Default:contactS.html.twig',
             array('form'=>$form->createView()));
+
     }
 
  public function successAction(){
@@ -57,4 +58,13 @@ class ContactController extends Controller
      return $this->render('contact/listcontact.html.twig', array(
          'ctns' => $ctn,));
  }
+    public function deleteAction( $idcnt)
+    {
+        $em=$this->getDoctrine()->getManager();
+
+        $contact=$em->getRepository('FrontBonPlanBundle:Contact')->find($idcnt);
+        $em->remove($contact);
+        $em->flush();
+        return $this->redirectToRoute("contact_list");
+    }
 }

@@ -18,7 +18,7 @@ article_new:
     methods:  [GET, POST]
 
 article_edit:
-    path:     /{idarticle}/editCategorieArticle
+    path:     /{idarticle}/editArticle
     defaults: { _controller: "FrontBonPlanBundle:Article:edit" }
     methods:  [GET, POST]
 
@@ -191,3 +191,7 @@ commande_delete:
     path:     /{idcmd}/delete
     defaults: { _controller: "FrontBonPlanBundle:Commande:delete" }
     methods:  [GET, POST, DELETE]
+publicitearticle_new:
+    path:     /newpubarticle
+    defaults: { _controller: "FrontBonPlanBundle:PubliciteArticle:new" }
+    methods:  [GET, POST]

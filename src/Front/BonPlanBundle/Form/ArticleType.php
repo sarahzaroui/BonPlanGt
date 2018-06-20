@@ -44,8 +44,8 @@ class ArticleType extends AbstractType
                 'class'=>'FrontBonPlanBundle:Region',
                 'choice_label'=>'nom' ,
                 'multiple'=>false
-            ) )
-            ->add('iduser',HiddenType::class);
+            ) );
+
     }/**
      * {@inheritdoc}
      */
