@@ -41,112 +41,37 @@ class PromotionApiController extends Controller
      * Creates a new promotion entity.
      *
      */
-    public function newAction(Request $request)
+    public function newPromotionAction(Request $request,$idprod,$reduction,$deb,$fin)
     {
+        //connexion
+        $em = $this->getDoctrine()->getManager();
+
+        $produit = $em->getRepository('FrontBonPlanBundle:Produit')->find($idprod);
+
         $promotion = new Promotion();
-        $form = $this->createForm('Front\BonPlanBundle\Form\PromotionType', $promotion);
-        $form->handleRequest($request);
-        $retour=0;
-        $currentdate=new \DateTime("now");
+       // $promotion->setIdpromo(5);
+        $promotion->setReduction($reduction);
+      //  $promotion->setDatedeb(null);
+       // $promotion->setDatefin(null);
+        $promotion->setIdprod($produit);
+        //affecter les champs
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
+        $em->persist($promotion);
+        $em->flush();
 
-            $promotions = $em->getRepository('FrontBonPlanBundle:Promotion')->findAll();
-               foreach($promotions as $promo){
-                   if($promotion->getDatefin() >= $currentdate && $promotion->getIdprod()->getIdproduit() == $promo->getIdprod()->getIdproduit() && $promotion->getDatedeb()<=$promo->getDatefin()){
+        $normalizer = new ObjectNormalizer();
 
-                       $retour=1;
-                   }
 
-               }
-
-            if($retour==0){
-
-                $em->persist($promotion);
-                $em->flush();
-
-                return $this->redirectToRoute('promotion_show', array('idpromo' => $promotion->getIdpromo()));
-            }
-        }
-        $info = array(
-            'promotion' => $promotion,
-            'form' => $form->createView(),
-            'currentdate' => $currentdate,
-            'retour' => $retour);
-        return $this->render('promotion/new.html.twig',$info);
+        $normalizer->setCircularReferenceLimit(1);
+        $serializer = new Serializer([$normalizer]);
+        $normalizer->setCircularReferenceHandler(function ($object) {
+            return $object->getId();
+        });
+        $formatted= $serializer->normalize($promotion, 'json');
+        return new JsonResponse($formatted);
     }
 
-    /**
-     * Finds and displays a promotion entity.
-     *
-     */
-    public function showAction(Promotion $promotion)
-    {
-        $deleteForm = $this->createDeleteForm($promotion);
 
-        return $this->render('promotion/show.html.twig', array(
-            'promotion' => $promotion,
-            'delete_form' => $deleteForm->createView(),
-        ));
-    }
-
-    /**
-     * Displays a form to edit an existing promotion entity.
-     *
-     */
-    public function editAction(Request $request, Promotion $promotion)
-    {
-        $deleteForm = $this->createDeleteForm($promotion);
-        $editForm = $this->createForm('Front\BonPlanBundle\Form\PromotionType', $promotion);
-        $editForm->handleRequest($request);
-
-        if ($editForm->isSubmitted() && $editForm->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
-
-            return $this->redirectToRoute('promotion_edit', array('idpromo' => $promotion->getIdpromo()));
-        }
-
-        return $this->render('promotion/edit.html.twig', array(
-            'promotion' => $promotion,
-            'edit_form' => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
-        ));
-    }
-
-    /**
-     * Deletes a promotion entity.
-     *
-     */
-    public function deleteAction(Request $request, Promotion $promotion)
-    {
-        $form = $this->createDeleteForm($promotion);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->remove($promotion);
-            $em->flush();
-        }
-
-        return $this->redirectToRoute('promotion_index');
-    }
-
-    /**
-     * Creates a form to delete a promotion entity.
-     *
-     * @param Promotion $promotion The promotion entity
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
-    private function createDeleteForm(Promotion $promotion)
-    {
-        return $this->createFormBuilder()
-            ->setAction($this->generateUrl('promotion_delete', array('idpromo' => $promotion->getIdpromo())))
-            ->setMethod('DELETE')
-            ->getForm()
-        ;
-    }
     public function detailsPromoAction($idprod)
     {
         $em = $this->getDoctrine()->getManager();

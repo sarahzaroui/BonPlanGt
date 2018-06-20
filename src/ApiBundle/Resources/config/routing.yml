@@ -62,4 +62,8 @@ get_all_produit_promotion:
     path:     /allprodpromo
     defaults: { _controller: ApiBundle:PromotionApi:allProdPromotions}
 
+nouveau_promotion:
+    path:     /newpromotion/{idprod}/{reduction}/{deb}/{fin}
+    defaults: { _controller: ApiBundle:PromotionApi:newPromotion}
+
 
