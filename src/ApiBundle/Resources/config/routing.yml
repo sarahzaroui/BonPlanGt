@@ -14,10 +14,10 @@ new_Article:
     path:     /newArticle/{iduser}/{idr}/{idc}/{titre}/{description}/{imagename}/{adresse}
     defaults: { _controller: ApiBundle:ArticleApi:newArticle}
 update_Article:
-    path:     /newArticle/{id}/{titre}/{description}/{adresse}
+    path:     /updateArticle/{id}/{titre}/{description}/{adresse}
     defaults: { _controller: ApiBundle:ArticleApi:updateArticle}
 updateimage_Article:
-    path:     /newArticle/{id}/{image}
+    path:     /updateImage/{id}/{image}
     defaults: { _controller: ApiBundle:ArticleApi:updateImage}
 get_DetailArticle:
     path:     /detailsarticle/{idArticle}
