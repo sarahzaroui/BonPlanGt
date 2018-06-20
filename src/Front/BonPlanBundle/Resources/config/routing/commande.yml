@@ -1,19 +1,28 @@
+commande_index:
+    path:     /lstcmd
+    defaults: { _controller: "FrontBonPlanBundle:Commande:index" }
+    methods:  GET
+
 commande_show:
-    path:     /{idcmd}/showcmd
+    path:     /{idcmd}/show
     defaults: { _controller: "FrontBonPlanBundle:Commande:show" }
     methods:  GET
 
 commande_new:
-    path:     /newcmd
+    path:     /{idproduit}/newcmd/{qtecommande}
     defaults: { _controller: "FrontBonPlanBundle:Commande:new" }
     methods:  [GET, POST]
 
+commande_newadmin:
+    path:     /newcmdadm
+    defaults: { _controller: "FrontBonPlanBundle:Commande:newadmin" }
+    methods:  [GET, POST]
 commande_edit:
-    path:     /{idcmd}/editcmd
+    path:     /{idcmd}/edit
     defaults: { _controller: "FrontBonPlanBundle:Commande:edit" }
     methods:  [GET, POST]
 
 commande_delete:
-    path:     /{idcmd}/deletecmd
+    path:     /{idcmd}/delete
     defaults: { _controller: "FrontBonPlanBundle:Commande:delete" }
-    methods:  DELETE
+    methods:  [GET, POST, DELETE]

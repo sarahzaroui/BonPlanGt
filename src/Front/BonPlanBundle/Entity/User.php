@@ -78,6 +78,27 @@ class User extends BaseUser
      */
     protected $last_name;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+
+    protected $news;
+
+    /**
+     * @return mixed
+     */
+    public function getNews()
+    {
+        return $this->news;
+    }
+
+    /**
+     * @param mixed $news
+     */
+    public function setNews($news)
+    {
+        $this->news = $news;
+    }
 
 
 

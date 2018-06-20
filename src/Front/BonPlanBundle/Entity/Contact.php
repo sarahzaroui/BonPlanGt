@@ -7,14 +7,52 @@
  */
 
 namespace Front\BonPlanBundle\Entity;
-
-
+use Doctrine\ORM\Mapping as ORM;
+/**
+ * Commande
+ *
+ * @ORM\Table(name="Contact")
+ * @ORM\Entity
+ */
 class Contact
 {
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idcnt", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idcnt;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nom", type="string", length=254, nullable=true)
+     */
     private $nom;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prenom", type="string", length=254, nullable=true)
+     */
     private $prenom;
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="tel", type="integer", length=50, nullable=true)
+     */
     private $tel;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", length=254, nullable=true)
+     */
     private $email;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="text", type="string", length=254, nullable=true)
+     */
     private $text;
 
     /**
@@ -97,5 +135,20 @@ class Contact
         $this->text = $text;
     }
 
+    /**
+     * @return int
+     */
+    public function getIdcnt()
+    {
+        return $this->idcnt;
+    }
+
+    /**
+     * @param int $idcnt
+     */
+    public function setIdcnt($idcnt)
+    {
+        $this->idcnt = $idcnt;
+    }
 
 }

@@ -226,3 +226,35 @@ region_delete:
     path:     /{idregion}/deleteRegion
     defaults: { _controller: "FrontBonPlanBundle:Region:delete" }
     methods:  DELETE
+mailnews_index:
+    path:     /maillist
+    defaults: { _controller: "FrontBonPlanBundle:Newsletter:listMail" }
+    methods:  GET
+mailnews_delete_mail_U:
+    path:     /{id}/delmuser
+    defaults: { _controller: "FrontBonPlanBundle:Newsletter:deleteusermail" }
+
+mailnews_delete_mail_I:
+    path:     /{idnewsl}/delminter
+    defaults: { _controller: "FrontBonPlanBundle:Newsletter:deleteintermail" }
+mailnews_sendallposti:
+    path:     /sendallposti
+    defaults: { _controller: "FrontBonPlanBundle:Newsletter:envoieallinter" }
+    methods:  [GET, POST]
+mailnews_sendallpostu:
+    path:     /sendallpostu
+    defaults: { _controller: "FrontBonPlanBundle:Newsletter:envoiealluser" }
+    methods:  [GET, POST]
+contact_list:
+    path:     /cntlist
+    defaults: { _controller: "FrontBonPlanBundle:Contact:listcnt" }
+    methods:  GET
+mailnews_senduniquser:
+    path:     /senduu/{email}
+    defaults: { _controller: "FrontBonPlanBundle:Newsletter:envoiuniquser" }
+    methods:  [GET, POST]
+
+mailnews_senduniqinter:
+    path:     /sendui/{email}
+    defaults: { _controller: "FrontBonPlanBundle:Newsletter:envoiuniqinter" }
+    methods:  [GET, POST]

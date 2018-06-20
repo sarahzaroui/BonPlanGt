@@ -1,0 +1,56 @@
+{% extends "BackBonPlanBackBundle::layout.html.twig" %}
+{% block tilte %}
+    Administration Bon plan
+{% endblock %}
+{% block container %}
+
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title">Liste des mails envoyés via contact</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <table id="example2" class="table table-bordered table-hover">
+                            <thead>
+                            <tr>
+                                <th>Référence</th>
+                                <th>Nom</th>
+                                <th>Prénom</th>
+                                <th>Email</th>
+                                <th>Tel</th>
+                                <th>Contenu</th>
+                                <th>Actions</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for ctn in ctns %}
+                                <tr>
+                                    <td><a href="#">{{ ctn.idcnt }}</a></td>
+                                    <td>{{ ctn.nom }}</td>
+                                    <td>{{ ctn.prenom }}</td>
+                                    <td>{{ ctn.email }}</td>
+                                    <td>{{ ctn.tel }}</td>
+                                    <td>{{ ctn.text }}</td>
+                                    <td>
+
+
+                                        <a class="btn btn-xs btn-danger" onclick="return confirm('êtes vous sure de vouloir publier ce plan?')" href="#">supprimer</a>
+
+                                        <a class="btn btn-xs btn-success" onclick="return confirm('êtes vous sure de vouloir supprimer ce plan?')" href="#">publier</a>
+
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+{% endblock %}
