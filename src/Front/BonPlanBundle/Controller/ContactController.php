@@ -58,4 +58,13 @@ class ContactController extends Controller
      return $this->render('contact/listcontact.html.twig', array(
          'ctns' => $ctn,));
  }
+    public function deleteAction( $idcnt)
+    {
+        $em=$this->getDoctrine()->getManager();
+
+        $contact=$em->getRepository('FrontBonPlanBundle:Contact')->find($idcnt);
+        $em->remove($contact);
+        $em->flush();
+        return $this->redirectToRoute("contact_list");
+    }
 }

@@ -246,6 +246,11 @@ contact_list:
     path:     /cntlist
     defaults: { _controller: "FrontBonPlanBundle:Contact:listcnt" }
     methods:  GET
+contact_del:
+    path:     /supp/{idcnt}
+    defaults: { _controller: "FrontBonPlanBundle:Contact:delete" }
+    methods:  [DELETE, GET, POST]
+
 mailnews_senduniquser:
     path:     /senduu/{email}
     defaults: { _controller: "FrontBonPlanBundle:Newsletter:envoiuniquser" }
